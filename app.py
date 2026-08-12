@@ -76,12 +76,12 @@ st.markdown("""
 
 # Load Data & Run Pipeline
 @st.cache_data
-def get_pipeline_data():
-    csv_file = "messages.csv"
-    if not os.path.exists(csv_file):
-        st.error("messages.csv dataset not found in root directory!")
-        st.stop()
-    return run_pipeline(csv_file)
+def get_pipeline_data(file_bytes):
+    import tempfile
+    with tempfile.NamedTemporaryFile(delete=False, suffix=".csv") as tmp:
+        tmp.write(file_bytes)
+        tmp_path = tmp.name
+    return run_pipeline(tmp_path)
 
 @st.cache_data
 def get_mandatory_ids():
@@ -91,7 +91,25 @@ def get_mandatory_ids():
             return [line.strip() for line in f if line.strip() and not line.startswith("message_id")]
     return []
 
-classifications, extracted_items, sensitive_detections, df = get_pipeline_data()
+# --- Dataset Upload Handling ---
+csv_file_local = "messages.csv"
+if os.path.exists(csv_file_local):
+    with open(csv_file_local, "rb") as f:
+        file_bytes = f.read()
+else:
+    st.markdown("""
+    <div style="background:#1e2638;border:1px solid #f59e0b;border-radius:10px;padding:20px;margin-bottom:20px;">
+        <h3 style="color:#f59e0b;margin:0 0 8px 0;">📂 Upload Dataset to Begin</h3>
+        <p style="color:#94a3b8;margin:0;">The dataset is not bundled with the code (privacy policy). Please upload <b>messages.csv</b> to run the pipeline.</p>
+    </div>
+    """, unsafe_allow_html=True)
+    uploaded_file = st.file_uploader("Upload messages.csv", type=["csv"], label_visibility="collapsed")
+    if uploaded_file is None:
+        st.info("⬆️ Please upload the **messages.csv** dataset file to proceed.")
+        st.stop()
+    file_bytes = uploaded_file.read()
+
+classifications, extracted_items, sensitive_detections, df = get_pipeline_data(file_bytes)
 mandatory_ids = get_mandatory_ids()
 
 

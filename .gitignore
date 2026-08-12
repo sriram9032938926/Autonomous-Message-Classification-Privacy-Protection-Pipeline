@@ -13,16 +13,10 @@ env/
 ENV/
 .env
 
-# Datasets (large files / raw data)
-messages.csv
-mandatory_demo_ids.csv
-*.csv
-
-# Generated / output JSON files
-classification_results.json
-extracted_tasks_events.json
-sensitive_info_detections.json
-*.json
+# Generated / output JSON files (uncomment if you want to exclude output data)
+# classification_results.json
+# extracted_tasks_events.json
+# sensitive_info_detections.json
 
 # Distribution / packaging
 dist/
