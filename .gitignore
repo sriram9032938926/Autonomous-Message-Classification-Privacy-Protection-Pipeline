@@ -13,10 +13,14 @@ env/
 ENV/
 .env
 
-# Generated / output JSON files (uncomment if you want to exclude output data)
-# classification_results.json
-# extracted_tasks_events.json
-# sensitive_info_detections.json
+# Raw Datasets (Strict Privacy Policy - Do not push raw data to public repository)
+*.csv
+messages.csv
+L2_Candidate_Dataset/
+l2_messages.csv
+l2_demo_messages.csv
+l2_demo_queries.csv
+mandatory_demo_ids.csv
 
 # Distribution / packaging
 dist/
@@ -34,9 +38,6 @@ build/
 # OS artifacts
 .DS_Store
 Thumbs.db
-
-# Jupyter Notebooks checkpoints
-.ipynb_checkpoints/
 
 # Logs
 *.log
