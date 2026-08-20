@@ -916,26 +916,66 @@ class IntelligentAssistant:
             for mid in g.get("related_message_ids", []):
                 self.msg_to_group[mid] = g
 
-        # Build Vector Space Model on masked text & metadata
+        # Build Vector Space Model on masked text &
         self.corpus = []
         self.doc_ids = []
         for _, row in self.df.iterrows():
-            doc_text = f"{row['message_id']} {row['sender']} {row['category']} {row['masked_message']} {row.get('reason', '')}"
+            doc_text = (
+                f"{row['message_id']} {row['sender']} {row['category']} "
+                f"{row['masked_message']} {row.get('reason', '')}"
+            )
             self.corpus.append(doc_text)
             self.doc_ids.append(row["message_id"])
 
-        self.vectorizer = TfidfVectorizer(ngram_range=(1, 2), stop_words="english")
-        self.tfidf_matrix = self.vectorizer.fit_transform(self.corpus) if self.corpus else None
+        # -------------------------------------------------------------------
+        # Semantic Index: Sentence-Transformer dense embeddings (primary)
+        # Falls back to TF-IDF if sentence-transformers not installed
+        # -------------------------------------------------------------------
+        if _SENTENCE_TRANSFORMER_AVAILABLE:
+            self._st_model = _SentenceTransformer("all-MiniLM-L6-v2")
 
-        # Small separate vectorizer over group titles+summaries for topic lookup
-        self.group_ids_list = [g["group_id"] for g in groups]
-        group_texts = [f"{g['title']} {g.get('summary', '')}" for g in groups]
-        if group_texts:
-            self.group_vectorizer = TfidfVectorizer(ngram_range=(1, 2), stop_words="english")
-            self.group_matrix = self.group_vectorizer.fit_transform(group_texts)
-        else:
+            # Encode entire message corpus → (N, 384) L2-normalised
+            self.corpus_embeddings: np.ndarray = self._st_model.encode(
+                self.corpus,
+                convert_to_numpy=True,
+                normalize_embeddings=True,
+                show_progress_bar=False,
+                batch_size=64,
+            )
+
+            # Encode group titles + summaries for group-topic search → (G, 384)
+            self.group_ids_list = [g["group_id"] for g in groups]
+            group_texts = [f"{g['title']} {g.get('summary', '')}" for g in groups]
+            self.group_embeddings: np.ndarray = self._st_model.encode(
+                group_texts,
+                convert_to_numpy=True,
+                normalize_embeddings=True,
+                show_progress_bar=False,
+            ) if group_texts else np.array([])
+
+            # TF-IDF kept as a dead fallback var (not used in primary path)
+            self.vectorizer = None
+            self.tfidf_matrix = None
             self.group_vectorizer = None
             self.group_matrix = None
+
+        else:
+            # TF-IDF fallback
+            self._st_model = None
+            self.corpus_embeddings = None
+            self.group_embeddings = None
+
+            self.vectorizer = TfidfVectorizer(ngram_range=(1, 2), stop_words="english")
+            self.tfidf_matrix = self.vectorizer.fit_transform(self.corpus) if self.corpus else None
+
+            self.group_ids_list = [g["group_id"] for g in groups]
+            group_texts = [f"{g['title']} {g.get('summary', '')}" for g in groups]
+            if group_texts:
+                self.group_vectorizer = TfidfVectorizer(ngram_range=(1, 2), stop_words="english")
+                self.group_matrix = self.group_vectorizer.fit_transform(group_texts)
+            else:
+                self.group_vectorizer = None
+                self.group_matrix = None
 
     # -----------------------------------------------------------------
     # Public entry point
@@ -1293,17 +1333,31 @@ class IntelligentAssistant:
         }
 
     def _answer_group_topic_query(self, query: str, q: str) -> Optional[Dict[str, Any]]:
-        """Matches the query against group titles/summaries (e.g. 'show messages about the project report')."""
-        if self.group_matrix is None:
-            return None
+        """Matches the query against group titles/summaries using dense sentence embeddings."""
         keys = ["show", "messages related to", "about the", "regarding", "thread on"]
         if not any(k in q for k in keys):
             return None
 
-        q_vec = self.group_vectorizer.transform([query])
-        sims = cosine_similarity(q_vec, self.group_matrix)[0]
-        best_idx = int(np.argmax(sims))
-        if sims[best_idx] < 0.12:
+        if _SENTENCE_TRANSFORMER_AVAILABLE and self.group_embeddings is not None and len(self.group_embeddings) > 0:
+            # Encode query → (384,) L2-normalised
+            q_emb = self._st_model.encode(
+                [query], convert_to_numpy=True, normalize_embeddings=True, show_progress_bar=False
+            )[0]
+            # Cosine similarity = dot product (L2-normalised)
+            sims = self.group_embeddings @ q_emb
+            best_idx = int(np.argmax(sims))
+            best_sim = float(sims[best_idx])
+            method_label = "sentence-transformer dense embedding cosine similarity"
+        elif self.group_matrix is not None:
+            q_vec = self.group_vectorizer.transform([query])
+            sims_sparse = cosine_similarity(q_vec, self.group_matrix)[0]
+            best_idx = int(np.argmax(sims_sparse))
+            best_sim = float(sims_sparse[best_idx])
+            method_label = "TF-IDF cosine similarity"
+        else:
+            return None
+
+        if best_sim < 0.12:
             return None
 
         g = self.groups[best_idx]
@@ -1312,14 +1366,34 @@ class IntelligentAssistant:
             "answer": f"Thread '{g['title']}' ({g['group_id']}), status {g['status'].upper()}: {g['summary']}",
             "supporting_message_ids": g["related_message_ids"],
             "group_id": g["group_id"],
-            "relevance_score": round(float(sims[best_idx]), 3),
-            "reason": "Best-matching group found via TF-IDF cosine similarity between the query and group titles/summaries.",
+            "relevance_score": round(best_sim, 3),
+            "reason": f"Best-matching group found via {method_label} between query and group titles/summaries.",
             "resolution_method": "group_topic_lookup"
         }
 
     def _semantic_fallback(self, query: str) -> Dict[str, Any]:
-        """Generic TF-IDF retrieval over the full masked corpus -- the true zero-hallucination fallback."""
-        if self.tfidf_matrix is None:
+        """Sentence-transformer dense embedding retrieval over the full masked corpus.
+        
+        Zero-hallucination guarantee: if the top cosine similarity is below 0.15,
+        the assistant explicitly declares insufficient evidence instead of guessing.
+        """
+        if _SENTENCE_TRANSFORMER_AVAILABLE and self.corpus_embeddings is not None:
+            # Encode query → (384,) L2-normalised dense vector
+            q_emb = self._st_model.encode(
+                [query], convert_to_numpy=True, normalize_embeddings=True, show_progress_bar=False
+            )[0]
+            # Cosine similarity against all 1104 message embeddings (fast matrix multiply)
+            sim_scores: np.ndarray = self.corpus_embeddings @ q_emb  # shape: (N,)
+            top_indices = np.argsort(sim_scores)[::-1][:5]
+            top_score = float(sim_scores[top_indices[0]]) if len(top_indices) else 0.0
+            method_label = "sentence-transformer dense embedding cosine similarity"
+        elif self.tfidf_matrix is not None:
+            q_vec = self.vectorizer.transform([query])
+            sim_scores = cosine_similarity(q_vec, self.tfidf_matrix)[0]
+            top_indices = np.argsort(sim_scores)[::-1][:5]
+            top_score = float(sim_scores[top_indices[0]]) if len(top_indices) else 0.0
+            method_label = "TF-IDF cosine similarity"
+        else:
             return {
                 "query": query,
                 "answer": "No message corpus is available to search.",
@@ -1330,11 +1404,7 @@ class IntelligentAssistant:
                 "resolution_method": "semantic_fallback"
             }
 
-        q_vec = self.vectorizer.transform([query])
-        sim_scores = cosine_similarity(q_vec, self.tfidf_matrix)[0]
-        top_indices = np.argsort(sim_scores)[::-1][:5]
-
-        top_score = sim_scores[top_indices[0]] if len(top_indices) else 0.0
+        # Zero-hallucination threshold: below 0.15 → explicitly say insufficient evidence
         if top_score < 0.15:
             return {
                 "query": query,
@@ -1342,15 +1412,18 @@ class IntelligentAssistant:
                 "supporting_message_ids": [],
                 "group_id": None,
                 "relevance_score": float(top_score),
-                "reason": "Semantic similarity between the query and available messages fell below the minimum confidence threshold.",
+                "reason": "Semantic similarity between the query and available messages fell below the minimum confidence threshold (0.15).",
                 "resolution_method": "insufficient_evidence"
             }
 
-        top_msgs = [self.doc_ids[idx] for idx in top_indices if sim_scores[idx] > 0.15]
+        top_msgs = [self.doc_ids[idx] for idx in top_indices if float(sim_scores[idx]) > 0.15]
         top_row = self.df[self.df["message_id"] == top_msgs[0]].iloc[0]
 
         topic = extract_canonical_topic(top_row["original_message"])
-        grp = next((g for g in self.groups if g["title"] == topic), None) if topic else self.msg_to_group.get(top_msgs[0])
+        grp = (
+            next((g for g in self.groups if g["title"] == topic), None)
+            if topic else self.msg_to_group.get(top_msgs[0])
+        )
 
         answer = f"Most relevant message is {top_msgs[0]} from {top_row['sender']} (category: {top_row['category']})."
         if grp:
@@ -1362,9 +1435,10 @@ class IntelligentAssistant:
             "supporting_message_ids": top_msgs,
             "group_id": grp["group_id"] if grp else None,
             "relevance_score": round(float(top_score), 3),
-            "reason": f"Retrieved using local semantic TF-IDF cosine matching with top score {top_score:.2f}.",
+            "reason": f"Retrieved using local {method_label} with top score {top_score:.2f}.",
             "resolution_method": "semantic_fallback"
         }
+
 
     # -----------------------------------------------------------------
     # Helpers

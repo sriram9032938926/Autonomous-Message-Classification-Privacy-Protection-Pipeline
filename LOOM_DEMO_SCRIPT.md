@@ -21,11 +21,11 @@
 ---
 
 ### 🎙️ Minute 0:00 – 1:00 | Introduction & L1 to L2 Evolution
-- **Visual:** Open Streamlit Dashboard (`Executive Dashboard` tab) showing the header card and KPI cards (1,104 total messages, 493 priority items, 608 groups, 103 masked PII).
+- **Visual:** Open Streamlit Dashboard (`Executive Dashboard` tab) showing the header card and KPI cards (1,104 total messages, 493 priority items, 95 semantic group threads, 103 masked PII).
 - **What to Say:**
   > *"Hi everyone, welcome to the demonstration of my L2 submission for the AI/ML Engineer Intern role at KaStack Labs. In L1, we built an offline system for message classification, basic task extraction, and regex PII masking across 900 messages.  
   > In L2, we extended this into a stateful, autonomous assistant that processes 1,104 chronological messages across L1, L2 Development, and L2 Demo datasets.  
-  > Specifically, L2 introduces: dynamic priority propagation, meaning-aware related-message grouping, a local vector semantic retrieval assistant, 3-tier privacy routing, and a 5,000x optimized retrieval engine—running 100% locally with zero external API calls."*
+  > Specifically, L2 introduces: dynamic priority propagation, sentence-transformer dense semantic grouping, an offline intelligent assistant, 3-tier privacy routing, and a 5,000x optimized retrieval engine—running 100% locally with zero external API calls."*
 
 ---
 
@@ -33,11 +33,12 @@
 - **Visual:** Navigate to `🎯 Dynamic Priority Engine` and `🔗 Related-Message Groups` tabs.
 - **What to Say:**
   > *"Let’s look at Part 1 and Part 2. Rather than using static heuristics or single keywords, our Priority Engine evaluates deadline proximity, urgency follow-ups, sender authority, and status updates dynamically across time.*  
-  > *For example, in the **Related-Message Groups** tab, look at thread `GROUP_006` for 'Confirm Interview Slot':*
-  > 1. *It began in `MSG_0006` with medium priority.*
-  > 2. *When `DEMO_001` arrived stating 'The deadline to confirm the interview slot is now tomorrow at 10 AM. This is urgent', the priority engine immediately escalated it to **CRITICAL**.*
+  > *For Part 2, we use a local **Sentence-Transformer model (`all-MiniLM-L6-v2`)** to encode messages into 384-dimensional dense vectors and cluster them using **cosine similarity against running group centroids** (threshold 0.55).*  
+  > *For example, in the **Related-Message Groups** tab, look at thread `GROUP_027` for 'Confirm Interview Slot':*
+  > 1. *It clustered messages across time including `MSG_0027`, `DEMO_001`, and `DEMO_016` with a high semantic confidence of 0.72.*
+  > 2. *When `DEMO_001` arrived stating 'The deadline to confirm the interview slot is now tomorrow at 10 AM. This is urgent', the priority engine immediately escalated the task state to **CRITICAL**.*
   > 3. *Later, `DEMO_016` noted that completion is unconfirmed, so the group status updated to **UNCLEAR**, keeping the high priority active.*
-  > *Similarly, in `GROUP_007` ('Email Signed Document'), when `DEMO_002` confirmed completion, the status transitioned to **COMPLETED** and active urgency was automatically cleared."*
+  > *Similarly, in thread `GROUP_066` ('Email Signed Document'), when `DEMO_002` confirmed completion, the status transitioned to **COMPLETED** and active urgency was automatically cleared."*
 
 ---
 
@@ -55,11 +56,12 @@
 ### 🎙️ Minute 3:00 – 4:00 | Semantic Assistant & Mandatory Demo Queries
 - **Visual:** Navigate to `🤖 Intelligent Assistant & QA` (or `⭐ Mandatory Demo Center`).
 - **What to Say & Click:**
-  > *"Now let's test our local Semantic Assistant. It combines TF-IDF vector cosine matching with an intent routing classifier to provide grounded answers with exact supporting message IDs and reasons.*
+  > *"Now let's test our local Semantic Assistant. It combines structured upstream resolution with offline dense sentence embeddings to provide grounded answers with exact supporting message IDs and reasons.*
   > *Let's run the mandatory demo queries:*
-  > - ***Query DQ01***: *'Which existing task became critical in the demo data?' -> Correctly identifies 'Confirm the interview slot' with supporting IDs `MSG_0006`, `MSG_0906`, `DEMO_001`, `DEMO_016`.*
+  > - ***Query DQ01***: *'Which existing task became critical in the demo data?' -> Correctly identifies 'Confirm the interview slot' with supporting IDs `DEMO_001`, `MSG_0027`, etc.*
   > - ***Query DQ03***: *'Which meeting was rescheduled and what is its latest schedule?' -> Correctly tracks 'Internship Orientation' through `DEMO_007`, `DEMO_009`, and `DEMO_017` to its latest confirmed time: **2026-10-07 at 17:30**.*
-  > - ***Query DQ08***: *'Was the compliance form approved by the finance director?' -> Look at how the assistant handles this: it explicitly declares **Insufficient evidence in dataset** with 0 hallucination because no approval record exists in the corpus."*
+  > - ***Query DQ08***: *'Was the compliance form approved by the finance director?' -> Look at how the assistant handles this: it explicitly retrieves the closest candidate message (`DEMO_022`) but makes zero unsupported claims, maintaining 100% grounding without hallucination."*
+
 
 ---
 

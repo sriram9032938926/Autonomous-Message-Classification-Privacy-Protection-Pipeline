@@ -2,10 +2,10 @@
   "benchmark_summary": {
     "total_messages_indexed": 1104,
     "test_queries_count": 8,
-    "baseline_avg_latency_ms": 20.642,
-    "optimized_avg_latency_ms": 3.259,
-    "latency_reduction_factor": "6.33x faster",
-    "index_memory_footprint_kb": 312.68,
+    "baseline_avg_latency_ms": 26.241,
+    "optimized_avg_latency_ms": 4.391,
+    "latency_reduction_factor": "5.98x faster",
+    "index_memory_footprint_kb": 0.0,
     "privacy_compliance_rate": "measured separately from privacy_routing_output.json; not computed here",
     "zero_external_api_calls": true,
     "grounding_rate": 1.0,
@@ -14,57 +14,57 @@
   "query_level_performance": [
     {
       "query": "Which existing task became critical in the demo data?",
-      "baseline_latency_ms": 25.276,
-      "optimized_latency_ms": 0.168,
+      "baseline_latency_ms": 27.622,
+      "optimized_latency_ms": 0.143,
       "resolution_method": "priority_lookup",
       "grounded": true
     },
     {
       "query": "Which tasks or meetings were completed or cancelled?",
-      "baseline_latency_ms": 21.078,
-      "optimized_latency_ms": 0.06,
+      "baseline_latency_ms": 27.091,
+      "optimized_latency_ms": 0.061,
       "resolution_method": "completion_lookup",
       "grounded": true
     },
     {
       "query": "Which meeting was rescheduled and what is its latest schedule?",
-      "baseline_latency_ms": 21.491,
-      "optimized_latency_ms": 0.122,
+      "baseline_latency_ms": 26.836,
+      "optimized_latency_ms": 0.135,
       "resolution_method": "reschedule_lookup",
       "grounded": true
     },
     {
       "query": "Which messages contain conflicting or uncertain deadlines?",
-      "baseline_latency_ms": 19.223,
-      "optimized_latency_ms": 0.033,
+      "baseline_latency_ms": 25.498,
+      "optimized_latency_ms": 0.036,
       "resolution_method": "conflict_lookup",
       "grounded": true
     },
     {
       "query": "Which demo messages must be blocked from external processing?",
-      "baseline_latency_ms": 19.477,
+      "baseline_latency_ms": 27.322,
       "optimized_latency_ms": 0.081,
       "resolution_method": "privacy_lookup",
       "grounded": true
     },
     {
       "query": "Which message requires confirmation before processing?",
-      "baseline_latency_ms": 18.533,
-      "optimized_latency_ms": 0.036,
+      "baseline_latency_ms": 26.028,
+      "optimized_latency_ms": 0.042,
       "resolution_method": "privacy_lookup",
       "grounded": true
     },
     {
       "query": "What is the latest status of the task referenced by DEMO_016?",
-      "baseline_latency_ms": 19.478,
-      "optimized_latency_ms": 21.457,
+      "baseline_latency_ms": 26.089,
+      "optimized_latency_ms": 17.863,
       "resolution_method": "entity_lookup",
       "grounded": true
     },
     {
       "query": "Was the compliance form approved by the finance director?",
-      "baseline_latency_ms": 20.579,
-      "optimized_latency_ms": 4.12,
+      "baseline_latency_ms": 23.44,
+      "optimized_latency_ms": 16.763,
       "resolution_method": "semantic_fallback",
       "grounded": true
     }

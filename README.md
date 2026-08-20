@@ -139,8 +139,12 @@ The priority engine does not treat messages as static snapshots. As new messages
 
 ## 🔗 Part 2: Meaning- & Chronology-Aware Related-Message Grouping
 
-### Semantic Grouping & Lifecycle State Machine
-Messages are connected under unified group threads based on **semantic task signatures** (action verb + entity + subject) rather than naive keyword overlap.
+### Dense Semantic Grouping & Lifecycle State Machine
+Messages are connected under unified group threads using **Sentence-Transformer Dense Semantic Embeddings (`all-MiniLM-L6-v2`)** producing 384-dimensional vector representations compared via **Cosine Similarity** (threshold $\ge 0.55$) against dynamically updated group centroids.
+
+1. **Local Dense Embedding**: Each message is embedded offline into $\mathbb{R}^{384}$ (zero external API calls).
+2. **Centroid Clustering**: Incoming messages are evaluated against running group centroids using cosine similarity; matches $\ge 0.55$ join existing threads, updating the centroid via running average.
+3. **Graceful Fallback**: If `sentence-transformers` is unavailable, automatically falls back to n-gram TF-IDF cosine similarity.
 
 Each group maintains a chronological state machine:
 $$\text{Pending} \longrightarrow \text{In Progress} \longrightarrow \begin{cases} \text{Completed} \\ \text{Cancelled} \\ \text{Rescheduled} \\ \text{Unclear / Conflicting} \end{cases}$$
@@ -148,25 +152,27 @@ $$\text{Pending} \longrightarrow \text{In Progress} \longrightarrow \begin{cases
 ### Grouping Output Schema (`related_message_groups.json`)
 ```json
 {
-  "group_id": "GROUP_006",
+  "group_id": "GROUP_027",
   "title": "Confirm Interview Slot",
   "related_message_ids": [
-    "MSG_0006",
-    "MSG_0906",
+    "MSG_0027",
+    "MSG_0103",
     "DEMO_001",
     "DEMO_016"
   ],
   "related_task_or_event_ids": [
     "ITEM_006"
   ],
+  "grouping_method": "sentence_transformer",
+  "embedding_model": "all-MiniLM-L6-v2",
+  "similarity_threshold": 0.55,
   "status": "unclear",
   "latest_deadline": "2026-10-05",
   "latest_time": "10:00",
-  "summary": "Thread 'Confirm Interview Slot' contains 4 updates with conflicting or unconfirmed status updates requiring verification.",
-  "confidence": 0.90,
+  "summary": "Thread 'Confirm Interview Slot' contains updates with conflicting or unconfirmed status updates requiring verification.",
+  "confidence": 0.722,
   "chronological_events": [
-    "MSG_0006: Initial message recorded.",
-    "MSG_0906: Follow-up check on progress.",
+    "MSG_0027: Initial message recorded.",
     "DEMO_001: Priority escalated with imminent deadline.",
     "DEMO_016: Ambiguous update; completion unconfirmed."
   ],
@@ -181,14 +187,13 @@ $$\text{Pending} \longrightarrow \text{In Progress} \longrightarrow \begin{cases
 
 ## 🤖 Part 3: Semantic Search & Intelligent Assistant
 
-The assistant operates entirely locally using a **TF-IDF Vector Space Model (n-gram range 1-2)** coupled with a **Deterministic Intent Router**.
+The assistant operates entirely locally using **Sentence-Transformer Dense Embeddings (`all-MiniLM-L6-v2`)** coupled with a **Deterministic Upstream Intent Router** (zero-external API).
 
-### Query Handling Capabilities:
-1. **Status & Lifecycle Tracking**: Resolves latest state of tasks (e.g. `DQ02`, `DQ07`).
-2. **Temporal & Schedule Resolution**: Identifies rescheduled events and latest confirmed times (e.g. `DQ03`).
-3. **Discrepancy & Conflict Detection**: Flags uncertain/conflicting directives (e.g. `DQ04`).
-4. **Privacy & Security Auditing**: Identifies blocked messages and confirmation-required items (e.g. `DQ05`, `DQ06`).
-5. **Zero-Hallucination Out-of-Domain Guard**: When asked about unsupported events (e.g. `DQ08`: `"Was the compliance form approved by the finance director?"`), the assistant returns an explicit declaration of **Insufficient evidence in dataset** with 0 hallucination.
+### Architecture & Query Handling:
+1. **Direct Upstream Resolution**: Queries targeting specific entity IDs (`DEMO_001`, `DEMO_016`), priority levels, conflict states, reschedules, or privacy tiers resolve directly from the real stateful data structures.
+2. **Dense Semantic Embedding Search**: Open-ended natural language questions are encoded into $\mathbb{R}^{384}$ and matched against the message corpus and group indices using cosine similarity.
+3. **Zero-Hallucination Out-of-Domain Guard**: If the top semantic similarity score falls below the minimum confidence threshold ($0.15$), the assistant explicitly declares **Insufficient evidence in dataset** with zero hallucination.
+
 
 ---
 
