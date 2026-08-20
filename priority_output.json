@@ -73,7 +73,7 @@
     "message_id": "MSG_0019",
     "item_id": "ITEM_008",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -83,7 +83,7 @@
     "message_id": "MSG_0023",
     "item_id": "ITEM_009",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -92,18 +92,19 @@
   {
     "message_id": "MSG_0027",
     "item_id": "ITEM_010",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0028",
     "item_id": "ITEM_011",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -113,7 +114,7 @@
     "message_id": "MSG_0031",
     "item_id": "ITEM_012",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -143,7 +144,7 @@
     "message_id": "MSG_0035",
     "item_id": "ITEM_015",
     "priority": "high",
-    "reason": "Approaching deliverable deadline requires prioritized execution.",
+    "reason": "Approaching deliverable deadline in task state requires prioritized execution.",
     "signals": [
       "deadline_proximity",
       "deliverable_due"
@@ -174,7 +175,7 @@
     "message_id": "MSG_0038",
     "item_id": "ITEM_018",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -214,7 +215,7 @@
     "message_id": "MSG_0044",
     "item_id": "ITEM_022",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -234,7 +235,7 @@
     "message_id": "MSG_0046",
     "item_id": "ITEM_024",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -334,7 +335,7 @@
     "message_id": "MSG_0065",
     "item_id": "ITEM_034",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -394,7 +395,7 @@
     "message_id": "MSG_0088",
     "item_id": "ITEM_040",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -404,7 +405,7 @@
     "message_id": "MSG_0089",
     "item_id": "ITEM_041",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -444,7 +445,7 @@
     "message_id": "MSG_0101",
     "item_id": "ITEM_045",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -454,7 +455,7 @@
     "message_id": "MSG_0102",
     "item_id": "ITEM_046",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -484,7 +485,7 @@
     "message_id": "MSG_0111",
     "item_id": "ITEM_049",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -494,7 +495,7 @@
     "message_id": "MSG_0112",
     "item_id": "ITEM_050",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -504,7 +505,7 @@
     "message_id": "MSG_0113",
     "item_id": "ITEM_051",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -514,7 +515,7 @@
     "message_id": "MSG_0114",
     "item_id": "ITEM_052",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -524,7 +525,7 @@
     "message_id": "MSG_0115",
     "item_id": "ITEM_053",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -534,7 +535,7 @@
     "message_id": "MSG_0119",
     "item_id": "ITEM_054",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -594,7 +595,7 @@
     "message_id": "MSG_0129",
     "item_id": "ITEM_060",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -634,7 +635,7 @@
     "message_id": "MSG_0136",
     "item_id": "ITEM_064",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -654,7 +655,7 @@
     "message_id": "MSG_0139",
     "item_id": "ITEM_066",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -664,7 +665,7 @@
     "message_id": "MSG_0144",
     "item_id": "ITEM_067",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -674,7 +675,7 @@
     "message_id": "MSG_0145",
     "item_id": "ITEM_068",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -684,7 +685,7 @@
     "message_id": "MSG_0147",
     "item_id": "ITEM_069",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -694,7 +695,7 @@
     "message_id": "MSG_0150",
     "item_id": "ITEM_070",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -714,7 +715,7 @@
     "message_id": "MSG_0153",
     "item_id": "ITEM_072",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -744,7 +745,7 @@
     "message_id": "MSG_0157",
     "item_id": "ITEM_075",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -754,7 +755,7 @@
     "message_id": "MSG_0160",
     "item_id": "ITEM_076",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -774,7 +775,7 @@
     "message_id": "MSG_0163",
     "item_id": "ITEM_078",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -813,18 +814,19 @@
   {
     "message_id": "MSG_0171",
     "item_id": "ITEM_082",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0173",
     "item_id": "ITEM_083",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -834,7 +836,7 @@
     "message_id": "MSG_0175",
     "item_id": "ITEM_084",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -893,12 +895,13 @@
   {
     "message_id": "MSG_0195",
     "item_id": "ITEM_090",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0198",
@@ -924,7 +927,7 @@
     "message_id": "MSG_0203",
     "item_id": "ITEM_093",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -944,7 +947,7 @@
     "message_id": "MSG_0208",
     "item_id": "ITEM_095",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -954,7 +957,7 @@
     "message_id": "MSG_0209",
     "item_id": "ITEM_096",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -964,7 +967,7 @@
     "message_id": "MSG_0210",
     "item_id": "ITEM_097",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -1024,7 +1027,7 @@
     "message_id": "MSG_0219",
     "item_id": "ITEM_103",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1034,17 +1037,18 @@
     "message_id": "MSG_0220",
     "item_id": "ITEM_104",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0221",
     "item_id": "ITEM_105",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -1074,7 +1078,7 @@
     "message_id": "MSG_0226",
     "item_id": "ITEM_108",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1084,7 +1088,7 @@
     "message_id": "MSG_0231",
     "item_id": "ITEM_109",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1114,7 +1118,7 @@
     "message_id": "MSG_0245",
     "item_id": "ITEM_112",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1134,7 +1138,7 @@
     "message_id": "MSG_0251",
     "item_id": "ITEM_114",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1194,7 +1198,7 @@
     "message_id": "MSG_0269",
     "item_id": "ITEM_120",
     "priority": "high",
-    "reason": "Approaching deliverable deadline requires prioritized execution.",
+    "reason": "Approaching deliverable deadline in task state requires prioritized execution.",
     "signals": [
       "deadline_proximity",
       "deliverable_due"
@@ -1255,7 +1259,7 @@
     "message_id": "MSG_0283",
     "item_id": "ITEM_126",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1275,7 +1279,7 @@
     "message_id": "MSG_0289",
     "item_id": "ITEM_128",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -1305,7 +1309,7 @@
     "message_id": "MSG_0300",
     "item_id": "ITEM_131",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1335,7 +1339,7 @@
     "message_id": "MSG_0306",
     "item_id": "ITEM_134",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -1345,7 +1349,7 @@
     "message_id": "MSG_0307",
     "item_id": "ITEM_135",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1355,7 +1359,7 @@
     "message_id": "MSG_0309",
     "item_id": "ITEM_136",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -1384,12 +1388,13 @@
   {
     "message_id": "MSG_0314",
     "item_id": "ITEM_139",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0316",
@@ -1405,7 +1410,7 @@
     "message_id": "MSG_0317",
     "item_id": "ITEM_141",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1454,12 +1459,13 @@
   {
     "message_id": "MSG_0335",
     "item_id": "ITEM_146",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0338",
@@ -1555,7 +1561,7 @@
     "message_id": "MSG_0358",
     "item_id": "ITEM_156",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1575,7 +1581,7 @@
     "message_id": "MSG_0360",
     "item_id": "ITEM_158",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1585,7 +1591,7 @@
     "message_id": "MSG_0361",
     "item_id": "ITEM_159",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -1625,7 +1631,7 @@
     "message_id": "MSG_0368",
     "item_id": "ITEM_163",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -1635,7 +1641,7 @@
     "message_id": "MSG_0369",
     "item_id": "ITEM_164",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -1665,7 +1671,7 @@
     "message_id": "MSG_0379",
     "item_id": "ITEM_167",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -1695,7 +1701,7 @@
     "message_id": "MSG_0394",
     "item_id": "ITEM_170",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -1705,7 +1711,7 @@
     "message_id": "MSG_0396",
     "item_id": "ITEM_171",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1745,7 +1751,7 @@
     "message_id": "MSG_0407",
     "item_id": "ITEM_175",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1765,7 +1771,7 @@
     "message_id": "MSG_0412",
     "item_id": "ITEM_177",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1795,7 +1801,7 @@
     "message_id": "MSG_0417",
     "item_id": "ITEM_180",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1825,7 +1831,7 @@
     "message_id": "MSG_0422",
     "item_id": "ITEM_183",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1855,7 +1861,7 @@
     "message_id": "MSG_0425",
     "item_id": "ITEM_186",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -1955,7 +1961,7 @@
     "message_id": "MSG_0455",
     "item_id": "ITEM_196",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -1985,7 +1991,7 @@
     "message_id": "MSG_0458",
     "item_id": "ITEM_199",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2015,7 +2021,7 @@
     "message_id": "MSG_0467",
     "item_id": "ITEM_202",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -2025,7 +2031,7 @@
     "message_id": "MSG_0468",
     "item_id": "ITEM_203",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -2035,7 +2041,7 @@
     "message_id": "MSG_0473",
     "item_id": "ITEM_204",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2054,12 +2060,13 @@
   {
     "message_id": "MSG_0480",
     "item_id": "ITEM_206",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0481",
@@ -2075,7 +2082,7 @@
     "message_id": "MSG_0483",
     "item_id": "ITEM_208",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2085,7 +2092,7 @@
     "message_id": "MSG_0484",
     "item_id": "ITEM_209",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2095,7 +2102,7 @@
     "message_id": "MSG_0485",
     "item_id": "ITEM_210",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2165,7 +2172,7 @@
     "message_id": "MSG_0503",
     "item_id": "ITEM_217",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2195,7 +2202,7 @@
     "message_id": "MSG_0512",
     "item_id": "ITEM_220",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2205,7 +2212,7 @@
     "message_id": "MSG_0513",
     "item_id": "ITEM_221",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -2225,7 +2232,7 @@
     "message_id": "MSG_0517",
     "item_id": "ITEM_223",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2264,18 +2271,19 @@
   {
     "message_id": "MSG_0527",
     "item_id": "ITEM_227",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0530",
     "item_id": "ITEM_228",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -2285,7 +2293,7 @@
     "message_id": "MSG_0531",
     "item_id": "ITEM_229",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2305,7 +2313,7 @@
     "message_id": "MSG_0537",
     "item_id": "ITEM_231",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -2325,7 +2333,7 @@
     "message_id": "MSG_0547",
     "item_id": "ITEM_233",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -2355,7 +2363,7 @@
     "message_id": "MSG_0552",
     "item_id": "ITEM_236",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -2394,12 +2402,13 @@
   {
     "message_id": "MSG_0557",
     "item_id": "ITEM_240",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0559",
@@ -2415,7 +2424,7 @@
     "message_id": "MSG_0561",
     "item_id": "ITEM_242",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -2455,7 +2464,7 @@
     "message_id": "MSG_0574",
     "item_id": "ITEM_246",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -2465,7 +2474,7 @@
     "message_id": "MSG_0577",
     "item_id": "ITEM_247",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2505,7 +2514,7 @@
     "message_id": "MSG_0584",
     "item_id": "ITEM_251",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2575,7 +2584,7 @@
     "message_id": "MSG_0602",
     "item_id": "ITEM_258",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -2595,7 +2604,7 @@
     "message_id": "MSG_0605",
     "item_id": "ITEM_260",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -2615,7 +2624,7 @@
     "message_id": "MSG_0607",
     "item_id": "ITEM_262",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2625,7 +2634,7 @@
     "message_id": "MSG_0612",
     "item_id": "ITEM_263",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2664,18 +2673,19 @@
   {
     "message_id": "MSG_0617",
     "item_id": "ITEM_267",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0618",
     "item_id": "ITEM_268",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -2695,7 +2705,7 @@
     "message_id": "MSG_0620",
     "item_id": "ITEM_270",
     "priority": "high",
-    "reason": "Approaching deliverable deadline requires prioritized execution.",
+    "reason": "Approaching deliverable deadline in task state requires prioritized execution.",
     "signals": [
       "deadline_proximity",
       "deliverable_due"
@@ -2716,7 +2726,7 @@
     "message_id": "MSG_0622",
     "item_id": "ITEM_272",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2766,7 +2776,7 @@
     "message_id": "MSG_0631",
     "item_id": "ITEM_277",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2826,7 +2836,7 @@
     "message_id": "MSG_0639",
     "item_id": "ITEM_283",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -2896,7 +2906,7 @@
     "message_id": "MSG_0656",
     "item_id": "ITEM_290",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2916,7 +2926,7 @@
     "message_id": "MSG_0658",
     "item_id": "ITEM_292",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -2946,7 +2956,7 @@
     "message_id": "MSG_0662",
     "item_id": "ITEM_295",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3036,7 +3046,7 @@
     "message_id": "MSG_0690",
     "item_id": "ITEM_304",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -3056,7 +3066,7 @@
     "message_id": "MSG_0694",
     "item_id": "ITEM_306",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3096,7 +3106,7 @@
     "message_id": "MSG_0708",
     "item_id": "ITEM_310",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3156,7 +3166,7 @@
     "message_id": "MSG_0722",
     "item_id": "ITEM_316",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3166,7 +3176,7 @@
     "message_id": "MSG_0725",
     "item_id": "ITEM_317",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3176,7 +3186,7 @@
     "message_id": "MSG_0730",
     "item_id": "ITEM_318",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -3186,7 +3196,7 @@
     "message_id": "MSG_0736",
     "item_id": "ITEM_319",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3216,7 +3226,7 @@
     "message_id": "MSG_0744",
     "item_id": "ITEM_322",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3256,7 +3266,7 @@
     "message_id": "MSG_0757",
     "item_id": "ITEM_326",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3296,7 +3306,7 @@
     "message_id": "MSG_0776",
     "item_id": "ITEM_330",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3316,7 +3326,7 @@
     "message_id": "MSG_0780",
     "item_id": "ITEM_332",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3326,7 +3336,7 @@
     "message_id": "MSG_0783",
     "item_id": "ITEM_333",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -3396,7 +3406,7 @@
     "message_id": "MSG_0795",
     "item_id": "ITEM_340",
     "priority": "high",
-    "reason": "Approaching deliverable deadline requires prioritized execution.",
+    "reason": "Approaching deliverable deadline in task state requires prioritized execution.",
     "signals": [
       "deadline_proximity",
       "deliverable_due"
@@ -3427,7 +3437,7 @@
     "message_id": "MSG_0799",
     "item_id": "ITEM_343",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -3487,7 +3497,7 @@
     "message_id": "MSG_0814",
     "item_id": "ITEM_349",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3497,7 +3507,7 @@
     "message_id": "MSG_0815",
     "item_id": "ITEM_350",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3537,7 +3547,7 @@
     "message_id": "MSG_0822",
     "item_id": "ITEM_354",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3557,7 +3567,7 @@
     "message_id": "MSG_0824",
     "item_id": "ITEM_356",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -3567,7 +3577,7 @@
     "message_id": "MSG_0826",
     "item_id": "ITEM_357",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -3587,7 +3597,7 @@
     "message_id": "MSG_0829",
     "item_id": "ITEM_359",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -3667,7 +3677,7 @@
     "message_id": "MSG_0850",
     "item_id": "ITEM_367",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -3677,7 +3687,7 @@
     "message_id": "MSG_0851",
     "item_id": "ITEM_368",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -3717,7 +3727,7 @@
     "message_id": "MSG_0862",
     "item_id": "ITEM_372",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -3767,7 +3777,7 @@
     "message_id": "MSG_0870",
     "item_id": "ITEM_377",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3777,7 +3787,7 @@
     "message_id": "MSG_0871",
     "item_id": "ITEM_378",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3827,7 +3837,7 @@
     "message_id": "MSG_0883",
     "item_id": "ITEM_383",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -3837,7 +3847,7 @@
     "message_id": "MSG_0884",
     "item_id": "ITEM_384",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3887,7 +3897,7 @@
     "message_id": "MSG_0898",
     "item_id": "ITEM_389",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -3947,7 +3957,7 @@
     "message_id": "MSG_0905",
     "item_id": "ITEM_395",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -3956,18 +3966,19 @@
   {
     "message_id": "MSG_0906",
     "item_id": "ITEM_396",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0907",
     "item_id": "ITEM_397",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -3977,7 +3988,7 @@
     "message_id": "MSG_0908",
     "item_id": "ITEM_398",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4007,7 +4018,7 @@
     "message_id": "MSG_0911",
     "item_id": "ITEM_401",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4017,7 +4028,7 @@
     "message_id": "MSG_0912",
     "item_id": "ITEM_402",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4037,7 +4048,7 @@
     "message_id": "MSG_0914",
     "item_id": "ITEM_404",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4077,7 +4088,7 @@
     "message_id": "MSG_0918",
     "item_id": "ITEM_408",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4147,7 +4158,7 @@
     "message_id": "MSG_0925",
     "item_id": "ITEM_415",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4156,18 +4167,19 @@
   {
     "message_id": "MSG_0926",
     "item_id": "ITEM_416",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0927",
     "item_id": "ITEM_417",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4177,7 +4189,7 @@
     "message_id": "MSG_0928",
     "item_id": "ITEM_418",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4207,7 +4219,7 @@
     "message_id": "MSG_0931",
     "item_id": "ITEM_421",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4217,7 +4229,7 @@
     "message_id": "MSG_0932",
     "item_id": "ITEM_422",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4227,7 +4239,7 @@
     "message_id": "MSG_0933",
     "item_id": "ITEM_423",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4237,7 +4249,7 @@
     "message_id": "MSG_0934",
     "item_id": "ITEM_424",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4247,7 +4259,7 @@
     "message_id": "MSG_0935",
     "item_id": "ITEM_425",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4257,7 +4269,7 @@
     "message_id": "MSG_0936",
     "item_id": "ITEM_426",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4267,7 +4279,7 @@
     "message_id": "MSG_0937",
     "item_id": "ITEM_427",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4277,7 +4289,7 @@
     "message_id": "MSG_0938",
     "item_id": "ITEM_428",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4287,7 +4299,7 @@
     "message_id": "MSG_0939",
     "item_id": "ITEM_429",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4297,7 +4309,7 @@
     "message_id": "MSG_0940",
     "item_id": "ITEM_430",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4307,7 +4319,7 @@
     "message_id": "MSG_0941",
     "item_id": "ITEM_431",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4317,7 +4329,7 @@
     "message_id": "MSG_0942",
     "item_id": "ITEM_432",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4327,7 +4339,7 @@
     "message_id": "MSG_0943",
     "item_id": "ITEM_433",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4337,7 +4349,7 @@
     "message_id": "MSG_0944",
     "item_id": "ITEM_434",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4347,7 +4359,7 @@
     "message_id": "MSG_0945",
     "item_id": "ITEM_435",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4357,7 +4369,7 @@
     "message_id": "MSG_0946",
     "item_id": "ITEM_436",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4367,7 +4379,7 @@
     "message_id": "MSG_0947",
     "item_id": "ITEM_437",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4377,7 +4389,7 @@
     "message_id": "MSG_0948",
     "item_id": "ITEM_438",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4387,7 +4399,7 @@
     "message_id": "MSG_0949",
     "item_id": "ITEM_439",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4397,7 +4409,7 @@
     "message_id": "MSG_0950",
     "item_id": "ITEM_440",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4417,7 +4429,7 @@
     "message_id": "MSG_0954",
     "item_id": "ITEM_442",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4437,7 +4449,7 @@
     "message_id": "MSG_0971",
     "item_id": "ITEM_444",
     "priority": "critical",
-    "reason": "The submission deadline is imminent (tomorrow) and explicit urgency follow-up was received.",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
       "deadline_imminent",
       "urgent_follow_up"
@@ -4448,17 +4460,18 @@
     "message_id": "MSG_0972",
     "item_id": "ITEM_445",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0973",
     "item_id": "ITEM_446",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4468,7 +4481,7 @@
     "message_id": "MSG_0974",
     "item_id": "ITEM_447",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4478,7 +4491,7 @@
     "message_id": "MSG_0975",
     "item_id": "ITEM_448",
     "priority": "critical",
-    "reason": "The submission deadline is imminent (tomorrow) and explicit urgency follow-up was received.",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
       "deadline_imminent",
       "urgent_follow_up"
@@ -4489,17 +4502,18 @@
     "message_id": "MSG_0976",
     "item_id": "ITEM_449",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0977",
     "item_id": "ITEM_450",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4509,7 +4523,7 @@
     "message_id": "MSG_0978",
     "item_id": "ITEM_451",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4519,7 +4533,7 @@
     "message_id": "MSG_0979",
     "item_id": "ITEM_452",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4529,7 +4543,7 @@
     "message_id": "MSG_0981",
     "item_id": "ITEM_453",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4539,17 +4553,18 @@
     "message_id": "MSG_0982",
     "item_id": "ITEM_454",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0983",
     "item_id": "ITEM_455",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4559,7 +4574,7 @@
     "message_id": "MSG_0984",
     "item_id": "ITEM_456",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4569,7 +4584,7 @@
     "message_id": "MSG_0985",
     "item_id": "ITEM_457",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4578,18 +4593,19 @@
   {
     "message_id": "MSG_0986",
     "item_id": "ITEM_458",
-    "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "priority": "critical",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
-      "deliverable_due"
+      "deadline_imminent",
+      "urgent_follow_up"
     ],
-    "confidence": 0.9
+    "confidence": 0.96
   },
   {
     "message_id": "MSG_0987",
     "item_id": "ITEM_459",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4599,7 +4615,7 @@
     "message_id": "MSG_0988",
     "item_id": "ITEM_460",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4609,7 +4625,7 @@
     "message_id": "MSG_0989",
     "item_id": "ITEM_461",
     "priority": "critical",
-    "reason": "The submission deadline is imminent (tomorrow) and explicit urgency follow-up was received.",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
       "deadline_imminent",
       "urgent_follow_up"
@@ -4629,18 +4645,19 @@
   {
     "message_id": "MSG_0992",
     "item_id": "ITEM_463",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "critical",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
-      "routine_action"
+      "deadline_imminent",
+      "urgent_follow_up"
     ],
-    "confidence": 0.87
+    "confidence": 0.96
   },
   {
     "message_id": "MSG_0993",
     "item_id": "ITEM_464",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4650,7 +4667,7 @@
     "message_id": "MSG_0995",
     "item_id": "ITEM_465",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4660,7 +4677,7 @@
     "message_id": "MSG_0996",
     "item_id": "ITEM_466",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4670,7 +4687,7 @@
     "message_id": "MSG_1000",
     "item_id": "ITEM_467",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4679,48 +4696,52 @@
   {
     "message_id": "MSG_1001",
     "item_id": "ITEM_468",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "critical",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
-      "routine_action"
+      "deadline_imminent",
+      "urgent_follow_up"
     ],
-    "confidence": 0.87
+    "confidence": 0.96
   },
   {
     "message_id": "MSG_1002",
     "item_id": "ITEM_469",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_1005",
     "item_id": "ITEM_470",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "critical",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
-      "routine_action"
+      "deadline_imminent",
+      "urgent_follow_up"
     ],
-    "confidence": 0.87
+    "confidence": 0.96
   },
   {
     "message_id": "MSG_1007",
     "item_id": "ITEM_471",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "critical",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
-      "routine_action"
+      "deadline_imminent",
+      "urgent_follow_up"
     ],
-    "confidence": 0.87
+    "confidence": 0.96
   },
   {
     "message_id": "MSG_1008",
     "item_id": "ITEM_472",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4730,7 +4751,7 @@
     "message_id": "MSG_1010",
     "item_id": "ITEM_473",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4740,7 +4761,7 @@
     "message_id": "MSG_1011",
     "item_id": "ITEM_474",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4750,7 +4771,7 @@
     "message_id": "MSG_1015",
     "item_id": "ITEM_475",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4814,7 +4835,7 @@
     "message_id": "DEMO_001",
     "item_id": "ITEM_481",
     "priority": "critical",
-    "reason": "The submission deadline is imminent (tomorrow) and explicit urgency follow-up was received.",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
       "deadline_imminent",
       "urgent_follow_up"
@@ -4825,7 +4846,7 @@
     "message_id": "DEMO_002",
     "item_id": "ITEM_482",
     "priority": "low",
-    "reason": "The task has been confirmed completed, so active urgency is cleared.",
+    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
     "signals": [
       "task_completed"
     ],
@@ -4835,7 +4856,7 @@
     "message_id": "DEMO_003",
     "item_id": "ITEM_483",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4855,7 +4876,7 @@
     "message_id": "DEMO_006",
     "item_id": "ITEM_485",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4875,7 +4896,7 @@
     "message_id": "DEMO_008",
     "item_id": "ITEM_487",
     "priority": "low",
-    "reason": "The item has been cancelled and is no longer active.",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
@@ -4916,12 +4937,13 @@
   {
     "message_id": "DEMO_016",
     "item_id": "ITEM_491",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "critical",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
-      "routine_action"
+      "deadline_imminent",
+      "urgent_follow_up"
     ],
-    "confidence": 0.87
+    "confidence": 0.96
   },
   {
     "message_id": "DEMO_017",
@@ -4937,7 +4959,7 @@
     "message_id": "DEMO_020",
     "item_id": "ITEM_493",
     "priority": "medium",
-    "reason": "Deadline was extended, granting sufficient lead time.",
+    "reason": "Task deadline was extended, granting sufficient lead time.",
     "signals": [
       "deadline_extended",
       "active_tracking"
