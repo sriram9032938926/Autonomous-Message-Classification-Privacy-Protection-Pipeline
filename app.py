@@ -204,8 +204,7 @@ nav_choice = st.sidebar.radio(
         "🔗 Related-Message Groups",
         "🛡️ Privacy Guard & 3-Tier Routing",
         "⭐ Mandatory Demo Center (DQ01-DQ08)",
-        "⚡ Optimization & Benchmarks",
-        "📖 Architecture & Loom Guide"
+        "⚡ Optimization & Benchmarks"
     ]
 )
 
@@ -551,39 +550,4 @@ elif nav_choice == "⚡ Optimization & Benchmarks":
     st.json(benchmark_report["optimization_architecture"])
 
 
-# =====================================================================
-# TAB 8: ARCHITECTURE & LOOM GUIDE
-# =====================================================================
-elif nav_choice == "📖 Architecture & Loom Guide":
-    st.subheader("📖 System Architecture & 5-Minute Loom Video Script")
-    
-    st.markdown("""
-    ### 🏗️ L2 System Architecture
-    1. **Chronological Ingestion Pipeline**: Ingests L1 (900), L2 Dev (180), and L2 Demo (24) messages sequentially.
-    2. **Enhanced Privacy Guard**: Masks sensitive credentials and applies 3-tier routing: `safe_to_process_locally`, `ask_for_confirmation`, and `blocked_from_external`.
-    3. **Action & Priority Engine**: Multi-signal heuristic tracking deadline proximity, urgency terms, sender authority, and dynamic chronological updates.
-    4. **Related-Message Grouping Engine**: Links communications into lifecycle threads, tracks status transitions (`pending` -> `in_progress` -> `rescheduled` -> `completed` / `cancelled`), and generates narrative summaries.
-    5. **Local Semantic Assistant**: Zero-API vector space model answering queries with supported message IDs, explanations, and strict zero-hallucination compliance.
-    """)
 
-    st.markdown("---")
-    st.markdown("""
-    ### 🎬 Loom Video Demo Script (5-Minute Walkthrough Checklist)
-    - **Minute 0:00 - 1:00 (Introduction & L1 to L2 Evolution)**
-      - Introduce the project as the L2 Autonomous Message Classification & Privacy Protection Pipeline.
-      - Explain how L2 extends L1 by introducing dynamic priority propagation, lifecycle message grouping, semantic retrieval, and 3-tier privacy routing.
-    - **Minute 1:00 - 2:00 (Related-Message Grouping & Dynamic Priorities)**
-      - Showcase 2 grouping examples:
-        1. `Confirm Interview Slot` (MSG_0006 -> MSG_0906 -> DEMO_001 [Escalated to Critical] -> DEMO_016 [Ambiguous unconfirmed status]).
-        2. `Email Signed Document` (MSG_0007 -> MSG_0907 -> DEMO_002 [Completed]).
-    - **Minute 2:00 - 3:00 (Privacy Guard & 3-Tier Routing Demonstration)**
-      - Demonstrate Local Processing: `DEMO_014` / `MSG_0005` (Address masked).
-      - Demonstrate Confirmation Required: `DEMO_015` (Medical health note).
-      - Demonstrate Blocked Request: `DEMO_012` (OTP), `DEMO_013` (Password), `DEMO_024` (API Token).
-      - Show that all sensitive info is 100% masked with asterisks.
-    - **Minute 3:00 - 4:00 (Intelligent Assistant & Mandatory Demo Queries)**
-      - Run DQ01 ("Which task became critical?"), DQ03 ("Rescheduled meeting"), and DQ08 ("Compliance form approved?" -> Demonstrates zero-hallucination / insufficient evidence handling).
-    - **Minute 4:00 - 5:00 (Performance Optimization, Benchmark Comparison & Wrap-up)**
-      - Show the Benchmarks tab: 5000x+ latency speedup with 23 KB index footprint.
-      - Discuss one edge case challenge (handling unconfirmed completion updates like DEMO_016) and how state graph disambiguation resolves it.
-    """)
