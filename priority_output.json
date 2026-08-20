@@ -82,12 +82,12 @@
   {
     "message_id": "MSG_0023",
     "item_id": "ITEM_009",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0027",
@@ -103,12 +103,13 @@
   {
     "message_id": "MSG_0028",
     "item_id": "ITEM_011",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_completed"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0031",
@@ -124,11 +125,12 @@
     "message_id": "MSG_0032",
     "item_id": "ITEM_013",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0034",
@@ -144,12 +146,12 @@
     "message_id": "MSG_0035",
     "item_id": "ITEM_015",
     "priority": "high",
-    "reason": "Approaching deliverable deadline in task state requires prioritized execution.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deadline_proximity",
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.92
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0036",
@@ -214,32 +216,34 @@
   {
     "message_id": "MSG_0044",
     "item_id": "ITEM_022",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0045",
     "item_id": "ITEM_023",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0046",
     "item_id": "ITEM_024",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0049",
@@ -305,11 +309,12 @@
     "message_id": "MSG_0060",
     "item_id": "ITEM_031",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0062",
@@ -334,12 +339,13 @@
   {
     "message_id": "MSG_0065",
     "item_id": "ITEM_034",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_completed"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0066",
@@ -404,12 +410,13 @@
   {
     "message_id": "MSG_0089",
     "item_id": "ITEM_041",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0097",
@@ -444,12 +451,13 @@
   {
     "message_id": "MSG_0101",
     "item_id": "ITEM_045",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_completed"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0102",
@@ -465,11 +473,12 @@
     "message_id": "MSG_0103",
     "item_id": "ITEM_047",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0110",
@@ -504,42 +513,44 @@
   {
     "message_id": "MSG_0113",
     "item_id": "ITEM_051",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Deliverable with designated deadline requires action.",
     "signals": [
-      "task_completed"
+      "deliverable_due"
     ],
-    "confidence": 0.95
+    "confidence": 0.9
   },
   {
     "message_id": "MSG_0114",
     "item_id": "ITEM_052",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0115",
     "item_id": "ITEM_053",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0119",
     "item_id": "ITEM_054",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0121",
@@ -594,12 +605,12 @@
   {
     "message_id": "MSG_0129",
     "item_id": "ITEM_060",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Deliverable with designated deadline requires action.",
     "signals": [
-      "task_cancelled"
+      "deliverable_due"
     ],
-    "confidence": 0.95
+    "confidence": 0.9
   },
   {
     "message_id": "MSG_0131",
@@ -634,12 +645,12 @@
   {
     "message_id": "MSG_0136",
     "item_id": "ITEM_064",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Deliverable with designated deadline requires action.",
     "signals": [
-      "task_completed"
+      "deliverable_due"
     ],
-    "confidence": 0.95
+    "confidence": 0.9
   },
   {
     "message_id": "MSG_0138",
@@ -664,42 +675,44 @@
   {
     "message_id": "MSG_0144",
     "item_id": "ITEM_067",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0145",
     "item_id": "ITEM_068",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0147",
     "item_id": "ITEM_069",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Deliverable with designated deadline requires action.",
     "signals": [
-      "task_completed"
+      "deliverable_due"
     ],
-    "confidence": 0.95
+    "confidence": 0.9
   },
   {
     "message_id": "MSG_0150",
     "item_id": "ITEM_070",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0151",
@@ -774,12 +787,13 @@
   {
     "message_id": "MSG_0163",
     "item_id": "ITEM_078",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0168",
@@ -926,12 +940,12 @@
   {
     "message_id": "MSG_0203",
     "item_id": "ITEM_093",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Deliverable with designated deadline requires action.",
     "signals": [
-      "task_completed"
+      "deliverable_due"
     ],
-    "confidence": 0.95
+    "confidence": 0.9
   },
   {
     "message_id": "MSG_0207",
@@ -956,12 +970,12 @@
   {
     "message_id": "MSG_0209",
     "item_id": "ITEM_096",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0210",
@@ -1026,12 +1040,13 @@
   {
     "message_id": "MSG_0219",
     "item_id": "ITEM_103",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0220",
@@ -1117,12 +1132,12 @@
   {
     "message_id": "MSG_0245",
     "item_id": "ITEM_112",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0249",
@@ -1137,22 +1152,23 @@
   {
     "message_id": "MSG_0251",
     "item_id": "ITEM_114",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
+    "signals": [
+      "conflicting_deadlines",
+      "requires_resolution"
+    ],
+    "confidence": 0.91
+  },
+  {
+    "message_id": "MSG_0252",
+    "item_id": "ITEM_115",
     "priority": "low",
     "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
     "confidence": 0.95
-  },
-  {
-    "message_id": "MSG_0252",
-    "item_id": "ITEM_115",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
-    "signals": [
-      "routine_action"
-    ],
-    "confidence": 0.87
   },
   {
     "message_id": "MSG_0255",
@@ -1198,12 +1214,12 @@
     "message_id": "MSG_0269",
     "item_id": "ITEM_120",
     "priority": "high",
-    "reason": "Approaching deliverable deadline in task state requires prioritized execution.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deadline_proximity",
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.92
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0271",
@@ -1248,22 +1264,24 @@
   {
     "message_id": "MSG_0282",
     "item_id": "ITEM_125",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0283",
     "item_id": "ITEM_126",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0287",
@@ -1358,12 +1376,13 @@
   {
     "message_id": "MSG_0309",
     "item_id": "ITEM_136",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_completed"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0311",
@@ -1378,12 +1397,12 @@
   {
     "message_id": "MSG_0312",
     "item_id": "ITEM_138",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "low",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
-      "routine_action"
+      "task_cancelled"
     ],
-    "confidence": 0.87
+    "confidence": 0.95
   },
   {
     "message_id": "MSG_0314",
@@ -1399,12 +1418,13 @@
   {
     "message_id": "MSG_0316",
     "item_id": "ITEM_140",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0317",
@@ -1419,12 +1439,13 @@
   {
     "message_id": "MSG_0327",
     "item_id": "ITEM_142",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0330",
@@ -1440,21 +1461,22 @@
     "message_id": "MSG_0331",
     "item_id": "ITEM_144",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0334",
     "item_id": "ITEM_145",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "low",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
-      "routine_action"
+      "task_cancelled"
     ],
-    "confidence": 0.87
+    "confidence": 0.95
   },
   {
     "message_id": "MSG_0335",
@@ -1490,12 +1512,12 @@
   {
     "message_id": "MSG_0340",
     "item_id": "ITEM_149",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "low",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
-      "routine_action"
+      "task_cancelled"
     ],
-    "confidence": 0.87
+    "confidence": 0.95
   },
   {
     "message_id": "MSG_0342",
@@ -1511,11 +1533,12 @@
     "message_id": "MSG_0345",
     "item_id": "ITEM_151",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0350",
@@ -1560,22 +1583,24 @@
   {
     "message_id": "MSG_0358",
     "item_id": "ITEM_156",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0359",
     "item_id": "ITEM_157",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0360",
@@ -1590,12 +1615,12 @@
   {
     "message_id": "MSG_0361",
     "item_id": "ITEM_159",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Deliverable with designated deadline requires action.",
     "signals": [
-      "task_completed"
+      "deliverable_due"
     ],
-    "confidence": 0.95
+    "confidence": 0.9
   },
   {
     "message_id": "MSG_0363",
@@ -1630,12 +1655,13 @@
   {
     "message_id": "MSG_0368",
     "item_id": "ITEM_163",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_completed"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0369",
@@ -1690,6 +1716,28 @@
   {
     "message_id": "MSG_0384",
     "item_id": "ITEM_169",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
+    "signals": [
+      "conflicting_deadlines",
+      "requires_resolution"
+    ],
+    "confidence": 0.91
+  },
+  {
+    "message_id": "MSG_0394",
+    "item_id": "ITEM_170",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
+    "signals": [
+      "conflicting_deadlines",
+      "requires_resolution"
+    ],
+    "confidence": 0.91
+  },
+  {
+    "message_id": "MSG_0396",
+    "item_id": "ITEM_171",
     "priority": "medium",
     "reason": "Routine actionable workflow item.",
     "signals": [
@@ -1698,44 +1746,25 @@
     "confidence": 0.87
   },
   {
-    "message_id": "MSG_0394",
-    "item_id": "ITEM_170",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "message_id": "MSG_0398",
+    "item_id": "ITEM_172",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_completed"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
-    "message_id": "MSG_0396",
-    "item_id": "ITEM_171",
+    "message_id": "MSG_0401",
+    "item_id": "ITEM_173",
     "priority": "low",
     "reason": "Task has been cancelled and is no longer active.",
     "signals": [
       "task_cancelled"
     ],
     "confidence": 0.95
-  },
-  {
-    "message_id": "MSG_0398",
-    "item_id": "ITEM_172",
-    "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
-    "signals": [
-      "deliverable_due"
-    ],
-    "confidence": 0.9
-  },
-  {
-    "message_id": "MSG_0401",
-    "item_id": "ITEM_173",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
-    "signals": [
-      "routine_action"
-    ],
-    "confidence": 0.87
   },
   {
     "message_id": "MSG_0405",
@@ -1780,12 +1809,13 @@
   {
     "message_id": "MSG_0413",
     "item_id": "ITEM_178",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0414",
@@ -1821,21 +1851,22 @@
     "message_id": "MSG_0420",
     "item_id": "ITEM_182",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0422",
     "item_id": "ITEM_183",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0423",
@@ -1920,12 +1951,13 @@
   {
     "message_id": "MSG_0445",
     "item_id": "ITEM_192",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0449",
@@ -1941,11 +1973,12 @@
     "message_id": "MSG_0450",
     "item_id": "ITEM_194",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0451",
@@ -1990,12 +2023,12 @@
   {
     "message_id": "MSG_0458",
     "item_id": "ITEM_199",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0462",
@@ -2040,12 +2073,13 @@
   {
     "message_id": "MSG_0473",
     "item_id": "ITEM_204",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0479",
@@ -2091,22 +2125,23 @@
   {
     "message_id": "MSG_0484",
     "item_id": "ITEM_209",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0485",
     "item_id": "ITEM_210",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0487",
@@ -2152,11 +2187,12 @@
     "message_id": "MSG_0498",
     "item_id": "ITEM_215",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0502",
@@ -2171,12 +2207,13 @@
   {
     "message_id": "MSG_0503",
     "item_id": "ITEM_217",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0508",
@@ -2211,12 +2248,12 @@
   {
     "message_id": "MSG_0513",
     "item_id": "ITEM_221",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Deliverable with designated deadline requires action.",
     "signals": [
-      "task_completed"
+      "deliverable_due"
     ],
-    "confidence": 0.95
+    "confidence": 0.9
   },
   {
     "message_id": "MSG_0515",
@@ -2241,12 +2278,13 @@
   {
     "message_id": "MSG_0519",
     "item_id": "ITEM_224",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0524",
@@ -2292,12 +2330,13 @@
   {
     "message_id": "MSG_0531",
     "item_id": "ITEM_229",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0536",
@@ -2323,11 +2362,12 @@
     "message_id": "MSG_0546",
     "item_id": "ITEM_232",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0547",
@@ -2353,11 +2393,12 @@
     "message_id": "MSG_0551",
     "item_id": "ITEM_235",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0552",
@@ -2383,11 +2424,12 @@
     "message_id": "MSG_0554",
     "item_id": "ITEM_238",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0556",
@@ -2423,12 +2465,12 @@
   {
     "message_id": "MSG_0561",
     "item_id": "ITEM_242",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Deliverable with designated deadline requires action.",
     "signals": [
-      "task_completed"
+      "deliverable_due"
     ],
-    "confidence": 0.95
+    "confidence": 0.9
   },
   {
     "message_id": "MSG_0565",
@@ -2473,12 +2515,12 @@
   {
     "message_id": "MSG_0577",
     "item_id": "ITEM_247",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0578",
@@ -2493,12 +2535,13 @@
   {
     "message_id": "MSG_0579",
     "item_id": "ITEM_249",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0580",
@@ -2513,22 +2556,23 @@
   {
     "message_id": "MSG_0584",
     "item_id": "ITEM_251",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0585",
     "item_id": "ITEM_252",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0588",
@@ -2563,12 +2607,13 @@
   {
     "message_id": "MSG_0600",
     "item_id": "ITEM_256",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0601",
@@ -2603,12 +2648,13 @@
   {
     "message_id": "MSG_0605",
     "item_id": "ITEM_260",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_completed"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0606",
@@ -2653,12 +2699,12 @@
   {
     "message_id": "MSG_0615",
     "item_id": "ITEM_265",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "low",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
-      "routine_action"
+      "task_cancelled"
     ],
-    "confidence": 0.87
+    "confidence": 0.95
   },
   {
     "message_id": "MSG_0616",
@@ -2746,11 +2792,12 @@
     "message_id": "MSG_0624",
     "item_id": "ITEM_274",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0628",
@@ -2765,6 +2812,17 @@
   {
     "message_id": "MSG_0630",
     "item_id": "ITEM_276",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
+    "signals": [
+      "conflicting_deadlines",
+      "requires_resolution"
+    ],
+    "confidence": 0.91
+  },
+  {
+    "message_id": "MSG_0631",
+    "item_id": "ITEM_277",
     "priority": "medium",
     "reason": "Routine actionable workflow item.",
     "signals": [
@@ -2773,24 +2831,15 @@
     "confidence": 0.87
   },
   {
-    "message_id": "MSG_0631",
-    "item_id": "ITEM_277",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
-    "signals": [
-      "task_cancelled"
-    ],
-    "confidence": 0.95
-  },
-  {
     "message_id": "MSG_0633",
     "item_id": "ITEM_278",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0634",
@@ -2846,11 +2895,12 @@
     "message_id": "MSG_0640",
     "item_id": "ITEM_284",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0643",
@@ -2915,12 +2965,12 @@
   {
     "message_id": "MSG_0657",
     "item_id": "ITEM_291",
-    "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "priority": "low",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
-      "deliverable_due"
+      "task_cancelled"
     ],
-    "confidence": 0.9
+    "confidence": 0.95
   },
   {
     "message_id": "MSG_0658",
@@ -2935,12 +2985,12 @@
   {
     "message_id": "MSG_0659",
     "item_id": "ITEM_293",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "low",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
-      "routine_action"
+      "task_cancelled"
     ],
-    "confidence": 0.87
+    "confidence": 0.95
   },
   {
     "message_id": "MSG_0660",
@@ -2996,11 +3046,12 @@
     "message_id": "MSG_0670",
     "item_id": "ITEM_299",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0673",
@@ -3036,21 +3087,23 @@
     "message_id": "MSG_0688",
     "item_id": "ITEM_303",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0690",
     "item_id": "ITEM_304",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Approaching deliverable deadline in task state requires prioritized execution.",
     "signals": [
-      "task_completed"
+      "deadline_proximity",
+      "deliverable_due"
     ],
-    "confidence": 0.95
+    "confidence": 0.92
   },
   {
     "message_id": "MSG_0693",
@@ -3065,12 +3118,12 @@
   {
     "message_id": "MSG_0694",
     "item_id": "ITEM_306",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Deliverable with designated deadline requires action.",
     "signals": [
-      "task_cancelled"
+      "deliverable_due"
     ],
-    "confidence": 0.95
+    "confidence": 0.9
   },
   {
     "message_id": "MSG_0697",
@@ -3165,12 +3218,13 @@
   {
     "message_id": "MSG_0722",
     "item_id": "ITEM_316",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0725",
@@ -3225,12 +3279,12 @@
   {
     "message_id": "MSG_0744",
     "item_id": "ITEM_322",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0745",
@@ -3265,12 +3319,13 @@
   {
     "message_id": "MSG_0757",
     "item_id": "ITEM_326",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0759",
@@ -3286,11 +3341,12 @@
     "message_id": "MSG_0761",
     "item_id": "ITEM_328",
     "priority": "high",
-    "reason": "Deliverable with designated deadline requires action.",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "deliverable_due"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.9
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0770",
@@ -3305,12 +3361,13 @@
   {
     "message_id": "MSG_0776",
     "item_id": "ITEM_330",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0779",
@@ -3426,22 +3483,24 @@
   {
     "message_id": "MSG_0798",
     "item_id": "ITEM_342",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0799",
     "item_id": "ITEM_343",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_completed"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0800",
@@ -3496,22 +3555,23 @@
   {
     "message_id": "MSG_0814",
     "item_id": "ITEM_349",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0815",
     "item_id": "ITEM_350",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0816",
@@ -3546,12 +3606,12 @@
   {
     "message_id": "MSG_0822",
     "item_id": "ITEM_354",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0823",
@@ -3596,32 +3656,35 @@
   {
     "message_id": "MSG_0829",
     "item_id": "ITEM_359",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_completed"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0831",
     "item_id": "ITEM_360",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0837",
     "item_id": "ITEM_361",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0840",
@@ -3676,22 +3739,22 @@
   {
     "message_id": "MSG_0850",
     "item_id": "ITEM_367",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Deliverable with designated deadline requires action.",
     "signals": [
-      "task_completed"
+      "deliverable_due"
     ],
-    "confidence": 0.95
+    "confidence": 0.9
   },
   {
     "message_id": "MSG_0851",
     "item_id": "ITEM_368",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Deliverable with designated deadline requires action.",
     "signals": [
-      "task_completed"
+      "deliverable_due"
     ],
-    "confidence": 0.95
+    "confidence": 0.9
   },
   {
     "message_id": "MSG_0853",
@@ -3706,12 +3769,13 @@
   {
     "message_id": "MSG_0860",
     "item_id": "ITEM_370",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0861",
@@ -3726,32 +3790,33 @@
   {
     "message_id": "MSG_0862",
     "item_id": "ITEM_372",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_completed"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0864",
     "item_id": "ITEM_373",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "low",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
-      "routine_action"
+      "task_cancelled"
     ],
-    "confidence": 0.87
+    "confidence": 0.95
   },
   {
     "message_id": "MSG_0865",
     "item_id": "ITEM_374",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "low",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
-      "routine_action"
+      "task_cancelled"
     ],
-    "confidence": 0.87
+    "confidence": 0.95
   },
   {
     "message_id": "MSG_0866",
@@ -3776,22 +3841,23 @@
   {
     "message_id": "MSG_0870",
     "item_id": "ITEM_377",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0871",
     "item_id": "ITEM_378",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0873",
@@ -3806,12 +3872,13 @@
   {
     "message_id": "MSG_0877",
     "item_id": "ITEM_380",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0878",
@@ -3826,12 +3893,13 @@
   {
     "message_id": "MSG_0882",
     "item_id": "ITEM_382",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "routine_action"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.87
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0883",
@@ -3896,22 +3964,23 @@
   {
     "message_id": "MSG_0898",
     "item_id": "ITEM_389",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
-    "signals": [
-      "task_cancelled"
-    ],
-    "confidence": 0.95
-  },
-  {
-    "message_id": "MSG_0900",
-    "item_id": "ITEM_390",
     "priority": "medium",
     "reason": "Routine actionable workflow item.",
     "signals": [
       "routine_action"
     ],
     "confidence": 0.87
+  },
+  {
+    "message_id": "MSG_0900",
+    "item_id": "ITEM_390",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
+    "signals": [
+      "conflicting_deadlines",
+      "requires_resolution"
+    ],
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0901",
@@ -4027,12 +4096,12 @@
   {
     "message_id": "MSG_0912",
     "item_id": "ITEM_402",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0913",
@@ -4047,12 +4116,13 @@
   {
     "message_id": "MSG_0914",
     "item_id": "ITEM_404",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "high",
+    "reason": "Task state has conflicting or uncertain directives requiring immediate resolution.",
     "signals": [
-      "task_cancelled"
+      "conflicting_deadlines",
+      "requires_resolution"
     ],
-    "confidence": 0.95
+    "confidence": 0.91
   },
   {
     "message_id": "MSG_0915",
@@ -4157,12 +4227,12 @@
   {
     "message_id": "MSG_0925",
     "item_id": "ITEM_415",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_completed"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0926",
@@ -4278,12 +4348,12 @@
   {
     "message_id": "MSG_0937",
     "item_id": "ITEM_427",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_completed"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0938",
@@ -4318,12 +4388,12 @@
   {
     "message_id": "MSG_0941",
     "item_id": "ITEM_431",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_completed"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0942",
@@ -4358,12 +4428,12 @@
   {
     "message_id": "MSG_0945",
     "item_id": "ITEM_435",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_completed"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0946",
@@ -4428,12 +4498,12 @@
   {
     "message_id": "MSG_0954",
     "item_id": "ITEM_442",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "medium",
+    "reason": "Routine actionable workflow item.",
     "signals": [
-      "task_cancelled"
+      "routine_action"
     ],
-    "confidence": 0.95
+    "confidence": 0.87
   },
   {
     "message_id": "MSG_0955",
@@ -4512,12 +4582,13 @@
   {
     "message_id": "MSG_0977",
     "item_id": "ITEM_450",
-    "priority": "low",
-    "reason": "Task is confirmed completed in the state machine; active urgency cleared.",
+    "priority": "critical",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
-      "task_completed"
+      "deadline_imminent",
+      "urgent_follow_up"
     ],
-    "confidence": 0.95
+    "confidence": 0.96
   },
   {
     "message_id": "MSG_0978",
@@ -4542,12 +4613,13 @@
   {
     "message_id": "MSG_0981",
     "item_id": "ITEM_453",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
+    "priority": "critical",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
-      "task_cancelled"
+      "deadline_imminent",
+      "urgent_follow_up"
     ],
-    "confidence": 0.95
+    "confidence": 0.96
   },
   {
     "message_id": "MSG_0982",
@@ -4614,16 +4686,6 @@
   {
     "message_id": "MSG_0988",
     "item_id": "ITEM_460",
-    "priority": "low",
-    "reason": "Task has been cancelled and is no longer active.",
-    "signals": [
-      "task_cancelled"
-    ],
-    "confidence": 0.95
-  },
-  {
-    "message_id": "MSG_0989",
-    "item_id": "ITEM_461",
     "priority": "critical",
     "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
@@ -4631,6 +4693,16 @@
       "urgent_follow_up"
     ],
     "confidence": 0.96
+  },
+  {
+    "message_id": "MSG_0989",
+    "item_id": "ITEM_461",
+    "priority": "low",
+    "reason": "Task has been cancelled and is no longer active.",
+    "signals": [
+      "task_cancelled"
+    ],
+    "confidence": 0.95
   },
   {
     "message_id": "MSG_0990",
@@ -4696,13 +4768,12 @@
   {
     "message_id": "MSG_1001",
     "item_id": "ITEM_468",
-    "priority": "critical",
-    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
+    "priority": "low",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
-      "deadline_imminent",
-      "urgent_follow_up"
+      "task_cancelled"
     ],
-    "confidence": 0.96
+    "confidence": 0.95
   },
   {
     "message_id": "MSG_1002",
@@ -4718,13 +4789,12 @@
   {
     "message_id": "MSG_1005",
     "item_id": "ITEM_470",
-    "priority": "critical",
-    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
+    "priority": "low",
+    "reason": "Task has been cancelled and is no longer active.",
     "signals": [
-      "deadline_imminent",
-      "urgent_follow_up"
+      "task_cancelled"
     ],
-    "confidence": 0.96
+    "confidence": 0.95
   },
   {
     "message_id": "MSG_1007",
@@ -4780,13 +4850,13 @@
   {
     "message_id": "MSG_1016",
     "item_id": "ITEM_476",
-    "priority": "high",
-    "reason": "Directive received from high-authority sender (Project Lead).",
+    "priority": "critical",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
-      "sender_authority",
-      "action_required"
+      "deadline_imminent",
+      "urgent_follow_up"
     ],
-    "confidence": 0.9
+    "confidence": 0.96
   },
   {
     "message_id": "MSG_1020",
@@ -4802,12 +4872,13 @@
   {
     "message_id": "MSG_1024",
     "item_id": "ITEM_478",
-    "priority": "medium",
-    "reason": "Routine actionable workflow item.",
+    "priority": "critical",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
-      "routine_action"
+      "deadline_imminent",
+      "urgent_follow_up"
     ],
-    "confidence": 0.87
+    "confidence": 0.96
   },
   {
     "message_id": "MSG_1028",
@@ -4926,13 +4997,13 @@
   {
     "message_id": "DEMO_011",
     "item_id": "ITEM_490",
-    "priority": "high",
-    "reason": "Directive received from high-authority sender (Mentor).",
+    "priority": "critical",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
-      "sender_authority",
-      "action_required"
+      "deadline_imminent",
+      "urgent_follow_up"
     ],
-    "confidence": 0.9
+    "confidence": 0.96
   },
   {
     "message_id": "DEMO_016",
@@ -4958,12 +5029,12 @@
   {
     "message_id": "DEMO_020",
     "item_id": "ITEM_493",
-    "priority": "medium",
-    "reason": "Task deadline was extended, granting sufficient lead time.",
+    "priority": "critical",
+    "reason": "Task state updated: submission deadline is imminent (tomorrow) with explicit urgency follow-up.",
     "signals": [
-      "deadline_extended",
-      "active_tracking"
+      "deadline_imminent",
+      "urgent_follow_up"
     ],
-    "confidence": 0.9
+    "confidence": 0.96
   }
 ]

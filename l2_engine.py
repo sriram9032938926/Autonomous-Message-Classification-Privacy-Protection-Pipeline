@@ -30,6 +30,14 @@ import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
+# Sentence-Transformers: local dense semantic embeddings (zero external API)
+# Falls back gracefully to TF-IDF if not installed
+try:
+    from sentence_transformers import SentenceTransformer as _SentenceTransformer
+    _SENTENCE_TRANSFORMER_AVAILABLE = True
+except ImportError:
+    _SENTENCE_TRANSFORMER_AVAILABLE = False
+
 
 # =====================================================================
 # MODULE 1: ENHANCED SENSITIVE INFO DETECTOR, MASKER & PRIVACY ROUTER
@@ -419,160 +427,285 @@ def extract_task_or_event(msg_id: str, category: str, text: str, item_counter: i
 
 # =====================================================================
 # MODULE 4: MEANING- & CHRONOLOGY-AWARE RELATED-MESSAGE GROUPING ENGINE
+#           Using Sentence-Transformer Dense Semantic Embeddings + Cosine Similarity
 # =====================================================================
 
 class RelatedMessageGroupingEngine:
     """Hybrid Semantic & Chronological Grouping Engine.
-    
-    Combines:
-    1. Multi-word Semantic Action & Entity Signature Extraction
-    2. Vector Space TF-IDF Embedding & Cosine Similarity Matching
-    3. Chronological Lifecycle State Machine Tracking (Pending -> In Progress -> Completed/Cancelled/Rescheduled/Unclear)
+
+    Architecture:
+    1. Sentence-Transformer Dense Embedding (all-MiniLM-L6-v2, 100% local, zero external API)
+       - Each message is encoded into a 384-dimensional dense embedding vector.
+       - New message embedding is compared against all existing group centroid embeddings
+         via Cosine Similarity.
+       - If max(cosine_similarity) >= threshold (0.55): merge into that group.
+       - Else: spawn a new independent group.
+       - Group centroid is updated as a running average after each merge.
+
+    2. Fallback: TF-IDF n-gram Cosine Similarity
+       - Used automatically if sentence-transformers is not installed.
+       - Uses (1,2)-gram TF-IDF vectorizer fitted on the full corpus.
+
+    3. Chronological Lifecycle State Machine
+       - Processes messages strictly in temporal order.
+       - Tracks: Pending → In Progress → Completed / Cancelled / Rescheduled / Unclear
     """
 
-    def __init__(self, semantic_threshold: float = 0.50):
+    GROUPING_METHOD: str = "sentence_transformer" if _SENTENCE_TRANSFORMER_AVAILABLE else "tfidf_cosine"
+    MODEL_NAME: str = "all-MiniLM-L6-v2"
+    SIMILARITY_THRESHOLD: float = 0.55  # Tuned for dense embeddings
+
+    def __init__(self, similarity_threshold: float = None):
         self.groups: List[Dict[str, Any]] = []
         self.group_counter = 1
-        self.semantic_threshold = semantic_threshold
+        self.similarity_threshold = similarity_threshold or self.SIMILARITY_THRESHOLD
 
-    def _extract_semantic_core(self, text: str) -> str:
-        """Extracts the underlying action-entity semantic core from a message."""
-        clean = text.lower()
-        
-        # 1. Check canonical action patterns
-        for phrase, title in CANONICAL_ACTIONS:
-            if phrase in clean:
-                return title
+        # Group centroid embeddings
+        self.group_centroids: List[np.ndarray] = []
 
-        # 2. Semantic Token Overlap / Jaccard similarity across action and target nouns
-        # Handles morphological variations like "model-results review" -> "Review Model Results"
-        text_words = set(re.findall(r"[a-z]+", clean))
-        stop_words = {"the", "a", "an", "to", "for", "in", "on", "at", "our", "is", "it", "has", "been", "my", "your", "this", "that"}
-        filtered_text_words = text_words - stop_words
+        # Load sentence-transformer model once at init
+        if _SENTENCE_TRANSFORMER_AVAILABLE:
+            self._model = _SentenceTransformer(self.MODEL_NAME)
+            self._encode = lambda texts: self._model.encode(
+                texts,
+                convert_to_numpy=True,
+                normalize_embeddings=True,   # L2-normalised → cosine = dot product
+                show_progress_bar=False
+            )
+        else:
+            # TF-IDF fallback
+            self._model = None
+            self._vectorizer = TfidfVectorizer(ngram_range=(1, 2), stop_words="english")
+            self._corpus_cache: List[str] = []
+            self._encode = None
 
-        for phrase, title in CANONICAL_ACTIONS:
-            phrase_words = set(re.findall(r"[a-z]+", phrase.lower())) - stop_words
-            if not phrase_words:
-                continue
-            overlap = len(filtered_text_words & phrase_words)
-            jaccard = overlap / len(phrase_words)
-            if jaccard >= 0.75 and overlap >= 2:
-                return title
-
-        # 3. Domain Entity Signatures
-        if "internship orientation" in clean or "orientation" in clean:
-            return "Internship Orientation"
-        if "latency-review" in clean or "latency review" in clean:
-            return "Latency-Review Meeting"
-        if "stand-up" in clean or "standup" in clean:
-            return "Team Stand-up"
-        if "newsletter" in clean:
-            return "Community Newsletter"
-        if "medical note" in clean or "vitamin b12" in clean:
-            return "Confidential Health Notes"
-        if "deliver the demo device" in clean:
-            return "Device Delivery Dispatch"
-        if "otp is" in clean or "temporary password" in clean or "integration token" in clean:
-            return "System Credential Dispatch"
-        
-        cleaned = re.sub(r"^(For today:|FYI:|Quick update:|Important:|Please note:|Just checking—|Can you help\?|One more thing:|Hi,|New task:|Confirmed:|Cancel)\s*", "", text, flags=re.IGNORECASE).strip()
-        if len(cleaned) > 48:
-            cleaned = cleaned[:45] + "..."
-        return cleaned if cleaned else text[:35]
+    # ------------------------------------------------------------------
+    # Main API
+    # ------------------------------------------------------------------
 
     def process_message_stream(self, messages_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """Processes messages sequentially to group them into lifecycle threads."""
-        for msg in messages_data:
+        """Processes messages chronologically. Each message is embedded and
+        compared against all group centroids. Joined if cosine similarity
+        >= threshold; otherwise a new lifecycle thread is created."""
+
+        if _SENTENCE_TRANSFORMER_AVAILABLE:
+            return self._process_with_sentence_transformer(messages_data)
+        else:
+            return self._process_with_tfidf(messages_data)
+
+    # ------------------------------------------------------------------
+    # Primary path: Sentence-Transformer Dense Embeddings
+    # ------------------------------------------------------------------
+
+    def _process_with_sentence_transformer(self, messages_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Groups messages using 384-dim sentence-transformer embeddings + cosine similarity."""
+
+        # Batch-encode all messages at once for speed
+        texts = [self._clean_text(m["original_message"]) for m in messages_data]
+        all_embeddings: np.ndarray = self._encode(texts)  # shape: (N, 384)
+
+        for idx, msg in enumerate(messages_data):
             msg_id = msg["message_id"]
             text = msg["original_message"]
             item_id = msg.get("extracted_item_id")
-            
-            core = self._extract_semantic_core(text)
-            
-            # Find matching group
-            matching_grp = next((g for g in self.groups if g["title"].lower() == core.lower()), None)
-            
-            if matching_grp:
-                group = matching_grp
+            emb = all_embeddings[idx]  # (384,) L2-normalised
+
+            best_idx, best_sim = self._find_best_group(emb)
+
+            if best_idx >= 0:
+                group = self.groups[best_idx]
                 if msg_id not in group["related_message_ids"]:
                     group["related_message_ids"].append(msg_id)
+                # Update centroid = running average, re-normalise
+                updated = (self.group_centroids[best_idx] * (len(group["related_message_ids"]) - 1) + emb) / len(group["related_message_ids"])
+                norm = np.linalg.norm(updated)
+                self.group_centroids[best_idx] = updated / norm if norm > 0 else updated
+                group["confidence"] = round(float(best_sim), 3)
             else:
-                gid = f"GROUP_{self.group_counter:03d}"
-                self.group_counter += 1
-                group = {
-                    "group_id": gid,
-                    "title": core,
-                    "related_message_ids": [msg_id],
-                    "related_task_or_event_ids": [],
-                    "status": "pending",
-                    "latest_deadline": None,
-                    "latest_time": None,
-                    "summary": "",
-                    "confidence": 0.90,
-                    "chronological_events": [],
-                    "has_conflict": False,
-                    "conflict_details": []
-                }
-                self.groups.append(group)
+                group = self._create_group(msg_id, text)
+                self.group_centroids.append(emb)
 
             if item_id and item_id not in group["related_task_or_event_ids"]:
                 group["related_task_or_event_ids"].append(item_id)
 
-            # Analyze chronological metadata
-            lower_text = text.lower()
-            date_match = re.search(r"\b20\d{2}-\d{2}-\d{2}\b", text)
-            if date_match:
-                group["latest_deadline"] = date_match.group(0)
+            self._update_lifecycle(group, msg_id, text)
 
-            time_match = re.search(r"\b([01]?\d|2[0-3]):[0-5]\d\b", text)
-            if not time_match:
-                time_match = re.search(r"\b([1-9]|1[0-2])\s?(?:AM|PM)\b", text, re.IGNORECASE)
-            if time_match:
-                group["latest_time"] = time_match.group(0)
-
-            # Analyze lifecycle status transitions
-            if "completed" in lower_text or "has been completed" in lower_text or "submitted successfully" in lower_text:
-                group["status"] = "completed"
-                group["chronological_events"].append(f"{msg_id}: Confirmed completed.")
-            elif "cancel" in lower_text or "cancelled" in lower_text or "no longer needed" in lower_text:
-                group["status"] = "cancelled"
-                group["chronological_events"].append(f"{msg_id}: Cancelled / removed.")
-            elif "rescheduled" in lower_text or "moved to" in lower_text or "time is now" in lower_text:
-                group["status"] = "rescheduled"
-                group["chronological_events"].append(f"{msg_id}: Rescheduled to {group.get('latest_deadline', '')} {group.get('latest_time', '')}".strip())
-            elif "extended to" in lower_text:
-                group["status"] = "in_progress"
-                group["chronological_events"].append(f"{msg_id}: Deadline extended to {group.get('latest_deadline', '')}")
-            elif "cannot confirm" in lower_text or "might already be finished" in lower_text:
-                group["status"] = "unclear"
-                group["has_conflict"] = True
-                group["conflict_details"].append(f"{msg_id}: Ambiguous completion status.")
-                group["chronological_events"].append(f"{msg_id}: Ambiguous update; completion unconfirmed.")
-            elif "one message says" in lower_text or "may be monday, or it may be wednesday" in lower_text:
-                group["has_conflict"] = True
-                group["conflict_details"].append(f"{msg_id}: Conflicting deadline specifications.")
-                group["chronological_events"].append(f"{msg_id}: Conflicting schedule reported.")
-            elif "following up" in lower_text or "in progress" in lower_text or "started to" in lower_text or "urgent" in lower_text:
-                if group["status"] not in ["completed", "cancelled"]:
-                    group["status"] = "in_progress"
-                    group["chronological_events"].append(f"{msg_id}: Follow-up check on progress.")
-            else:
-                if not group["chronological_events"]:
-                    group["chronological_events"].append(f"{msg_id}: Initial message recorded.")
-
-        # Synthesize explainable narrative summaries
         for grp in self.groups:
             grp["summary"] = self._synthesize_summary(grp)
 
         return self.groups
 
-    def _synthesize_summary(self, grp: Dict[str, Any]) -> str:
-        """Constructs an explainable summary of the lifecycle thread."""
-        title = grp["title"]
-        status = grp["status"]
-        count = len(grp["related_message_ids"])
-        deadline_str = f" Latest deadline is {grp['latest_deadline']}." if grp["latest_deadline"] else ""
+    # ------------------------------------------------------------------
+    # Fallback path: TF-IDF Cosine Similarity
+    # ------------------------------------------------------------------
 
+    def _process_with_tfidf(self, messages_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Fallback grouping using TF-IDF (1,2)-gram cosine similarity."""
+        corpus = [self._clean_text(m["original_message"]) for m in messages_data]
+        all_vecs = self._vectorizer.fit_transform(corpus)  # sparse (N, vocab)
+
+        for idx, msg in enumerate(messages_data):
+            msg_id = msg["message_id"]
+            text = msg["original_message"]
+            item_id = msg.get("extracted_item_id")
+            vec = all_vecs[idx]
+
+            best_idx, best_sim = -1, 0.0
+            if self.group_centroids:
+                from scipy.sparse import vstack
+                mat = vstack(self.group_centroids)
+                sims = cosine_similarity(vec, mat)[0]
+                mi = int(np.argmax(sims))
+                if float(sims[mi]) >= self.similarity_threshold:
+                    best_idx, best_sim = mi, float(sims[mi])
+
+            if best_idx >= 0:
+                group = self.groups[best_idx]
+                if msg_id not in group["related_message_ids"]:
+                    group["related_message_ids"].append(msg_id)
+                self.group_centroids[best_idx] = (self.group_centroids[best_idx] + vec) / 2.0
+                group["confidence"] = round(best_sim, 3)
+            else:
+                group = self._create_group(msg_id, text)
+                self.group_centroids.append(vec)
+
+            if item_id and item_id not in group["related_task_or_event_ids"]:
+                group["related_task_or_event_ids"].append(item_id)
+
+            self._update_lifecycle(group, msg_id, text)
+
+        for grp in self.groups:
+            grp["summary"] = self._synthesize_summary(grp)
+
+        return self.groups
+
+    # ------------------------------------------------------------------
+    # Helpers
+    # ------------------------------------------------------------------
+
+    def _find_best_group(self, emb: np.ndarray) -> Tuple[int, float]:
+        """Returns (group_index, cosine_similarity) for best matching group, or (-1, 0) if none."""
+        if not self.group_centroids:
+            return -1, 0.0
+        centroid_matrix = np.stack(self.group_centroids)            # (G, 384)
+        sims = centroid_matrix @ emb                                 # dot = cosine (L2-normalised)
+        best_idx = int(np.argmax(sims))
+        best_sim = float(sims[best_idx])
+        if best_sim >= self.similarity_threshold:
+            return best_idx, best_sim
+        return -1, 0.0
+
+    def _clean_text(self, text: str) -> str:
+        """Strips conversational prefixes so embeddings focus on semantic intent."""
+        return re.sub(
+            r"^(For today:|FYI:|Quick update:|Important:|Please note:|Just checking—|"
+            r"Can you help\?|One more thing:|Hi,|New task:|Confirmed:|Cancel|"
+            r"Following up on|Any update on|Has the material for our earlier|"
+            r"This is another status request about)\s*",
+            "", text, flags=re.IGNORECASE
+        ).strip()
+
+    def _derive_title(self, text: str) -> str:
+        """Derives a human-readable thread title from the first message."""
+        clean = text.lower()
+        # Check canonical action signatures first
+        for phrase, title in CANONICAL_ACTIONS:
+            if phrase in clean:
+                return title
+        # Domain entity signatures
+        domains = [
+            ("internship orientation", "Internship Orientation"),
+            ("latency-review", "Latency-Review Meeting"),
+            ("team stand-up", "Team Stand-up"),
+            ("stand-up", "Team Stand-up"),
+            ("community newsletter", "Community Newsletter"),
+            ("medical note", "Confidential Health Notes"),
+            ("vitamin b12", "Confidential Health Notes"),
+            ("deliver the demo device", "Device Delivery Dispatch"),
+            ("otp is", "System Credential Dispatch"),
+            ("temporary password", "System Credential Dispatch"),
+            ("integration token", "System Credential Dispatch"),
+        ]
+        for kw, title in domains:
+            if kw in clean:
+                return title
+        # Generic title from cleaned text
+        t = self._clean_text(text)
+        return (t[:47] + "...") if len(t) > 50 else t
+
+    def _create_group(self, msg_id: str, text: str) -> Dict[str, Any]:
+        """Creates and registers a new lifecycle thread group."""
+        gid = f"GROUP_{self.group_counter:03d}"
+        self.group_counter += 1
+        group: Dict[str, Any] = {
+            "group_id": gid,
+            "title": self._derive_title(text),
+            "related_message_ids": [msg_id],
+            "related_task_or_event_ids": [],
+            "grouping_method": self.GROUPING_METHOD,
+            "embedding_model": self.MODEL_NAME if _SENTENCE_TRANSFORMER_AVAILABLE else "tfidf",
+            "similarity_threshold": self.similarity_threshold,
+            "status": "pending",
+            "latest_deadline": None,
+            "latest_time": None,
+            "summary": "",
+            "confidence": 1.0,
+            "chronological_events": [],
+            "has_conflict": False,
+            "conflict_details": []
+        }
+        self.groups.append(group)
+        return group
+
+    def _update_lifecycle(self, group: Dict[str, Any], msg_id: str, text: str) -> None:
+        """Updates chronological lifecycle state based on message content."""
+        lower = text.lower()
+
+        date_match = re.search(r"\b20\d{2}-\d{2}-\d{2}\b", text)
+        if date_match:
+            group["latest_deadline"] = date_match.group(0)
+
+        time_match = re.search(r"\b([01]?\d|2[0-3]):[0-5]\d\b", text)
+        if not time_match:
+            time_match = re.search(r"\b([1-9]|1[0-2])\s?(?:AM|PM)\b", text, re.IGNORECASE)
+        if time_match:
+            group["latest_time"] = time_match.group(0)
+
+        if any(kw in lower for kw in ["completed", "has been completed", "submitted successfully"]):
+            group["status"] = "completed"
+            group["chronological_events"].append(f"{msg_id}: Confirmed completed.")
+        elif any(kw in lower for kw in ["cancel", "cancelled", "no longer needed"]):
+            group["status"] = "cancelled"
+            group["chronological_events"].append(f"{msg_id}: Cancelled / removed.")
+        elif any(kw in lower for kw in ["rescheduled", "moved to", "time is now"]):
+            group["status"] = "rescheduled"
+            t = f"{group.get('latest_deadline', '')} {group.get('latest_time', '')}".strip()
+            group["chronological_events"].append(f"{msg_id}: Rescheduled to {t}.")
+        elif "extended to" in lower:
+            group["status"] = "in_progress"
+            group["chronological_events"].append(f"{msg_id}: Deadline extended to {group.get('latest_deadline', '')}.")
+        elif any(kw in lower for kw in ["cannot confirm", "might already be finished"]):
+            group["status"] = "unclear"
+            group["has_conflict"] = True
+            group["conflict_details"].append(f"{msg_id}: Ambiguous completion status.")
+            group["chronological_events"].append(f"{msg_id}: Ambiguous update; completion unconfirmed.")
+        elif any(kw in lower for kw in ["one message says", "may be monday, or it may be wednesday"]):
+            group["has_conflict"] = True
+            group["conflict_details"].append(f"{msg_id}: Conflicting deadline specifications.")
+            group["chronological_events"].append(f"{msg_id}: Conflicting schedule reported.")
+        elif any(kw in lower for kw in ["following up", "in progress", "started to", "urgent"]):
+            if group["status"] not in ["completed", "cancelled"]:
+                group["status"] = "in_progress"
+                group["chronological_events"].append(f"{msg_id}: Follow-up check on progress.")
+        else:
+            if not group["chronological_events"]:
+                group["chronological_events"].append(f"{msg_id}: Initial message recorded.")
+
+    def _synthesize_summary(self, grp: Dict[str, Any]) -> str:
+        """Constructs an explainable narrative summary of the lifecycle thread."""
+        title, status, count = grp["title"], grp["status"], len(grp["related_message_ids"])
+        deadline_str = f" Latest deadline is {grp['latest_deadline']}." if grp["latest_deadline"] else ""
+        method = "sentence-transformer dense embeddings" if _SENTENCE_TRANSFORMER_AVAILABLE else "TF-IDF cosine similarity"
         if status == "completed":
             return f"Thread '{title}' comprises {count} messages spanning initial request, follow-ups, and final confirmation of completion.{deadline_str}"
         elif status == "cancelled":
@@ -585,7 +718,9 @@ class RelatedMessageGroupingEngine:
         elif status == "in_progress":
             return f"Thread '{title}' is actively in progress with {count} messages including recurring follow-ups and deadline tracking.{deadline_str}"
         else:
-            return f"Thread '{title}' contains {count} related communications logged in chronological order.{deadline_str}"
+            return f"Thread '{title}' contains {count} related communications grouped using {method}.{deadline_str}"
+
+
 
 
 # =====================================================================
