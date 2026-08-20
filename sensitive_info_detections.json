@@ -1,0 +1,1238 @@
+[
+  {
+    "message_id": "MSG_0005",
+    "sensitivity_type": "private_address",
+    "all_types": [
+      "private_address"
+    ],
+    "risk": "medium",
+    "masked_text": "Hi, My home address is *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive private address requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0013",
+    "sensitivity_type": "credit_card",
+    "all_types": [
+      "credit_card"
+    ],
+    "risk": "high",
+    "masked_text": "One more thing: My card number is ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive credit card requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0047",
+    "sensitivity_type": "account_recovery_code",
+    "all_types": [
+      "account_recovery_code"
+    ],
+    "risk": "high",
+    "masked_text": "Just checking\u2014My account recovery code is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive account recovery code requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0053",
+    "sensitivity_type": "personal_identification",
+    "all_types": [
+      "personal_identification"
+    ],
+    "risk": "medium",
+    "masked_text": "One more thing: My identification number is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive personal identification requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0074",
+    "sensitivity_type": "authentication_token",
+    "all_types": [
+      "authentication_token"
+    ],
+    "risk": "high",
+    "masked_text": "Just checking\u2014The temporary access token is *******.",
+    "recommended_action": "do_not_send_to_external_service",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive authentication token requiring 'do_not_send_to_external_service' protocol."
+  },
+  {
+    "message_id": "MSG_0086",
+    "sensitivity_type": "password",
+    "all_types": [
+      "password"
+    ],
+    "risk": "high",
+    "masked_text": "Use password ******* to sign in to the test account.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0095",
+    "sensitivity_type": "password",
+    "all_types": [
+      "password"
+    ],
+    "risk": "high",
+    "masked_text": "Please note: Use password ******* to sign in to the test account.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0117",
+    "sensitivity_type": "authentication_token",
+    "all_types": [
+      "authentication_token"
+    ],
+    "risk": "high",
+    "masked_text": "Please note: The temporary access token is *******.",
+    "recommended_action": "do_not_send_to_external_service",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive authentication token requiring 'do_not_send_to_external_service' protocol."
+  },
+  {
+    "message_id": "MSG_0118",
+    "sensitivity_type": "personal_identification",
+    "all_types": [
+      "personal_identification"
+    ],
+    "risk": "medium",
+    "masked_text": "For today: My identification number is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive personal identification requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0120",
+    "sensitivity_type": "account_recovery_code",
+    "all_types": [
+      "account_recovery_code"
+    ],
+    "risk": "high",
+    "masked_text": "Please note: My account recovery code is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive account recovery code requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0126",
+    "sensitivity_type": "phone_number",
+    "all_types": [
+      "phone_number"
+    ],
+    "risk": "medium",
+    "masked_text": "Can you help? You can contact me on *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive phone number requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0130",
+    "sensitivity_type": "private_address",
+    "all_types": [
+      "private_address"
+    ],
+    "risk": "medium",
+    "masked_text": "Can you help? My home address is *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive private address requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0137",
+    "sensitivity_type": "account_recovery_code",
+    "all_types": [
+      "account_recovery_code"
+    ],
+    "risk": "high",
+    "masked_text": "My account recovery code is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive account recovery code requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0140",
+    "sensitivity_type": "password",
+    "all_types": [
+      "password"
+    ],
+    "risk": "high",
+    "masked_text": "Can you help? Use password ******* to sign in to the test account.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0155",
+    "sensitivity_type": "account_recovery_code",
+    "all_types": [
+      "account_recovery_code"
+    ],
+    "risk": "high",
+    "masked_text": "FYI: My account recovery code is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive account recovery code requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0172",
+    "sensitivity_type": "private_address",
+    "all_types": [
+      "private_address"
+    ],
+    "risk": "medium",
+    "masked_text": "Important: My home address is *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive private address requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0191",
+    "sensitivity_type": "phone_number",
+    "all_types": [
+      "phone_number"
+    ],
+    "risk": "medium",
+    "masked_text": "Quick update: You can contact me on *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive phone number requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0199",
+    "sensitivity_type": "private_address",
+    "all_types": [
+      "private_address"
+    ],
+    "risk": "medium",
+    "masked_text": "Quick update: My home address is *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive private address requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0229",
+    "sensitivity_type": "personal_identification",
+    "all_types": [
+      "personal_identification"
+    ],
+    "risk": "medium",
+    "masked_text": "Can you help? My identification number is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive personal identification requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0233",
+    "sensitivity_type": "account_recovery_code",
+    "all_types": [
+      "account_recovery_code"
+    ],
+    "risk": "high",
+    "masked_text": "One more thing: My account recovery code is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive account recovery code requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0243",
+    "sensitivity_type": "one_time_password",
+    "all_types": [
+      "one_time_password"
+    ],
+    "risk": "high",
+    "masked_text": "Just checking\u2014Your OTP is *******. It expires in 10 minutes.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive one time password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0254",
+    "sensitivity_type": "bank_account",
+    "all_types": [
+      "bank_account"
+    ],
+    "risk": "high",
+    "masked_text": "For today: Please note my ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive bank account requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0257",
+    "sensitivity_type": "bank_account",
+    "all_types": [
+      "bank_account"
+    ],
+    "risk": "high",
+    "masked_text": "FYI: Please note my ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive bank account requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0264",
+    "sensitivity_type": "personal_identification",
+    "all_types": [
+      "personal_identification"
+    ],
+    "risk": "medium",
+    "masked_text": "Hi, My identification number is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive personal identification requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0267",
+    "sensitivity_type": "bank_account",
+    "all_types": [
+      "bank_account"
+    ],
+    "risk": "high",
+    "masked_text": "Please note: Please note my ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive bank account requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0273",
+    "sensitivity_type": "one_time_password",
+    "all_types": [
+      "one_time_password"
+    ],
+    "risk": "high",
+    "masked_text": "Quick update: Your OTP is *******. It expires in 10 minutes.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive one time password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0288",
+    "sensitivity_type": "one_time_password",
+    "all_types": [
+      "one_time_password"
+    ],
+    "risk": "high",
+    "masked_text": "One more thing: Your OTP is *******. It expires in 10 minutes.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive one time password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0315",
+    "sensitivity_type": "account_recovery_code",
+    "all_types": [
+      "account_recovery_code"
+    ],
+    "risk": "high",
+    "masked_text": "Important: My account recovery code is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive account recovery code requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0337",
+    "sensitivity_type": "phone_number",
+    "all_types": [
+      "phone_number"
+    ],
+    "risk": "medium",
+    "masked_text": "You can contact me on *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive phone number requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0344",
+    "sensitivity_type": "password",
+    "all_types": [
+      "password"
+    ],
+    "risk": "high",
+    "masked_text": "Hi, Use password ******* to sign in to the test account.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0346",
+    "sensitivity_type": "password",
+    "all_types": [
+      "password"
+    ],
+    "risk": "high",
+    "masked_text": "Quick update: Use password ******* to sign in to the test account.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0347",
+    "sensitivity_type": "personal_identification",
+    "all_types": [
+      "personal_identification"
+    ],
+    "risk": "medium",
+    "masked_text": "Just checking\u2014My identification number is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive personal identification requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0349",
+    "sensitivity_type": "personal_identification",
+    "all_types": [
+      "personal_identification"
+    ],
+    "risk": "medium",
+    "masked_text": "My identification number is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive personal identification requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0351",
+    "sensitivity_type": "authentication_token",
+    "all_types": [
+      "authentication_token"
+    ],
+    "risk": "high",
+    "masked_text": "Quick update: The temporary access token is *******.",
+    "recommended_action": "do_not_send_to_external_service",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive authentication token requiring 'do_not_send_to_external_service' protocol."
+  },
+  {
+    "message_id": "MSG_0352",
+    "sensitivity_type": "bank_account",
+    "all_types": [
+      "bank_account"
+    ],
+    "risk": "high",
+    "masked_text": "Can you help? Please note my ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive bank account requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0367",
+    "sensitivity_type": "credit_card",
+    "all_types": [
+      "credit_card"
+    ],
+    "risk": "high",
+    "masked_text": "Hi, My card number is ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive credit card requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0376",
+    "sensitivity_type": "password",
+    "all_types": [
+      "password"
+    ],
+    "risk": "high",
+    "masked_text": "For today: Use password ******* to sign in to the test account.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0385",
+    "sensitivity_type": "private_address",
+    "all_types": [
+      "private_address"
+    ],
+    "risk": "medium",
+    "masked_text": "My home address is *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive private address requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0389",
+    "sensitivity_type": "authentication_token",
+    "all_types": [
+      "authentication_token"
+    ],
+    "risk": "high",
+    "masked_text": "The temporary access token is *******.",
+    "recommended_action": "do_not_send_to_external_service",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive authentication token requiring 'do_not_send_to_external_service' protocol."
+  },
+  {
+    "message_id": "MSG_0397",
+    "sensitivity_type": "bank_account",
+    "all_types": [
+      "bank_account"
+    ],
+    "risk": "high",
+    "masked_text": "Just checking\u2014Please note my ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive bank account requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0403",
+    "sensitivity_type": "account_recovery_code",
+    "all_types": [
+      "account_recovery_code"
+    ],
+    "risk": "high",
+    "masked_text": "Quick update: My account recovery code is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive account recovery code requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0411",
+    "sensitivity_type": "phone_number",
+    "all_types": [
+      "phone_number"
+    ],
+    "risk": "medium",
+    "masked_text": "Please note: You can contact me on *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive phone number requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0419",
+    "sensitivity_type": "credit_card",
+    "all_types": [
+      "credit_card"
+    ],
+    "risk": "high",
+    "masked_text": "Quick update: My card number is ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive credit card requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0436",
+    "sensitivity_type": "authentication_token",
+    "all_types": [
+      "authentication_token"
+    ],
+    "risk": "high",
+    "masked_text": "For today: The temporary access token is *******.",
+    "recommended_action": "do_not_send_to_external_service",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive authentication token requiring 'do_not_send_to_external_service' protocol."
+  },
+  {
+    "message_id": "MSG_0471",
+    "sensitivity_type": "password",
+    "all_types": [
+      "password"
+    ],
+    "risk": "high",
+    "masked_text": "FYI: Use password ******* to sign in to the test account.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0475",
+    "sensitivity_type": "private_address",
+    "all_types": [
+      "private_address"
+    ],
+    "risk": "medium",
+    "masked_text": "Just checking\u2014My home address is *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive private address requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0496",
+    "sensitivity_type": "personal_identification",
+    "all_types": [
+      "personal_identification"
+    ],
+    "risk": "medium",
+    "masked_text": "Quick update: My identification number is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive personal identification requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0532",
+    "sensitivity_type": "private_address",
+    "all_types": [
+      "private_address"
+    ],
+    "risk": "medium",
+    "masked_text": "For today: My home address is *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive private address requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0535",
+    "sensitivity_type": "private_address",
+    "all_types": [
+      "private_address"
+    ],
+    "risk": "medium",
+    "masked_text": "Please note: My home address is *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive private address requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0539",
+    "sensitivity_type": "private_address",
+    "all_types": [
+      "private_address"
+    ],
+    "risk": "medium",
+    "masked_text": "FYI: My home address is *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive private address requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0550",
+    "sensitivity_type": "phone_number",
+    "all_types": [
+      "phone_number"
+    ],
+    "risk": "medium",
+    "masked_text": "One more thing: You can contact me on *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive phone number requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0572",
+    "sensitivity_type": "authentication_token",
+    "all_types": [
+      "authentication_token"
+    ],
+    "risk": "high",
+    "masked_text": "Can you help? The temporary access token is *******.",
+    "recommended_action": "do_not_send_to_external_service",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive authentication token requiring 'do_not_send_to_external_service' protocol."
+  },
+  {
+    "message_id": "MSG_0576",
+    "sensitivity_type": "personal_identification",
+    "all_types": [
+      "personal_identification"
+    ],
+    "risk": "medium",
+    "masked_text": "Important: My identification number is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive personal identification requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0591",
+    "sensitivity_type": "authentication_token",
+    "all_types": [
+      "authentication_token"
+    ],
+    "risk": "high",
+    "masked_text": "Hi, The temporary access token is *******.",
+    "recommended_action": "do_not_send_to_external_service",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive authentication token requiring 'do_not_send_to_external_service' protocol."
+  },
+  {
+    "message_id": "MSG_0595",
+    "sensitivity_type": "one_time_password",
+    "all_types": [
+      "one_time_password"
+    ],
+    "risk": "high",
+    "masked_text": "Can you help? Your OTP is *******. It expires in 10 minutes.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive one time password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0596",
+    "sensitivity_type": "one_time_password",
+    "all_types": [
+      "one_time_password"
+    ],
+    "risk": "high",
+    "masked_text": "For today: Your OTP is *******. It expires in 10 minutes.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive one time password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0604",
+    "sensitivity_type": "one_time_password",
+    "all_types": [
+      "one_time_password"
+    ],
+    "risk": "high",
+    "masked_text": "FYI: Your OTP is *******. It expires in 10 minutes.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive one time password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0610",
+    "sensitivity_type": "credit_card",
+    "all_types": [
+      "credit_card"
+    ],
+    "risk": "high",
+    "masked_text": "Just checking\u2014My card number is ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive credit card requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0636",
+    "sensitivity_type": "phone_number",
+    "all_types": [
+      "phone_number"
+    ],
+    "risk": "medium",
+    "masked_text": "Important: You can contact me on *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive phone number requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0641",
+    "sensitivity_type": "phone_number",
+    "all_types": [
+      "phone_number"
+    ],
+    "risk": "medium",
+    "masked_text": "Just checking\u2014You can contact me on *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive phone number requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0642",
+    "sensitivity_type": "bank_account",
+    "all_types": [
+      "bank_account"
+    ],
+    "risk": "high",
+    "masked_text": "Important: Please note my ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive bank account requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0649",
+    "sensitivity_type": "credit_card",
+    "all_types": [
+      "credit_card"
+    ],
+    "risk": "high",
+    "masked_text": "Can you help? My card number is ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive credit card requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0651",
+    "sensitivity_type": "phone_number",
+    "all_types": [
+      "phone_number"
+    ],
+    "risk": "medium",
+    "masked_text": "For today: You can contact me on *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive phone number requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0678",
+    "sensitivity_type": "account_recovery_code",
+    "all_types": [
+      "account_recovery_code"
+    ],
+    "risk": "high",
+    "masked_text": "For today: My account recovery code is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive account recovery code requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0681",
+    "sensitivity_type": "credit_card",
+    "all_types": [
+      "credit_card"
+    ],
+    "risk": "high",
+    "masked_text": "Important: My card number is ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive credit card requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0684",
+    "sensitivity_type": "credit_card",
+    "all_types": [
+      "credit_card"
+    ],
+    "risk": "high",
+    "masked_text": "For today: My card number is ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive credit card requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0687",
+    "sensitivity_type": "authentication_token",
+    "all_types": [
+      "authentication_token"
+    ],
+    "risk": "high",
+    "masked_text": "Important: The temporary access token is *******.",
+    "recommended_action": "do_not_send_to_external_service",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive authentication token requiring 'do_not_send_to_external_service' protocol."
+  },
+  {
+    "message_id": "MSG_0695",
+    "sensitivity_type": "phone_number",
+    "all_types": [
+      "phone_number"
+    ],
+    "risk": "medium",
+    "masked_text": "FYI: You can contact me on *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive phone number requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0715",
+    "sensitivity_type": "authentication_token",
+    "all_types": [
+      "authentication_token"
+    ],
+    "risk": "high",
+    "masked_text": "FYI: The temporary access token is *******.",
+    "recommended_action": "do_not_send_to_external_service",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive authentication token requiring 'do_not_send_to_external_service' protocol."
+  },
+  {
+    "message_id": "MSG_0723",
+    "sensitivity_type": "account_recovery_code",
+    "all_types": [
+      "account_recovery_code"
+    ],
+    "risk": "high",
+    "masked_text": "Hi, My account recovery code is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive account recovery code requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0726",
+    "sensitivity_type": "personal_identification",
+    "all_types": [
+      "personal_identification"
+    ],
+    "risk": "medium",
+    "masked_text": "FYI: My identification number is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive personal identification requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0727",
+    "sensitivity_type": "password",
+    "all_types": [
+      "password"
+    ],
+    "risk": "high",
+    "masked_text": "Just checking\u2014Use password ******* to sign in to the test account.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0749",
+    "sensitivity_type": "password",
+    "all_types": [
+      "password"
+    ],
+    "risk": "high",
+    "masked_text": "Important: Use password ******* to sign in to the test account.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0751",
+    "sensitivity_type": "bank_account",
+    "all_types": [
+      "bank_account"
+    ],
+    "risk": "high",
+    "masked_text": "Hi, Please note my ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive bank account requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0752",
+    "sensitivity_type": "bank_account",
+    "all_types": [
+      "bank_account"
+    ],
+    "risk": "high",
+    "masked_text": "Please note my ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive bank account requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0753",
+    "sensitivity_type": "account_recovery_code",
+    "all_types": [
+      "account_recovery_code"
+    ],
+    "risk": "high",
+    "masked_text": "Can you help? My account recovery code is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive account recovery code requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0763",
+    "sensitivity_type": "personal_identification",
+    "all_types": [
+      "personal_identification"
+    ],
+    "risk": "medium",
+    "masked_text": "Please note: My identification number is *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive personal identification requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_0777",
+    "sensitivity_type": "password",
+    "all_types": [
+      "password"
+    ],
+    "risk": "high",
+    "masked_text": "One more thing: Use password ******* to sign in to the test account.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0778",
+    "sensitivity_type": "authentication_token",
+    "all_types": [
+      "authentication_token"
+    ],
+    "risk": "high",
+    "masked_text": "One more thing: The temporary access token is *******.",
+    "recommended_action": "do_not_send_to_external_service",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive authentication token requiring 'do_not_send_to_external_service' protocol."
+  },
+  {
+    "message_id": "MSG_0791",
+    "sensitivity_type": "one_time_password",
+    "all_types": [
+      "one_time_password"
+    ],
+    "risk": "high",
+    "masked_text": "Please note: Your OTP is *******. It expires in 10 minutes.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive one time password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0802",
+    "sensitivity_type": "private_address",
+    "all_types": [
+      "private_address"
+    ],
+    "risk": "medium",
+    "masked_text": "One more thing: My home address is *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive private address requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0803",
+    "sensitivity_type": "credit_card",
+    "all_types": [
+      "credit_card"
+    ],
+    "risk": "high",
+    "masked_text": "Please note: My card number is ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive credit card requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0804",
+    "sensitivity_type": "phone_number",
+    "all_types": [
+      "phone_number"
+    ],
+    "risk": "medium",
+    "masked_text": "Hi, You can contact me on *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive phone number requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "MSG_0812",
+    "sensitivity_type": "credit_card",
+    "all_types": [
+      "credit_card"
+    ],
+    "risk": "high",
+    "masked_text": "My card number is ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive credit card requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0813",
+    "sensitivity_type": "credit_card",
+    "all_types": [
+      "credit_card"
+    ],
+    "risk": "high",
+    "masked_text": "FYI: My card number is ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive credit card requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0834",
+    "sensitivity_type": "one_time_password",
+    "all_types": [
+      "one_time_password"
+    ],
+    "risk": "high",
+    "masked_text": "Your OTP is *******. It expires in 10 minutes.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive one time password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0848",
+    "sensitivity_type": "bank_account",
+    "all_types": [
+      "bank_account"
+    ],
+    "risk": "high",
+    "masked_text": "Quick update: Please note my ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive bank account requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0854",
+    "sensitivity_type": "one_time_password",
+    "all_types": [
+      "one_time_password"
+    ],
+    "risk": "high",
+    "masked_text": "Hi, Your OTP is *******. It expires in 10 minutes.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive one time password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0880",
+    "sensitivity_type": "one_time_password",
+    "all_types": [
+      "one_time_password"
+    ],
+    "risk": "high",
+    "masked_text": "Important: Your OTP is *******. It expires in 10 minutes.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive one time password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_0890",
+    "sensitivity_type": "bank_account",
+    "all_types": [
+      "bank_account"
+    ],
+    "risk": "high",
+    "masked_text": "One more thing: Please note my ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive bank account requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_1036",
+    "sensitivity_type": "one_time_password",
+    "all_types": [
+      "one_time_password"
+    ],
+    "risk": "high",
+    "masked_text": "Your new OTP is *******. It expires shortly.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive one time password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_1038",
+    "sensitivity_type": "credit_card",
+    "all_types": [
+      "credit_card"
+    ],
+    "risk": "high",
+    "masked_text": "The test card number is ********************.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive credit card requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_1041",
+    "sensitivity_type": "medical_health_note",
+    "all_types": [
+      "medical_health_note"
+    ],
+    "risk": "high",
+    "masked_text": "My private medical note mentions *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive medical health note requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_1042",
+    "sensitivity_type": "password",
+    "all_types": [
+      "password"
+    ],
+    "risk": "high",
+    "masked_text": "The temporary password ******* L2Demo#884.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_1046",
+    "sensitivity_type": "one_time_password",
+    "all_types": [
+      "one_time_password"
+    ],
+    "risk": "high",
+    "masked_text": "Follow-up: Your new OTP is *******-B. It expires shortly-B.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive one time password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_1048",
+    "sensitivity_type": "credit_card",
+    "all_types": [
+      "credit_card"
+    ],
+    "risk": "high",
+    "masked_text": "Follow-up: The test card number is ********************-B.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive credit card requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "MSG_1051",
+    "sensitivity_type": "medical_health_note",
+    "all_types": [
+      "medical_health_note"
+    ],
+    "risk": "high",
+    "masked_text": "Follow-up: My private medical note mentions *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive medical health note requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "MSG_1052",
+    "sensitivity_type": "password",
+    "all_types": [
+      "password"
+    ],
+    "risk": "high",
+    "masked_text": "Follow-up: The temporary password ******* L2Demo#884-B.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "DEMO_012",
+    "sensitivity_type": "one_time_password",
+    "all_types": [
+      "one_time_password"
+    ],
+    "risk": "high",
+    "masked_text": "Your fictional OTP is *******. Do not share it.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive one time password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "DEMO_013",
+    "sensitivity_type": "password",
+    "all_types": [
+      "password"
+    ],
+    "risk": "high",
+    "masked_text": "Use temporary password ******* for the sample account.",
+    "recommended_action": "do_not_store",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive password requiring 'do_not_store' protocol."
+  },
+  {
+    "message_id": "DEMO_014",
+    "sensitivity_type": "private_address",
+    "all_types": [
+      "private_address"
+    ],
+    "risk": "medium",
+    "masked_text": "Deliver the demo device to *******.",
+    "recommended_action": "safe_to_process_locally",
+    "privacy_route": "safe_to_process_locally",
+    "privacy_reason": "Contains sensitive private address requiring 'safe_to_process_locally' protocol."
+  },
+  {
+    "message_id": "DEMO_015",
+    "sensitivity_type": "medical_health_note",
+    "all_types": [
+      "medical_health_note"
+    ],
+    "risk": "high",
+    "masked_text": "My private medical note mentions *******.",
+    "recommended_action": "ask_for_confirmation",
+    "privacy_route": "ask_for_confirmation",
+    "privacy_reason": "Contains sensitive medical health note requiring 'ask_for_confirmation' protocol."
+  },
+  {
+    "message_id": "DEMO_024",
+    "sensitivity_type": "authentication_token",
+    "all_types": [
+      "authentication_token"
+    ],
+    "risk": "high",
+    "masked_text": "Integration *******. Use it only in the local test.",
+    "recommended_action": "do_not_send_to_external_service",
+    "privacy_route": "blocked_from_external",
+    "privacy_reason": "Contains sensitive authentication token requiring 'do_not_send_to_external_service' protocol."
+  }
+]

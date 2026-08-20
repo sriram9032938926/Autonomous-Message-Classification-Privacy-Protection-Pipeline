@@ -1,0 +1,4439 @@
+[
+  {
+    "item_id": "ITEM_001",
+    "type": "event",
+    "title": "Family Dinner",
+    "deadline": "2026-09-19",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0001"
+  },
+  {
+    "item_id": "ITEM_002",
+    "type": "task",
+    "title": "Review Privacy Checklist",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0002"
+  },
+  {
+    "item_id": "ITEM_003",
+    "type": "event",
+    "title": "Mentor Catch-up",
+    "deadline": "2026-09-16",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0003"
+  },
+  {
+    "item_id": "ITEM_004",
+    "type": "task",
+    "title": "Reply to Client Email",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0007"
+  },
+  {
+    "item_id": "ITEM_005",
+    "type": "task",
+    "title": "Pay Electricity Bill",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0010"
+  },
+  {
+    "item_id": "ITEM_006",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": "2026-09-18",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0011"
+  },
+  {
+    "item_id": "ITEM_007",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0017"
+  },
+  {
+    "item_id": "ITEM_008",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0019"
+  },
+  {
+    "item_id": "ITEM_009",
+    "type": "event",
+    "title": "Team Stand-up",
+    "deadline": "2026-09-04",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0023"
+  },
+  {
+    "item_id": "ITEM_010",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0027"
+  },
+  {
+    "item_id": "ITEM_011",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0028"
+  },
+  {
+    "item_id": "ITEM_012",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0031"
+  },
+  {
+    "item_id": "ITEM_013",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0032"
+  },
+  {
+    "item_id": "ITEM_014",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": "2026-09-18",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0034"
+  },
+  {
+    "item_id": "ITEM_015",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0035"
+  },
+  {
+    "item_id": "ITEM_016",
+    "type": "event",
+    "title": "Please join the study-group session on 2026-09-13, 1...",
+    "deadline": "2026-09-13",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0036"
+  },
+  {
+    "item_id": "ITEM_017",
+    "type": "event",
+    "title": "The review could be Friday afternoon.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0037"
+  },
+  {
+    "item_id": "ITEM_018",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0038"
+  },
+  {
+    "item_id": "ITEM_019",
+    "type": "task",
+    "title": "If possible, review the file before the meeting.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0041"
+  },
+  {
+    "item_id": "ITEM_020",
+    "type": "event",
+    "title": "The client discussion is scheduled for 2026-09-12 at...",
+    "deadline": "2026-09-12",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0042"
+  },
+  {
+    "item_id": "ITEM_021",
+    "type": "event",
+    "title": "Family Dinner",
+    "deadline": "2026-09-04",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0043"
+  },
+  {
+    "item_id": "ITEM_022",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0044"
+  },
+  {
+    "item_id": "ITEM_023",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0045"
+  },
+  {
+    "item_id": "ITEM_024",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0046"
+  },
+  {
+    "item_id": "ITEM_025",
+    "type": "event",
+    "title": "The product demo is scheduled for 2026-09-07 at 10:0...",
+    "deadline": "2026-09-07",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0049"
+  },
+  {
+    "item_id": "ITEM_026",
+    "type": "event",
+    "title": "Doctor Appointment",
+    "deadline": "2026-09-16",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0051"
+  },
+  {
+    "item_id": "ITEM_027",
+    "type": "event",
+    "title": "The review could be Friday afternoon.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0054"
+  },
+  {
+    "item_id": "ITEM_028",
+    "type": "event",
+    "title": "The client discussion is scheduled for 2026-09-07 at...",
+    "deadline": "2026-09-07",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0055"
+  },
+  {
+    "item_id": "ITEM_029",
+    "type": "task",
+    "title": "Please call Maya when you are free.",
+    "deadline": null,
+    "time": null,
+    "person": "Maya",
+    "source_message_id": "MSG_0056"
+  },
+  {
+    "item_id": "ITEM_030",
+    "type": "task",
+    "title": "Review Privacy Checklist",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0058"
+  },
+  {
+    "item_id": "ITEM_031",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0060"
+  },
+  {
+    "item_id": "ITEM_032",
+    "type": "event",
+    "title": "Please join the AI workshop on 2026-09-08, 15:00 at ...",
+    "deadline": "2026-09-08",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0062"
+  },
+  {
+    "item_id": "ITEM_033",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0063"
+  },
+  {
+    "item_id": "ITEM_034",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0065"
+  },
+  {
+    "item_id": "ITEM_035",
+    "type": "event",
+    "title": "The project review is scheduled for 2026-09-02 at 9:...",
+    "deadline": "2026-09-02",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0066"
+  },
+  {
+    "item_id": "ITEM_036",
+    "type": "event",
+    "title": "Please join the AI workshop on 2026-09-13, 16:00 at ...",
+    "deadline": "2026-09-13",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0067"
+  },
+  {
+    "item_id": "ITEM_037",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0072"
+  },
+  {
+    "item_id": "ITEM_038",
+    "type": "event",
+    "title": "The product demo is scheduled for 2026-09-17 at 12:0...",
+    "deadline": "2026-09-17",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0077"
+  },
+  {
+    "item_id": "ITEM_039",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0083"
+  },
+  {
+    "item_id": "ITEM_040",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0088"
+  },
+  {
+    "item_id": "ITEM_041",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0089"
+  },
+  {
+    "item_id": "ITEM_042",
+    "type": "event",
+    "title": "Calendar update: placement briefing, 2026-09-04 at 1...",
+    "deadline": "2026-09-04",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0097"
+  },
+  {
+    "item_id": "ITEM_043",
+    "type": "event",
+    "title": "The review could be Friday afternoon.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0098"
+  },
+  {
+    "item_id": "ITEM_044",
+    "type": "event",
+    "title": "Sprint Planning",
+    "deadline": "2026-09-16",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0100"
+  },
+  {
+    "item_id": "ITEM_045",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0101"
+  },
+  {
+    "item_id": "ITEM_046",
+    "type": "task",
+    "title": "Send Revised Presentation",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0102"
+  },
+  {
+    "item_id": "ITEM_047",
+    "type": "event",
+    "title": "Technical Interview",
+    "deadline": "2026-09-05",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0103"
+  },
+  {
+    "item_id": "ITEM_048",
+    "type": "task",
+    "title": "If possible, review the file before the meeting.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0110"
+  },
+  {
+    "item_id": "ITEM_049",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0111"
+  },
+  {
+    "item_id": "ITEM_050",
+    "type": "task",
+    "title": "Send Revised Presentation",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0112"
+  },
+  {
+    "item_id": "ITEM_051",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0113"
+  },
+  {
+    "item_id": "ITEM_052",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0114"
+  },
+  {
+    "item_id": "ITEM_053",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0115"
+  },
+  {
+    "item_id": "ITEM_054",
+    "type": "task",
+    "title": "Send Expense Receipt",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0119"
+  },
+  {
+    "item_id": "ITEM_055",
+    "type": "task",
+    "title": "Please call Maya when you are free.",
+    "deadline": null,
+    "time": null,
+    "person": "Maya",
+    "source_message_id": "MSG_0121"
+  },
+  {
+    "item_id": "ITEM_056",
+    "type": "event",
+    "title": "Mentor Catch-up",
+    "deadline": "2026-09-11",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0122"
+  },
+  {
+    "item_id": "ITEM_057",
+    "type": "event",
+    "title": "Calendar update: placement briefing, 2026-09-19 at 1...",
+    "deadline": "2026-09-19",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0123"
+  },
+  {
+    "item_id": "ITEM_058",
+    "type": "event",
+    "title": "Mentor Catch-up",
+    "deadline": "2026-09-06",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0124"
+  },
+  {
+    "item_id": "ITEM_059",
+    "type": "event",
+    "title": "Doctor Appointment",
+    "deadline": "2026-09-11",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0127"
+  },
+  {
+    "item_id": "ITEM_060",
+    "type": "event",
+    "title": "Team Stand-up",
+    "deadline": "2026-09-14",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0129"
+  },
+  {
+    "item_id": "ITEM_061",
+    "type": "event",
+    "title": "The project review is scheduled for 2026-09-17 at 16...",
+    "deadline": "2026-09-17",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0131"
+  },
+  {
+    "item_id": "ITEM_062",
+    "type": "event",
+    "title": "Let us meet sometime next week.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0133"
+  },
+  {
+    "item_id": "ITEM_063",
+    "type": "event",
+    "title": "Mentor Catch-up",
+    "deadline": "2026-09-21",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0135"
+  },
+  {
+    "item_id": "ITEM_064",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0136"
+  },
+  {
+    "item_id": "ITEM_065",
+    "type": "event",
+    "title": "The product demo is scheduled for 2026-09-17 at 16:0...",
+    "deadline": "2026-09-17",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0138"
+  },
+  {
+    "item_id": "ITEM_066",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0139"
+  },
+  {
+    "item_id": "ITEM_067",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0144"
+  },
+  {
+    "item_id": "ITEM_068",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0145"
+  },
+  {
+    "item_id": "ITEM_069",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0147"
+  },
+  {
+    "item_id": "ITEM_070",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0150"
+  },
+  {
+    "item_id": "ITEM_071",
+    "type": "event",
+    "title": "The project review is scheduled for 2026-09-07 at 10...",
+    "deadline": "2026-09-07",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0151"
+  },
+  {
+    "item_id": "ITEM_072",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0153"
+  },
+  {
+    "item_id": "ITEM_073",
+    "type": "event",
+    "title": "Calendar update: placement briefing, 2026-09-04 at 1...",
+    "deadline": "2026-09-04",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0154"
+  },
+  {
+    "item_id": "ITEM_074",
+    "type": "event",
+    "title": "Calendar update: placement briefing, 2026-09-14 at 1...",
+    "deadline": "2026-09-14",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0156"
+  },
+  {
+    "item_id": "ITEM_075",
+    "type": "task",
+    "title": "Verify Dataset Labels",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0157"
+  },
+  {
+    "item_id": "ITEM_076",
+    "type": "task",
+    "title": "Submit Weekly Report",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0160"
+  },
+  {
+    "item_id": "ITEM_077",
+    "type": "event",
+    "title": "Please join the study-group session on 2026-09-03, 1...",
+    "deadline": "2026-09-03",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0162"
+  },
+  {
+    "item_id": "ITEM_078",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0163"
+  },
+  {
+    "item_id": "ITEM_079",
+    "type": "event",
+    "title": "Please join the AI workshop on 2026-09-08, 11:00 at ...",
+    "deadline": "2026-09-08",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0168"
+  },
+  {
+    "item_id": "ITEM_080",
+    "type": "event",
+    "title": "Sprint Planning",
+    "deadline": "2026-09-06",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0169"
+  },
+  {
+    "item_id": "ITEM_081",
+    "type": "task",
+    "title": "Share Meeting Notes",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0170"
+  },
+  {
+    "item_id": "ITEM_082",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0171"
+  },
+  {
+    "item_id": "ITEM_083",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0173"
+  },
+  {
+    "item_id": "ITEM_084",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0175"
+  },
+  {
+    "item_id": "ITEM_085",
+    "type": "event",
+    "title": "Sprint Planning",
+    "deadline": "2026-09-21",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0177"
+  },
+  {
+    "item_id": "ITEM_086",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0178"
+  },
+  {
+    "item_id": "ITEM_087",
+    "type": "event",
+    "title": "Calendar update: placement briefing, 2026-09-09 at 1...",
+    "deadline": "2026-09-09",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0184"
+  },
+  {
+    "item_id": "ITEM_088",
+    "type": "task",
+    "title": "If possible, review the file before the meeting.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0190"
+  },
+  {
+    "item_id": "ITEM_089",
+    "type": "task",
+    "title": "Please call Maya when you are free.",
+    "deadline": null,
+    "time": null,
+    "person": "Maya",
+    "source_message_id": "MSG_0193"
+  },
+  {
+    "item_id": "ITEM_090",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0195"
+  },
+  {
+    "item_id": "ITEM_091",
+    "type": "task",
+    "title": "If possible, review the file before the meeting.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0198"
+  },
+  {
+    "item_id": "ITEM_092",
+    "type": "event",
+    "title": "Calendar update: placement briefing, 2026-09-04 at 1...",
+    "deadline": "2026-09-04",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0201"
+  },
+  {
+    "item_id": "ITEM_093",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0203"
+  },
+  {
+    "item_id": "ITEM_094",
+    "type": "event",
+    "title": "Let us meet sometime next week.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0207"
+  },
+  {
+    "item_id": "ITEM_095",
+    "type": "task",
+    "title": "Submit Weekly Report",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0208"
+  },
+  {
+    "item_id": "ITEM_096",
+    "type": "event",
+    "title": "Team Stand-up",
+    "deadline": "2026-09-19",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0209"
+  },
+  {
+    "item_id": "ITEM_097",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0210"
+  },
+  {
+    "item_id": "ITEM_098",
+    "type": "event",
+    "title": "The review could be Friday afternoon.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0213"
+  },
+  {
+    "item_id": "ITEM_099",
+    "type": "task",
+    "title": "Review Privacy Checklist",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0215"
+  },
+  {
+    "item_id": "ITEM_100",
+    "type": "event",
+    "title": "The project review is scheduled for 2026-09-12 at 11...",
+    "deadline": "2026-09-12",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0216"
+  },
+  {
+    "item_id": "ITEM_101",
+    "type": "event",
+    "title": "The review could be Friday afternoon.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0217"
+  },
+  {
+    "item_id": "ITEM_102",
+    "type": "event",
+    "title": "Sprint Planning",
+    "deadline": "2026-09-16",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0218"
+  },
+  {
+    "item_id": "ITEM_103",
+    "type": "task",
+    "title": "Send Expense Receipt",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0219"
+  },
+  {
+    "item_id": "ITEM_104",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0220"
+  },
+  {
+    "item_id": "ITEM_105",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0221"
+  },
+  {
+    "item_id": "ITEM_106",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": "2026-09-18",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0222"
+  },
+  {
+    "item_id": "ITEM_107",
+    "type": "event",
+    "title": "Please join the study-group session on 2026-09-13, 1...",
+    "deadline": "2026-09-13",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0223"
+  },
+  {
+    "item_id": "ITEM_108",
+    "type": "task",
+    "title": "Verify Dataset Labels",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0226"
+  },
+  {
+    "item_id": "ITEM_109",
+    "type": "task",
+    "title": "Send Revised Presentation",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0231"
+  },
+  {
+    "item_id": "ITEM_110",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0232"
+  },
+  {
+    "item_id": "ITEM_111",
+    "type": "event",
+    "title": "Please join the AI workshop on 2026-09-03, 14:00 at ...",
+    "deadline": "2026-09-03",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0244"
+  },
+  {
+    "item_id": "ITEM_112",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0245"
+  },
+  {
+    "item_id": "ITEM_113",
+    "type": "event",
+    "title": "Mentor Catch-up",
+    "deadline": "2026-09-21",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0249"
+  },
+  {
+    "item_id": "ITEM_114",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0251"
+  },
+  {
+    "item_id": "ITEM_115",
+    "type": "task",
+    "title": "Back Up Project Files",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0252"
+  },
+  {
+    "item_id": "ITEM_116",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": "2026-09-03",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0255"
+  },
+  {
+    "item_id": "ITEM_117",
+    "type": "event",
+    "title": "The client discussion is scheduled for 2026-09-02 at...",
+    "deadline": "2026-09-02",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0258"
+  },
+  {
+    "item_id": "ITEM_118",
+    "type": "task",
+    "title": "Pay Electricity Bill",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0265"
+  },
+  {
+    "item_id": "ITEM_119",
+    "type": "event",
+    "title": "Sprint Planning",
+    "deadline": "2026-09-11",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0268"
+  },
+  {
+    "item_id": "ITEM_120",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0269"
+  },
+  {
+    "item_id": "ITEM_121",
+    "type": "event",
+    "title": "Design Review",
+    "deadline": "2026-09-15",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0271"
+  },
+  {
+    "item_id": "ITEM_122",
+    "type": "event",
+    "title": "Family Dinner",
+    "deadline": "2026-09-19",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0275"
+  },
+  {
+    "item_id": "ITEM_123",
+    "type": "event",
+    "title": "Let us meet sometime next week.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0278"
+  },
+  {
+    "item_id": "ITEM_124",
+    "type": "task",
+    "title": "Share Meeting Notes",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0280"
+  },
+  {
+    "item_id": "ITEM_125",
+    "type": "event",
+    "title": "Technical Interview",
+    "deadline": "2026-09-10",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0282"
+  },
+  {
+    "item_id": "ITEM_126",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0283"
+  },
+  {
+    "item_id": "ITEM_127",
+    "type": "task",
+    "title": "Reply to Client Email",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0287"
+  },
+  {
+    "item_id": "ITEM_128",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0289"
+  },
+  {
+    "item_id": "ITEM_129",
+    "type": "event",
+    "title": "Design Review",
+    "deadline": "2026-09-20",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0293"
+  },
+  {
+    "item_id": "ITEM_130",
+    "type": "event",
+    "title": "Mentor Catch-up",
+    "deadline": "2026-09-11",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0294"
+  },
+  {
+    "item_id": "ITEM_131",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0300"
+  },
+  {
+    "item_id": "ITEM_132",
+    "type": "task",
+    "title": "Reply to Client Email",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0301"
+  },
+  {
+    "item_id": "ITEM_133",
+    "type": "event",
+    "title": "The client discussion is scheduled for 2026-09-17 at...",
+    "deadline": "2026-09-17",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0302"
+  },
+  {
+    "item_id": "ITEM_134",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0306"
+  },
+  {
+    "item_id": "ITEM_135",
+    "type": "task",
+    "title": "Send Revised Presentation",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0307"
+  },
+  {
+    "item_id": "ITEM_136",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0309"
+  },
+  {
+    "item_id": "ITEM_137",
+    "type": "event",
+    "title": "Please join the study-group session on 2026-09-18, 9...",
+    "deadline": "2026-09-18",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0311"
+  },
+  {
+    "item_id": "ITEM_138",
+    "type": "task",
+    "title": "Back Up Project Files",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0312"
+  },
+  {
+    "item_id": "ITEM_139",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0314"
+  },
+  {
+    "item_id": "ITEM_140",
+    "type": "event",
+    "title": "Technical Interview",
+    "deadline": "2026-09-20",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0316"
+  },
+  {
+    "item_id": "ITEM_141",
+    "type": "task",
+    "title": "Send Revised Presentation",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0317"
+  },
+  {
+    "item_id": "ITEM_142",
+    "type": "event",
+    "title": "College Seminar",
+    "deadline": "2026-09-10",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0327"
+  },
+  {
+    "item_id": "ITEM_143",
+    "type": "event",
+    "title": "Please join the AI workshop on 2026-09-03, 14:00 at ...",
+    "deadline": "2026-09-03",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0330"
+  },
+  {
+    "item_id": "ITEM_144",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0331"
+  },
+  {
+    "item_id": "ITEM_145",
+    "type": "task",
+    "title": "Back Up Project Files",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0334"
+  },
+  {
+    "item_id": "ITEM_146",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0335"
+  },
+  {
+    "item_id": "ITEM_147",
+    "type": "event",
+    "title": "The product demo is scheduled for 2026-09-12 at 15:0...",
+    "deadline": "2026-09-12",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0338"
+  },
+  {
+    "item_id": "ITEM_148",
+    "type": "task",
+    "title": "Pay Electricity Bill",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0339"
+  },
+  {
+    "item_id": "ITEM_149",
+    "type": "task",
+    "title": "Back Up Project Files",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0340"
+  },
+  {
+    "item_id": "ITEM_150",
+    "type": "event",
+    "title": "The product demo is scheduled for 2026-09-12 at 11:0...",
+    "deadline": "2026-09-12",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0342"
+  },
+  {
+    "item_id": "ITEM_151",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0345"
+  },
+  {
+    "item_id": "ITEM_152",
+    "type": "event",
+    "title": "Let us meet sometime next week.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0350"
+  },
+  {
+    "item_id": "ITEM_153",
+    "type": "event",
+    "title": "Let us meet sometime next week.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0354"
+  },
+  {
+    "item_id": "ITEM_154",
+    "type": "event",
+    "title": "The client discussion is scheduled for 2026-09-12 at...",
+    "deadline": "2026-09-12",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0356"
+  },
+  {
+    "item_id": "ITEM_155",
+    "type": "event",
+    "title": "The project review is scheduled for 2026-09-17 at 12...",
+    "deadline": "2026-09-17",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0357"
+  },
+  {
+    "item_id": "ITEM_156",
+    "type": "task",
+    "title": "Send Expense Receipt",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0358"
+  },
+  {
+    "item_id": "ITEM_157",
+    "type": "event",
+    "title": "Technical Interview",
+    "deadline": "2026-09-15",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0359"
+  },
+  {
+    "item_id": "ITEM_158",
+    "type": "task",
+    "title": "Verify Dataset Labels",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0360"
+  },
+  {
+    "item_id": "ITEM_159",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0361"
+  },
+  {
+    "item_id": "ITEM_160",
+    "type": "event",
+    "title": "Design Review",
+    "deadline": "2026-09-10",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0363"
+  },
+  {
+    "item_id": "ITEM_161",
+    "type": "task",
+    "title": "Reply to Client Email",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0365"
+  },
+  {
+    "item_id": "ITEM_162",
+    "type": "task",
+    "title": "Reply to Client Email",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0366"
+  },
+  {
+    "item_id": "ITEM_163",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0368"
+  },
+  {
+    "item_id": "ITEM_164",
+    "type": "task",
+    "title": "Submit Weekly Report",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0369"
+  },
+  {
+    "item_id": "ITEM_165",
+    "type": "task",
+    "title": "If possible, review the file before the meeting.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0377"
+  },
+  {
+    "item_id": "ITEM_166",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": "2026-09-13",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0378"
+  },
+  {
+    "item_id": "ITEM_167",
+    "type": "task",
+    "title": "Submit Weekly Report",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0379"
+  },
+  {
+    "item_id": "ITEM_168",
+    "type": "event",
+    "title": "The project review is scheduled for 2026-09-07 at 14...",
+    "deadline": "2026-09-07",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0382"
+  },
+  {
+    "item_id": "ITEM_169",
+    "type": "event",
+    "title": "College Seminar",
+    "deadline": "2026-09-05",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0384"
+  },
+  {
+    "item_id": "ITEM_170",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0394"
+  },
+  {
+    "item_id": "ITEM_171",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0396"
+  },
+  {
+    "item_id": "ITEM_172",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0398"
+  },
+  {
+    "item_id": "ITEM_173",
+    "type": "task",
+    "title": "Back Up Project Files",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0401"
+  },
+  {
+    "item_id": "ITEM_174",
+    "type": "event",
+    "title": "Doctor Appointment",
+    "deadline": "2026-09-16",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0405"
+  },
+  {
+    "item_id": "ITEM_175",
+    "type": "task",
+    "title": "Send Revised Presentation",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0407"
+  },
+  {
+    "item_id": "ITEM_176",
+    "type": "task",
+    "title": "Please call Maya when you are free.",
+    "deadline": null,
+    "time": null,
+    "person": "Maya",
+    "source_message_id": "MSG_0410"
+  },
+  {
+    "item_id": "ITEM_177",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0412"
+  },
+  {
+    "item_id": "ITEM_178",
+    "type": "event",
+    "title": "Technical Interview",
+    "deadline": "2026-09-05",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0413"
+  },
+  {
+    "item_id": "ITEM_179",
+    "type": "event",
+    "title": "Design Review",
+    "deadline": "2026-09-05",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0414"
+  },
+  {
+    "item_id": "ITEM_180",
+    "type": "task",
+    "title": "Verify Dataset Labels",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0417"
+  },
+  {
+    "item_id": "ITEM_181",
+    "type": "task",
+    "title": "Reply to Client Email",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0418"
+  },
+  {
+    "item_id": "ITEM_182",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0420"
+  },
+  {
+    "item_id": "ITEM_183",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0422"
+  },
+  {
+    "item_id": "ITEM_184",
+    "type": "event",
+    "title": "The product demo is scheduled for 2026-09-02 at 9:00...",
+    "deadline": "2026-09-02",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0423"
+  },
+  {
+    "item_id": "ITEM_185",
+    "type": "event",
+    "title": "Sprint Planning",
+    "deadline": "2026-09-11",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0424"
+  },
+  {
+    "item_id": "ITEM_186",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0425"
+  },
+  {
+    "item_id": "ITEM_187",
+    "type": "event",
+    "title": "The project review is scheduled for 2026-09-17 at 16...",
+    "deadline": "2026-09-17",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0427"
+  },
+  {
+    "item_id": "ITEM_188",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": "2026-09-08",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0430"
+  },
+  {
+    "item_id": "ITEM_189",
+    "type": "event",
+    "title": "Family Dinner",
+    "deadline": "2026-09-14",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0435"
+  },
+  {
+    "item_id": "ITEM_190",
+    "type": "task",
+    "title": "Please call Maya when you are free.",
+    "deadline": null,
+    "time": null,
+    "person": "Maya",
+    "source_message_id": "MSG_0438"
+  },
+  {
+    "item_id": "ITEM_191",
+    "type": "event",
+    "title": "Let us meet sometime next week.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0444"
+  },
+  {
+    "item_id": "ITEM_192",
+    "type": "event",
+    "title": "Technical Interview",
+    "deadline": "2026-09-10",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0445"
+  },
+  {
+    "item_id": "ITEM_193",
+    "type": "event",
+    "title": "Please join the AI workshop on 2026-09-18, 9:00 at C...",
+    "deadline": "2026-09-18",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0449"
+  },
+  {
+    "item_id": "ITEM_194",
+    "type": "event",
+    "title": "College Seminar",
+    "deadline": "2026-09-15",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0450"
+  },
+  {
+    "item_id": "ITEM_195",
+    "type": "task",
+    "title": "Reply to Client Email",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0451"
+  },
+  {
+    "item_id": "ITEM_196",
+    "type": "task",
+    "title": "Verify Dataset Labels",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0455"
+  },
+  {
+    "item_id": "ITEM_197",
+    "type": "event",
+    "title": "The client discussion is scheduled for 2026-09-02 at...",
+    "deadline": "2026-09-02",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0456"
+  },
+  {
+    "item_id": "ITEM_198",
+    "type": "task",
+    "title": "If possible, review the file before the meeting.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0457"
+  },
+  {
+    "item_id": "ITEM_199",
+    "type": "event",
+    "title": "Team Stand-up",
+    "deadline": "2026-09-04",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0458"
+  },
+  {
+    "item_id": "ITEM_200",
+    "type": "event",
+    "title": "The review could be Friday afternoon.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0462"
+  },
+  {
+    "item_id": "ITEM_201",
+    "type": "event",
+    "title": "Doctor Appointment",
+    "deadline": "2026-09-06",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0465"
+  },
+  {
+    "item_id": "ITEM_202",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0467"
+  },
+  {
+    "item_id": "ITEM_203",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0468"
+  },
+  {
+    "item_id": "ITEM_204",
+    "type": "task",
+    "title": "Send Expense Receipt",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0473"
+  },
+  {
+    "item_id": "ITEM_205",
+    "type": "event",
+    "title": "Family Dinner",
+    "deadline": "2026-09-14",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0479"
+  },
+  {
+    "item_id": "ITEM_206",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0480"
+  },
+  {
+    "item_id": "ITEM_207",
+    "type": "task",
+    "title": "Review Privacy Checklist",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0481"
+  },
+  {
+    "item_id": "ITEM_208",
+    "type": "task",
+    "title": "Verify Dataset Labels",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0483"
+  },
+  {
+    "item_id": "ITEM_209",
+    "type": "event",
+    "title": "Team Stand-up",
+    "deadline": "2026-09-04",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0484"
+  },
+  {
+    "item_id": "ITEM_210",
+    "type": "task",
+    "title": "Send Expense Receipt",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0485"
+  },
+  {
+    "item_id": "ITEM_211",
+    "type": "task",
+    "title": "Review Privacy Checklist",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0487"
+  },
+  {
+    "item_id": "ITEM_212",
+    "type": "event",
+    "title": "Mentor Catch-up",
+    "deadline": "2026-09-16",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0488"
+  },
+  {
+    "item_id": "ITEM_213",
+    "type": "event",
+    "title": "The review could be Friday afternoon.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0493"
+  },
+  {
+    "item_id": "ITEM_214",
+    "type": "task",
+    "title": "Please call Maya when you are free.",
+    "deadline": null,
+    "time": null,
+    "person": "Maya",
+    "source_message_id": "MSG_0495"
+  },
+  {
+    "item_id": "ITEM_215",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0498"
+  },
+  {
+    "item_id": "ITEM_216",
+    "type": "event",
+    "title": "Let us meet sometime next week.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0502"
+  },
+  {
+    "item_id": "ITEM_217",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0503"
+  },
+  {
+    "item_id": "ITEM_218",
+    "type": "event",
+    "title": "Please join the study-group session on 2026-09-18, 1...",
+    "deadline": "2026-09-18",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0508"
+  },
+  {
+    "item_id": "ITEM_219",
+    "type": "event",
+    "title": "Doctor Appointment",
+    "deadline": "2026-09-11",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0511"
+  },
+  {
+    "item_id": "ITEM_220",
+    "type": "task",
+    "title": "Send Revised Presentation",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0512"
+  },
+  {
+    "item_id": "ITEM_221",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0513"
+  },
+  {
+    "item_id": "ITEM_222",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0515"
+  },
+  {
+    "item_id": "ITEM_223",
+    "type": "task",
+    "title": "Verify Dataset Labels",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0517"
+  },
+  {
+    "item_id": "ITEM_224",
+    "type": "event",
+    "title": "College Seminar",
+    "deadline": "2026-09-05",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0519"
+  },
+  {
+    "item_id": "ITEM_225",
+    "type": "task",
+    "title": "If possible, review the file before the meeting.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0524"
+  },
+  {
+    "item_id": "ITEM_226",
+    "type": "event",
+    "title": "Let us meet sometime next week.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0526"
+  },
+  {
+    "item_id": "ITEM_227",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0527"
+  },
+  {
+    "item_id": "ITEM_228",
+    "type": "task",
+    "title": "Submit Weekly Report",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0530"
+  },
+  {
+    "item_id": "ITEM_229",
+    "type": "task",
+    "title": "Send Expense Receipt",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0531"
+  },
+  {
+    "item_id": "ITEM_230",
+    "type": "task",
+    "title": "Pay Electricity Bill",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0536"
+  },
+  {
+    "item_id": "ITEM_231",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0537"
+  },
+  {
+    "item_id": "ITEM_232",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0546"
+  },
+  {
+    "item_id": "ITEM_233",
+    "type": "task",
+    "title": "Submit Weekly Report",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0547"
+  },
+  {
+    "item_id": "ITEM_234",
+    "type": "event",
+    "title": "Please join the study-group session on 2026-09-08, 1...",
+    "deadline": "2026-09-08",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0549"
+  },
+  {
+    "item_id": "ITEM_235",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0551"
+  },
+  {
+    "item_id": "ITEM_236",
+    "type": "task",
+    "title": "Submit Weekly Report",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0552"
+  },
+  {
+    "item_id": "ITEM_237",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0553"
+  },
+  {
+    "item_id": "ITEM_238",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0554"
+  },
+  {
+    "item_id": "ITEM_239",
+    "type": "task",
+    "title": "Share Meeting Notes",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0556"
+  },
+  {
+    "item_id": "ITEM_240",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0557"
+  },
+  {
+    "item_id": "ITEM_241",
+    "type": "task",
+    "title": "If possible, review the file before the meeting.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0559"
+  },
+  {
+    "item_id": "ITEM_242",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0561"
+  },
+  {
+    "item_id": "ITEM_243",
+    "type": "event",
+    "title": "Design Review",
+    "deadline": "2026-09-10",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0565"
+  },
+  {
+    "item_id": "ITEM_244",
+    "type": "task",
+    "title": "Share Meeting Notes",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0566"
+  },
+  {
+    "item_id": "ITEM_245",
+    "type": "task",
+    "title": "Review Privacy Checklist",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0569"
+  },
+  {
+    "item_id": "ITEM_246",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0574"
+  },
+  {
+    "item_id": "ITEM_247",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0577"
+  },
+  {
+    "item_id": "ITEM_248",
+    "type": "task",
+    "title": "Review Privacy Checklist",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0578"
+  },
+  {
+    "item_id": "ITEM_249",
+    "type": "event",
+    "title": "Technical Interview",
+    "deadline": "2026-09-10",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0579"
+  },
+  {
+    "item_id": "ITEM_250",
+    "type": "task",
+    "title": "If possible, review the file before the meeting.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0580"
+  },
+  {
+    "item_id": "ITEM_251",
+    "type": "event",
+    "title": "Team Stand-up",
+    "deadline": "2026-09-19",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0584"
+  },
+  {
+    "item_id": "ITEM_252",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0585"
+  },
+  {
+    "item_id": "ITEM_253",
+    "type": "event",
+    "title": "The client discussion is scheduled for 2026-09-07 at...",
+    "deadline": "2026-09-07",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0588"
+  },
+  {
+    "item_id": "ITEM_254",
+    "type": "event",
+    "title": "Calendar update: placement briefing, 2026-09-09 at 1...",
+    "deadline": "2026-09-09",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0590"
+  },
+  {
+    "item_id": "ITEM_255",
+    "type": "event",
+    "title": "Doctor Appointment",
+    "deadline": "2026-09-21",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0592"
+  },
+  {
+    "item_id": "ITEM_256",
+    "type": "event",
+    "title": "College Seminar",
+    "deadline": "2026-09-05",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0600"
+  },
+  {
+    "item_id": "ITEM_257",
+    "type": "event",
+    "title": "Doctor Appointment",
+    "deadline": "2026-09-21",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0601"
+  },
+  {
+    "item_id": "ITEM_258",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0602"
+  },
+  {
+    "item_id": "ITEM_259",
+    "type": "event",
+    "title": "Family Dinner",
+    "deadline": "2026-09-09",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0603"
+  },
+  {
+    "item_id": "ITEM_260",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0605"
+  },
+  {
+    "item_id": "ITEM_261",
+    "type": "event",
+    "title": "The product demo is scheduled for 2026-09-07 at 14:0...",
+    "deadline": "2026-09-07",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0606"
+  },
+  {
+    "item_id": "ITEM_262",
+    "type": "task",
+    "title": "Verify Dataset Labels",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0607"
+  },
+  {
+    "item_id": "ITEM_263",
+    "type": "task",
+    "title": "Verify Dataset Labels",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0612"
+  },
+  {
+    "item_id": "ITEM_264",
+    "type": "task",
+    "title": "Pay Electricity Bill",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0614"
+  },
+  {
+    "item_id": "ITEM_265",
+    "type": "task",
+    "title": "Back Up Project Files",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0615"
+  },
+  {
+    "item_id": "ITEM_266",
+    "type": "event",
+    "title": "Design Review",
+    "deadline": "2026-09-15",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0616"
+  },
+  {
+    "item_id": "ITEM_267",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0617"
+  },
+  {
+    "item_id": "ITEM_268",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0618"
+  },
+  {
+    "item_id": "ITEM_269",
+    "type": "event",
+    "title": "The product demo is scheduled for 2026-09-07 at 10:0...",
+    "deadline": "2026-09-07",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0619"
+  },
+  {
+    "item_id": "ITEM_270",
+    "type": "task",
+    "title": "Pay Electricity Bill",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0620"
+  },
+  {
+    "item_id": "ITEM_271",
+    "type": "task",
+    "title": "Review Privacy Checklist",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0621"
+  },
+  {
+    "item_id": "ITEM_272",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0622"
+  },
+  {
+    "item_id": "ITEM_273",
+    "type": "event",
+    "title": "Please join the study-group session on 2026-09-13, 1...",
+    "deadline": "2026-09-13",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0623"
+  },
+  {
+    "item_id": "ITEM_274",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0624"
+  },
+  {
+    "item_id": "ITEM_275",
+    "type": "event",
+    "title": "Please join the AI workshop on 2026-09-08, 15:00 at ...",
+    "deadline": "2026-09-08",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0628"
+  },
+  {
+    "item_id": "ITEM_276",
+    "type": "event",
+    "title": "Technical Interview",
+    "deadline": "2026-09-15",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0630"
+  },
+  {
+    "item_id": "ITEM_277",
+    "type": "event",
+    "title": "Team Stand-up",
+    "deadline": "2026-09-09",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0631"
+  },
+  {
+    "item_id": "ITEM_278",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0633"
+  },
+  {
+    "item_id": "ITEM_279",
+    "type": "task",
+    "title": "Please call Maya when you are free.",
+    "deadline": null,
+    "time": null,
+    "person": "Maya",
+    "source_message_id": "MSG_0634"
+  },
+  {
+    "item_id": "ITEM_280",
+    "type": "event",
+    "title": "The review could be Friday afternoon.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0635"
+  },
+  {
+    "item_id": "ITEM_281",
+    "type": "event",
+    "title": "Doctor Appointment",
+    "deadline": "2026-09-06",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0637"
+  },
+  {
+    "item_id": "ITEM_282",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0638"
+  },
+  {
+    "item_id": "ITEM_283",
+    "type": "task",
+    "title": "Submit Weekly Report",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0639"
+  },
+  {
+    "item_id": "ITEM_284",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0640"
+  },
+  {
+    "item_id": "ITEM_285",
+    "type": "event",
+    "title": "Sprint Planning",
+    "deadline": "2026-09-16",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0643"
+  },
+  {
+    "item_id": "ITEM_286",
+    "type": "event",
+    "title": "Sprint Planning",
+    "deadline": "2026-09-06",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0645"
+  },
+  {
+    "item_id": "ITEM_287",
+    "type": "event",
+    "title": "Family Dinner",
+    "deadline": "2026-09-14",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0646"
+  },
+  {
+    "item_id": "ITEM_288",
+    "type": "task",
+    "title": "Share Meeting Notes",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0652"
+  },
+  {
+    "item_id": "ITEM_289",
+    "type": "task",
+    "title": "Review Privacy Checklist",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0653"
+  },
+  {
+    "item_id": "ITEM_290",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0656"
+  },
+  {
+    "item_id": "ITEM_291",
+    "type": "task",
+    "title": "Back Up Project Files",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0657"
+  },
+  {
+    "item_id": "ITEM_292",
+    "type": "task",
+    "title": "Verify Dataset Labels",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0658"
+  },
+  {
+    "item_id": "ITEM_293",
+    "type": "task",
+    "title": "Back Up Project Files",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0659"
+  },
+  {
+    "item_id": "ITEM_294",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": "2026-09-03",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0660"
+  },
+  {
+    "item_id": "ITEM_295",
+    "type": "task",
+    "title": "Send Revised Presentation",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0662"
+  },
+  {
+    "item_id": "ITEM_296",
+    "type": "event",
+    "title": "Sprint Planning",
+    "deadline": "2026-09-11",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0664"
+  },
+  {
+    "item_id": "ITEM_297",
+    "type": "task",
+    "title": "Pay Electricity Bill",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0667"
+  },
+  {
+    "item_id": "ITEM_298",
+    "type": "event",
+    "title": "Sprint Planning",
+    "deadline": "2026-09-21",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0668"
+  },
+  {
+    "item_id": "ITEM_299",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0670"
+  },
+  {
+    "item_id": "ITEM_300",
+    "type": "event",
+    "title": "Doctor Appointment",
+    "deadline": "2026-09-21",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0673"
+  },
+  {
+    "item_id": "ITEM_301",
+    "type": "event",
+    "title": "The project review is scheduled for 2026-09-12 at 15...",
+    "deadline": "2026-09-12",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0674"
+  },
+  {
+    "item_id": "ITEM_302",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": "2026-09-08",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0683"
+  },
+  {
+    "item_id": "ITEM_303",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0688"
+  },
+  {
+    "item_id": "ITEM_304",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0690"
+  },
+  {
+    "item_id": "ITEM_305",
+    "type": "event",
+    "title": "The project review is scheduled for 2026-09-02 at 13...",
+    "deadline": "2026-09-02",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0693"
+  },
+  {
+    "item_id": "ITEM_306",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0694"
+  },
+  {
+    "item_id": "ITEM_307",
+    "type": "event",
+    "title": "Family Dinner",
+    "deadline": "2026-09-09",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0697"
+  },
+  {
+    "item_id": "ITEM_308",
+    "type": "event",
+    "title": "Please join the study-group session on 2026-09-03, 1...",
+    "deadline": "2026-09-03",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0706"
+  },
+  {
+    "item_id": "ITEM_309",
+    "type": "event",
+    "title": "The product demo is scheduled for 2026-09-02 at 13:0...",
+    "deadline": "2026-09-02",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0707"
+  },
+  {
+    "item_id": "ITEM_310",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0708"
+  },
+  {
+    "item_id": "ITEM_311",
+    "type": "event",
+    "title": "Doctor Appointment",
+    "deadline": "2026-09-06",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0711"
+  },
+  {
+    "item_id": "ITEM_312",
+    "type": "task",
+    "title": "Share Meeting Notes",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0716"
+  },
+  {
+    "item_id": "ITEM_313",
+    "type": "task",
+    "title": "Please call Maya when you are free.",
+    "deadline": null,
+    "time": null,
+    "person": "Maya",
+    "source_message_id": "MSG_0717"
+  },
+  {
+    "item_id": "ITEM_314",
+    "type": "event",
+    "title": "Mentor Catch-up",
+    "deadline": "2026-09-06",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0719"
+  },
+  {
+    "item_id": "ITEM_315",
+    "type": "task",
+    "title": "Share Meeting Notes",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0720"
+  },
+  {
+    "item_id": "ITEM_316",
+    "type": "task",
+    "title": "Send Expense Receipt",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0722"
+  },
+  {
+    "item_id": "ITEM_317",
+    "type": "task",
+    "title": "Send Revised Presentation",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0725"
+  },
+  {
+    "item_id": "ITEM_318",
+    "type": "task",
+    "title": "Submit Weekly Report",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0730"
+  },
+  {
+    "item_id": "ITEM_319",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0736"
+  },
+  {
+    "item_id": "ITEM_320",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0740"
+  },
+  {
+    "item_id": "ITEM_321",
+    "type": "task",
+    "title": "Pay Electricity Bill",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0743"
+  },
+  {
+    "item_id": "ITEM_322",
+    "type": "event",
+    "title": "Team Stand-up",
+    "deadline": "2026-09-09",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0744"
+  },
+  {
+    "item_id": "ITEM_323",
+    "type": "event",
+    "title": "Please join the AI workshop on 2026-09-03, 10:00 at ...",
+    "deadline": "2026-09-03",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0745"
+  },
+  {
+    "item_id": "ITEM_324",
+    "type": "event",
+    "title": "Please join the AI workshop on 2026-09-18, 13:00 at ...",
+    "deadline": "2026-09-18",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0747"
+  },
+  {
+    "item_id": "ITEM_325",
+    "type": "task",
+    "title": "Pay Electricity Bill",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0754"
+  },
+  {
+    "item_id": "ITEM_326",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0757"
+  },
+  {
+    "item_id": "ITEM_327",
+    "type": "event",
+    "title": "The product demo is scheduled for 2026-09-12 at 11:0...",
+    "deadline": "2026-09-12",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0759"
+  },
+  {
+    "item_id": "ITEM_328",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0761"
+  },
+  {
+    "item_id": "ITEM_329",
+    "type": "event",
+    "title": "Let us meet sometime next week.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0770"
+  },
+  {
+    "item_id": "ITEM_330",
+    "type": "task",
+    "title": "Send Expense Receipt",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0776"
+  },
+  {
+    "item_id": "ITEM_331",
+    "type": "task",
+    "title": "Reply to Client Email",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0779"
+  },
+  {
+    "item_id": "ITEM_332",
+    "type": "task",
+    "title": "Send Revised Presentation",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0780"
+  },
+  {
+    "item_id": "ITEM_333",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": "2026-09-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0783"
+  },
+  {
+    "item_id": "ITEM_334",
+    "type": "task",
+    "title": "Reply to Client Email",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0784"
+  },
+  {
+    "item_id": "ITEM_335",
+    "type": "task",
+    "title": "Share Meeting Notes",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0787"
+  },
+  {
+    "item_id": "ITEM_336",
+    "type": "event",
+    "title": "The client discussion is scheduled for 2026-09-17 at...",
+    "deadline": "2026-09-17",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0788"
+  },
+  {
+    "item_id": "ITEM_337",
+    "type": "event",
+    "title": "Calendar update: placement briefing, 2026-09-09 at 1...",
+    "deadline": "2026-09-09",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0789"
+  },
+  {
+    "item_id": "ITEM_338",
+    "type": "event",
+    "title": "The project review is scheduled for 2026-09-02 at 9:...",
+    "deadline": "2026-09-02",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0792"
+  },
+  {
+    "item_id": "ITEM_339",
+    "type": "event",
+    "title": "Please join the study-group session on 2026-09-08, 1...",
+    "deadline": "2026-09-08",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0793"
+  },
+  {
+    "item_id": "ITEM_340",
+    "type": "task",
+    "title": "Share Meeting Notes",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0795"
+  },
+  {
+    "item_id": "ITEM_341",
+    "type": "event",
+    "title": "Family Dinner",
+    "deadline": "2026-09-04",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0797"
+  },
+  {
+    "item_id": "ITEM_342",
+    "type": "event",
+    "title": "College Seminar",
+    "deadline": "2026-09-20",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0798"
+  },
+  {
+    "item_id": "ITEM_343",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0799"
+  },
+  {
+    "item_id": "ITEM_344",
+    "type": "event",
+    "title": "Design Review",
+    "deadline": "2026-09-05",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0800"
+  },
+  {
+    "item_id": "ITEM_345",
+    "type": "event",
+    "title": "Let us meet sometime next week.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0801"
+  },
+  {
+    "item_id": "ITEM_346",
+    "type": "task",
+    "title": "Pay Electricity Bill",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0809"
+  },
+  {
+    "item_id": "ITEM_347",
+    "type": "event",
+    "title": "Design Review",
+    "deadline": "2026-09-10",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0810"
+  },
+  {
+    "item_id": "ITEM_348",
+    "type": "task",
+    "title": "Please call Maya when you are free.",
+    "deadline": null,
+    "time": null,
+    "person": "Maya",
+    "source_message_id": "MSG_0811"
+  },
+  {
+    "item_id": "ITEM_349",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": "2026-09-05",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0814"
+  },
+  {
+    "item_id": "ITEM_350",
+    "type": "task",
+    "title": "Send Expense Receipt",
+    "deadline": "2026-09-04",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0815"
+  },
+  {
+    "item_id": "ITEM_351",
+    "type": "task",
+    "title": "If possible, review the file before the meeting.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0816"
+  },
+  {
+    "item_id": "ITEM_352",
+    "type": "task",
+    "title": "Share Meeting Notes",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0819"
+  },
+  {
+    "item_id": "ITEM_353",
+    "type": "event",
+    "title": "Calendar update: placement briefing, 2026-09-14 at 9...",
+    "deadline": "2026-09-14",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0821"
+  },
+  {
+    "item_id": "ITEM_354",
+    "type": "event",
+    "title": "Team Stand-up",
+    "deadline": "2026-09-14",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0822"
+  },
+  {
+    "item_id": "ITEM_355",
+    "type": "event",
+    "title": "Calendar update: placement briefing, 2026-09-19 at 1...",
+    "deadline": "2026-09-19",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0823"
+  },
+  {
+    "item_id": "ITEM_356",
+    "type": "task",
+    "title": "Submit Weekly Report",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0824"
+  },
+  {
+    "item_id": "ITEM_357",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0826"
+  },
+  {
+    "item_id": "ITEM_358",
+    "type": "task",
+    "title": "Please call Maya when you are free.",
+    "deadline": null,
+    "time": null,
+    "person": "Maya",
+    "source_message_id": "MSG_0827"
+  },
+  {
+    "item_id": "ITEM_359",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0829"
+  },
+  {
+    "item_id": "ITEM_360",
+    "type": "event",
+    "title": "Technical Interview",
+    "deadline": "2026-09-20",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0831"
+  },
+  {
+    "item_id": "ITEM_361",
+    "type": "event",
+    "title": "Technical Interview",
+    "deadline": "2026-09-15",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0837"
+  },
+  {
+    "item_id": "ITEM_362",
+    "type": "event",
+    "title": "The review could be Friday afternoon.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0840"
+  },
+  {
+    "item_id": "ITEM_363",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": "2026-09-13",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0841"
+  },
+  {
+    "item_id": "ITEM_364",
+    "type": "event",
+    "title": "Family Dinner",
+    "deadline": "2026-09-09",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0845"
+  },
+  {
+    "item_id": "ITEM_365",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": "2026-09-03",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0847"
+  },
+  {
+    "item_id": "ITEM_366",
+    "type": "event",
+    "title": "Design Review",
+    "deadline": "2026-09-05",
+    "time": "16:00",
+    "person": null,
+    "source_message_id": "MSG_0849"
+  },
+  {
+    "item_id": "ITEM_367",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0850"
+  },
+  {
+    "item_id": "ITEM_368",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0851"
+  },
+  {
+    "item_id": "ITEM_369",
+    "type": "task",
+    "title": "Reply to Client Email",
+    "deadline": "2026-09-10",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0853"
+  },
+  {
+    "item_id": "ITEM_370",
+    "type": "event",
+    "title": "College Seminar",
+    "deadline": "2026-09-20",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0860"
+  },
+  {
+    "item_id": "ITEM_371",
+    "type": "event",
+    "title": "Mentor Catch-up",
+    "deadline": "2026-09-11",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0861"
+  },
+  {
+    "item_id": "ITEM_372",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0862"
+  },
+  {
+    "item_id": "ITEM_373",
+    "type": "task",
+    "title": "Back Up Project Files",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0864"
+  },
+  {
+    "item_id": "ITEM_374",
+    "type": "task",
+    "title": "Back Up Project Files",
+    "deadline": "2026-09-08",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0865"
+  },
+  {
+    "item_id": "ITEM_375",
+    "type": "event",
+    "title": "Mentor Catch-up",
+    "deadline": "2026-09-06",
+    "time": "9:00",
+    "person": null,
+    "source_message_id": "MSG_0866"
+  },
+  {
+    "item_id": "ITEM_376",
+    "type": "event",
+    "title": "The client discussion is scheduled for 2026-09-07 at...",
+    "deadline": "2026-09-07",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0868"
+  },
+  {
+    "item_id": "ITEM_377",
+    "type": "task",
+    "title": "Send Expense Receipt",
+    "deadline": "2026-09-07",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0870"
+  },
+  {
+    "item_id": "ITEM_378",
+    "type": "event",
+    "title": "Team Stand-up",
+    "deadline": "2026-09-19",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0871"
+  },
+  {
+    "item_id": "ITEM_379",
+    "type": "event",
+    "title": "Please join the study-group session on 2026-09-08, 1...",
+    "deadline": "2026-09-08",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0873"
+  },
+  {
+    "item_id": "ITEM_380",
+    "type": "event",
+    "title": "College Seminar",
+    "deadline": "2026-09-20",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "MSG_0877"
+  },
+  {
+    "item_id": "ITEM_381",
+    "type": "event",
+    "title": "The client discussion is scheduled for 2026-09-02 at...",
+    "deadline": "2026-09-02",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0878"
+  },
+  {
+    "item_id": "ITEM_382",
+    "type": "event",
+    "title": "College Seminar",
+    "deadline": "2026-09-10",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0882"
+  },
+  {
+    "item_id": "ITEM_383",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": "2026-09-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0883"
+  },
+  {
+    "item_id": "ITEM_384",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0884"
+  },
+  {
+    "item_id": "ITEM_385",
+    "type": "event",
+    "title": "The review could be Friday afternoon.",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0886"
+  },
+  {
+    "item_id": "ITEM_386",
+    "type": "task",
+    "title": "Review Privacy Checklist",
+    "deadline": "2026-09-03",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0893"
+  },
+  {
+    "item_id": "ITEM_387",
+    "type": "event",
+    "title": "Design Review",
+    "deadline": "2026-09-20",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "MSG_0894"
+  },
+  {
+    "item_id": "ITEM_388",
+    "type": "event",
+    "title": "Please join the AI workshop on 2026-09-13, 12:00 at ...",
+    "deadline": "2026-09-13",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0895"
+  },
+  {
+    "item_id": "ITEM_389",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": "2026-09-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0898"
+  },
+  {
+    "item_id": "ITEM_390",
+    "type": "event",
+    "title": "College Seminar",
+    "deadline": "2026-09-15",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_0900"
+  },
+  {
+    "item_id": "ITEM_391",
+    "type": "task",
+    "title": "Review Privacy Checklist",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0901"
+  },
+  {
+    "item_id": "ITEM_392",
+    "type": "task",
+    "title": "Reply to Client Email",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0902"
+  },
+  {
+    "item_id": "ITEM_393",
+    "type": "task",
+    "title": "Pay Electricity Bill",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0903"
+  },
+  {
+    "item_id": "ITEM_394",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0904"
+  },
+  {
+    "item_id": "ITEM_395",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0905"
+  },
+  {
+    "item_id": "ITEM_396",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0906"
+  },
+  {
+    "item_id": "ITEM_397",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0907"
+  },
+  {
+    "item_id": "ITEM_398",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0908"
+  },
+  {
+    "item_id": "ITEM_399",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0909"
+  },
+  {
+    "item_id": "ITEM_400",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0910"
+  },
+  {
+    "item_id": "ITEM_401",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0911"
+  },
+  {
+    "item_id": "ITEM_402",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0912"
+  },
+  {
+    "item_id": "ITEM_403",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0913"
+  },
+  {
+    "item_id": "ITEM_404",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0914"
+  },
+  {
+    "item_id": "ITEM_405",
+    "type": "task",
+    "title": "Review Privacy Checklist",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0915"
+  },
+  {
+    "item_id": "ITEM_406",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0916"
+  },
+  {
+    "item_id": "ITEM_407",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0917"
+  },
+  {
+    "item_id": "ITEM_408",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0918"
+  },
+  {
+    "item_id": "ITEM_409",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0919"
+  },
+  {
+    "item_id": "ITEM_410",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0920"
+  },
+  {
+    "item_id": "ITEM_411",
+    "type": "task",
+    "title": "Review Privacy Checklist",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0921"
+  },
+  {
+    "item_id": "ITEM_412",
+    "type": "task",
+    "title": "Reply to Client Email",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0922"
+  },
+  {
+    "item_id": "ITEM_413",
+    "type": "task",
+    "title": "Pay Electricity Bill",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0923"
+  },
+  {
+    "item_id": "ITEM_414",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0924"
+  },
+  {
+    "item_id": "ITEM_415",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0925"
+  },
+  {
+    "item_id": "ITEM_416",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0926"
+  },
+  {
+    "item_id": "ITEM_417",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0927"
+  },
+  {
+    "item_id": "ITEM_418",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0928"
+  },
+  {
+    "item_id": "ITEM_419",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0929"
+  },
+  {
+    "item_id": "ITEM_420",
+    "type": "task",
+    "title": "Complete Onboarding Form",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0930"
+  },
+  {
+    "item_id": "ITEM_421",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0931"
+  },
+  {
+    "item_id": "ITEM_422",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0932"
+  },
+  {
+    "item_id": "ITEM_423",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0933"
+  },
+  {
+    "item_id": "ITEM_424",
+    "type": "task",
+    "title": "Send Revised Presentation",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0934"
+  },
+  {
+    "item_id": "ITEM_425",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0935"
+  },
+  {
+    "item_id": "ITEM_426",
+    "type": "task",
+    "title": "Send Revised Presentation",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0936"
+  },
+  {
+    "item_id": "ITEM_427",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0937"
+  },
+  {
+    "item_id": "ITEM_428",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0938"
+  },
+  {
+    "item_id": "ITEM_429",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0939"
+  },
+  {
+    "item_id": "ITEM_430",
+    "type": "task",
+    "title": "Send Expense Receipt",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0940"
+  },
+  {
+    "item_id": "ITEM_431",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0941"
+  },
+  {
+    "item_id": "ITEM_432",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0942"
+  },
+  {
+    "item_id": "ITEM_433",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0943"
+  },
+  {
+    "item_id": "ITEM_434",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0944"
+  },
+  {
+    "item_id": "ITEM_435",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0945"
+  },
+  {
+    "item_id": "ITEM_436",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0946"
+  },
+  {
+    "item_id": "ITEM_437",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0947"
+  },
+  {
+    "item_id": "ITEM_438",
+    "type": "task",
+    "title": "Verify Dataset Labels",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0948"
+  },
+  {
+    "item_id": "ITEM_439",
+    "type": "task",
+    "title": "Submit Weekly Report",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0949"
+  },
+  {
+    "item_id": "ITEM_440",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0950"
+  },
+  {
+    "item_id": "ITEM_441",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": "2026-10-01",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_0953"
+  },
+  {
+    "item_id": "ITEM_442",
+    "type": "event",
+    "title": "Team Stand-up",
+    "deadline": "2026-10-02",
+    "time": "13:00",
+    "person": null,
+    "source_message_id": "MSG_0954"
+  },
+  {
+    "item_id": "ITEM_443",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": "2026-10-03",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_0955"
+  },
+  {
+    "item_id": "ITEM_444",
+    "type": "task",
+    "title": "Share Meeting Notes",
+    "deadline": "2026-09-27",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0971"
+  },
+  {
+    "item_id": "ITEM_445",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": "2026-09-28",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0972"
+  },
+  {
+    "item_id": "ITEM_446",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": "2026-09-29",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0973"
+  },
+  {
+    "item_id": "ITEM_447",
+    "type": "task",
+    "title": "Review Model Results",
+    "deadline": "2026-09-30",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0974"
+  },
+  {
+    "item_id": "ITEM_448",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": "2026-10-01",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0975"
+  },
+  {
+    "item_id": "ITEM_449",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": "2026-10-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0976"
+  },
+  {
+    "item_id": "ITEM_450",
+    "type": "task",
+    "title": "Prepare Demo Video",
+    "deadline": "2026-09-27",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0977"
+  },
+  {
+    "item_id": "ITEM_451",
+    "type": "task",
+    "title": "Submit Weekly Report",
+    "deadline": "2026-09-28",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0978"
+  },
+  {
+    "item_id": "ITEM_452",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": "2026-09-29",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0979"
+  },
+  {
+    "item_id": "ITEM_453",
+    "type": "task",
+    "title": "Send Expense Receipt",
+    "deadline": "2026-10-01",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0981"
+  },
+  {
+    "item_id": "ITEM_454",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": "2026-10-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0982"
+  },
+  {
+    "item_id": "ITEM_455",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": "2026-09-27",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0983"
+  },
+  {
+    "item_id": "ITEM_456",
+    "type": "task",
+    "title": "Verify Dataset Labels",
+    "deadline": "2026-09-28",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0984"
+  },
+  {
+    "item_id": "ITEM_457",
+    "type": "task",
+    "title": "Send Revised Presentation",
+    "deadline": "2026-09-29",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0985"
+  },
+  {
+    "item_id": "ITEM_458",
+    "type": "task",
+    "title": "Renew Library Book",
+    "deadline": "2026-09-30",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0986"
+  },
+  {
+    "item_id": "ITEM_459",
+    "type": "task",
+    "title": "Complete Python Exercise",
+    "deadline": "2026-10-01",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0987"
+  },
+  {
+    "item_id": "ITEM_460",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": "2026-10-02",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0988"
+  },
+  {
+    "item_id": "ITEM_461",
+    "type": "task",
+    "title": "Back Up Project Files",
+    "deadline": "2026-09-27",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0989"
+  },
+  {
+    "item_id": "ITEM_462",
+    "type": "task",
+    "title": "Pay Electricity Bill",
+    "deadline": "2026-09-28",
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0990"
+  },
+  {
+    "item_id": "ITEM_463",
+    "type": "task",
+    "title": "Share Meeting Notes",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0992"
+  },
+  {
+    "item_id": "ITEM_464",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0993"
+  },
+  {
+    "item_id": "ITEM_465",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0995"
+  },
+  {
+    "item_id": "ITEM_466",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_0996"
+  },
+  {
+    "item_id": "ITEM_467",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_1000"
+  },
+  {
+    "item_id": "ITEM_468",
+    "type": "task",
+    "title": "Back Up Project Files",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_1001"
+  },
+  {
+    "item_id": "ITEM_469",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_1002"
+  },
+  {
+    "item_id": "ITEM_470",
+    "type": "task",
+    "title": "Back Up Project Files",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_1005"
+  },
+  {
+    "item_id": "ITEM_471",
+    "type": "task",
+    "title": "Share Meeting Notes",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_1007"
+  },
+  {
+    "item_id": "ITEM_472",
+    "type": "task",
+    "title": "Call Service Centre",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_1008"
+  },
+  {
+    "item_id": "ITEM_473",
+    "type": "task",
+    "title": "Finish Test Cases",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_1010"
+  },
+  {
+    "item_id": "ITEM_474",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_1011"
+  },
+  {
+    "item_id": "ITEM_475",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "MSG_1015"
+  },
+  {
+    "item_id": "ITEM_476",
+    "type": "event",
+    "title": "A new prepare the offline inference demo session is ...",
+    "deadline": "2026-09-30",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_1016"
+  },
+  {
+    "item_id": "ITEM_477",
+    "type": "event",
+    "title": "A new review the quantization results session is sch...",
+    "deadline": "2026-10-04",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_1020"
+  },
+  {
+    "item_id": "ITEM_478",
+    "type": "event",
+    "title": "A new prepare the L2 presentation session is schedul...",
+    "deadline": "2026-10-08",
+    "time": "12:00",
+    "person": null,
+    "source_message_id": "MSG_1024"
+  },
+  {
+    "item_id": "ITEM_479",
+    "type": "event",
+    "title": "A new document privacy-routing decisions session is ...",
+    "deadline": "2026-10-02",
+    "time": "10:00",
+    "person": null,
+    "source_message_id": "MSG_1028"
+  },
+  {
+    "item_id": "ITEM_480",
+    "type": "event",
+    "title": "A new update the architecture diagram session is sch...",
+    "deadline": "2026-10-06",
+    "time": "14:00",
+    "person": null,
+    "source_message_id": "MSG_1032"
+  },
+  {
+    "item_id": "ITEM_481",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": null,
+    "time": "10 AM",
+    "person": null,
+    "source_message_id": "DEMO_001"
+  },
+  {
+    "item_id": "ITEM_482",
+    "type": "task",
+    "title": "Email Signed Document",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "DEMO_002"
+  },
+  {
+    "item_id": "ITEM_483",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "DEMO_003"
+  },
+  {
+    "item_id": "ITEM_484",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "DEMO_004"
+  },
+  {
+    "item_id": "ITEM_485",
+    "type": "task",
+    "title": "Update Project Tracker",
+    "deadline": "2026-10-06",
+    "time": null,
+    "person": null,
+    "source_message_id": "DEMO_006"
+  },
+  {
+    "item_id": "ITEM_486",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": "2026-10-07",
+    "time": "15:00",
+    "person": null,
+    "source_message_id": "DEMO_007"
+  },
+  {
+    "item_id": "ITEM_487",
+    "type": "event",
+    "title": "Team Stand-up",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "DEMO_008"
+  },
+  {
+    "item_id": "ITEM_488",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": null,
+    "time": "17:30",
+    "person": null,
+    "source_message_id": "DEMO_009"
+  },
+  {
+    "item_id": "ITEM_489",
+    "type": "task",
+    "title": "Test Optimized Assistant",
+    "deadline": "2026-10-09",
+    "time": null,
+    "person": null,
+    "source_message_id": "DEMO_010"
+  },
+  {
+    "item_id": "ITEM_490",
+    "type": "event",
+    "title": "Latency-Review Meeting",
+    "deadline": "2026-10-08",
+    "time": "11:00",
+    "person": null,
+    "source_message_id": "DEMO_011"
+  },
+  {
+    "item_id": "ITEM_491",
+    "type": "task",
+    "title": "Confirm Interview Slot",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "DEMO_016"
+  },
+  {
+    "item_id": "ITEM_492",
+    "type": "event",
+    "title": "Internship Orientation",
+    "deadline": null,
+    "time": null,
+    "person": null,
+    "source_message_id": "DEMO_017"
+  },
+  {
+    "item_id": "ITEM_493",
+    "type": "task",
+    "title": "Upload Assignment",
+    "deadline": "2026-10-20",
+    "time": null,
+    "person": null,
+    "source_message_id": "DEMO_020"
+  }
+]
