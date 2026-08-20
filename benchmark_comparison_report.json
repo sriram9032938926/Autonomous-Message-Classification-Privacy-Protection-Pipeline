@@ -2,58 +2,76 @@
   "benchmark_summary": {
     "total_messages_indexed": 1104,
     "test_queries_count": 8,
-    "baseline_avg_latency_ms": 18.348,
-    "optimized_avg_latency_ms": 0.003,
-    "latency_reduction_factor": "5667.36x faster",
+    "baseline_avg_latency_ms": 18.456,
+    "optimized_avg_latency_ms": 0.702,
+    "latency_reduction_factor": "26.29x faster",
     "index_memory_footprint_kb": 312.68,
-    "privacy_compliance_rate": "100.0%",
-    "zero_external_api_calls": true
+    "privacy_compliance_rate": "measured separately from privacy_routing_output.json; not computed here",
+    "zero_external_api_calls": true,
+    "grounding_rate": 1.0,
+    "deterministic_resolution_rate": 0.875
   },
   "query_level_performance": [
     {
       "query": "Which existing task became critical in the demo data?",
-      "baseline_latency_ms": 19.575,
-      "optimized_latency_ms": 0.013
+      "baseline_latency_ms": 20.296,
+      "optimized_latency_ms": 0.098,
+      "resolution_method": "priority_lookup",
+      "grounded": true
     },
     {
       "query": "Which tasks or meetings were completed or cancelled?",
-      "baseline_latency_ms": 17.312,
-      "optimized_latency_ms": 0.002
+      "baseline_latency_ms": 18.918,
+      "optimized_latency_ms": 0.094,
+      "resolution_method": "completion_lookup",
+      "grounded": true
     },
     {
       "query": "Which meeting was rescheduled and what is its latest schedule?",
-      "baseline_latency_ms": 18.248,
-      "optimized_latency_ms": 0.003
+      "baseline_latency_ms": 17.967,
+      "optimized_latency_ms": 0.135,
+      "resolution_method": "reschedule_lookup",
+      "grounded": true
     },
     {
       "query": "Which messages contain conflicting or uncertain deadlines?",
-      "baseline_latency_ms": 18.633,
-      "optimized_latency_ms": 0.001
+      "baseline_latency_ms": 17.289,
+      "optimized_latency_ms": 0.035,
+      "resolution_method": "conflict_lookup",
+      "grounded": true
     },
     {
       "query": "Which demo messages must be blocked from external processing?",
-      "baseline_latency_ms": 17.875,
-      "optimized_latency_ms": 0.001
+      "baseline_latency_ms": 18.694,
+      "optimized_latency_ms": 0.076,
+      "resolution_method": "privacy_lookup",
+      "grounded": true
     },
     {
       "query": "Which message requires confirmation before processing?",
-      "baseline_latency_ms": 18.822,
-      "optimized_latency_ms": 0.001
+      "baseline_latency_ms": 17.594,
+      "optimized_latency_ms": 0.035,
+      "resolution_method": "privacy_lookup",
+      "grounded": true
     },
     {
       "query": "What is the latest status of the task referenced by DEMO_016?",
-      "baseline_latency_ms": 18.448,
-      "optimized_latency_ms": 0.003
+      "baseline_latency_ms": 19.506,
+      "optimized_latency_ms": 3.017,
+      "resolution_method": "entity_lookup",
+      "grounded": true
     },
     {
       "query": "Was the compliance form approved by the finance director?",
-      "baseline_latency_ms": 17.871,
-      "optimized_latency_ms": 0.001
+      "baseline_latency_ms": 17.381,
+      "optimized_latency_ms": 2.127,
+      "resolution_method": "semantic_fallback",
+      "grounded": true
     }
   ],
   "optimization_architecture": {
-    "component_optimized": "Hybrid TF-IDF Vector Index & Intent Routing Cache",
-    "technique": "Pre-computed sparse n-gram inverted index with deterministic state transition graph",
-    "quality_delta": "Precision improved from 62.5% (keyword overlap false positives) to 98.4% (semantic intent disambiguation)."
+    "component_optimized": "Hybrid TF-IDF vector index + deterministic structured-intent lookups (priority/group/privacy engines)",
+    "technique": "Pre-computed sparse n-gram inverted index for generic semantic fallback, combined with direct dictionary lookups over the priority, grouping, and privacy-routing outputs for recognized query intents (no per-question hardcoding).",
+    "quality_note": "On 8 demo queries: 100.0% returned grounded evidence (non-empty supporting_message_ids above the relevance threshold) and 87.5% were resolved via a deterministic structured lookup rather than the generic TF-IDF fallback. This is a coverage/grounding measurement, not a precision/recall score -- a true precision/recall figure requires a hand-labeled 'expected relevant message IDs' set per query, which is not included in this submission. See README limitations."
   }
 }

@@ -166,13 +166,13 @@ st.markdown("""
 @st.cache_data
 def get_cached_pipeline_data():
     full_df = load_datasets()
-    c, e, s, g, p, b, processed_df, _ = run_full_l2_pipeline(full_df)
-    return c, e, s, g, p, b, processed_df
+    c, e, s, g, p, b, processed_df, _, priv = run_full_l2_pipeline(full_df)
+    return c, e, s, g, p, b, processed_df, priv
 
-classifications, extracted_items, sensitive_detections, groups, priorities, benchmark_report, df = get_cached_pipeline_data()
+classifications, extracted_items, sensitive_detections, groups, priorities, benchmark_report, df, privacy_records = get_cached_pipeline_data()
 
-# Instantiate Assistant
-assistant = IntelligentAssistant(df, groups, priorities)
+# Instantiate Assistant with dynamic structured routing
+assistant = IntelligentAssistant(df, groups, priorities, privacy_records)
 
 
 # ----------------------------------------------------

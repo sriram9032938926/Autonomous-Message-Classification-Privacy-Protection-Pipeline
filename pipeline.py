@@ -155,7 +155,7 @@ def run_full_l2_pipeline(custom_df: Optional[pd.DataFrame] = None) -> Tuple[
     priorities = priority_engine.compute_all_priorities(processed_rows, groups)
 
     # STEP 4: Build Intelligent Semantic Search Assistant
-    assistant = IntelligentAssistant(full_df, groups, priorities)
+    assistant = IntelligentAssistant(full_df, groups, priorities, privacy_routing_records)
 
     # STEP 5: Run Benchmarking Comparison
     demo_queries = [
@@ -193,14 +193,14 @@ def run_full_l2_pipeline(custom_df: Optional[pd.DataFrame] = None) -> Tuple[
     with open("sensitive_info_detections.json", "w") as f:
         json.dump(sensitive_detections, f, indent=2)
 
-    return classifications, extracted_items, sensitive_detections, groups, priorities, benchmark_report, full_df, assistant
+    return classifications, extracted_items, sensitive_detections, groups, priorities, benchmark_report, full_df, assistant, privacy_routing_records
 
 
 # Compatibility alias for L1
 def run_pipeline(csv_path: str):
     """L1 compatibility wrapper."""
     df = pd.read_csv(csv_path)
-    c, e, s, g, p, b, full_df, ast = run_full_l2_pipeline(df)
+    c, e, s, g, p, b, full_df, ast, priv = run_full_l2_pipeline(df)
     return c, e, s, full_df
 
 
@@ -217,7 +217,7 @@ if __name__ == "__main__":
     print("=" * 70)
     
     t_start = time.time()
-    c, e, s, g, p, b, full_df, assistant = run_full_l2_pipeline()
+    c, e, s, g, p, b, full_df, assistant, priv = run_full_l2_pipeline()
     t_elapsed = round(time.time() - t_start, 3)
 
     print(f"\n[+] Pipeline Finished in {t_elapsed} seconds!")

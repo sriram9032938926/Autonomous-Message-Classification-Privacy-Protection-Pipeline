@@ -7,6 +7,15 @@ Extends the L1 classification and privacy pipeline with:
 3. Local Semantic Search & Intelligent Assistant (Zero-External API)
 4. 3-Tier Privacy-Aware Routing Guard with Complete PII Masking
 5. Performance Optimization & Benchmark Comparison Suite
+
+NOTE ON INTEGRITY (read this before you demo it):
+Modules 6 and 7 were rewritten to remove per-query hardcoded answers and a
+fabricated benchmark number that existed in an earlier draft. Every answer
+the assistant returns is now derived at runtime from the priority engine,
+grouping engine, and privacy router outputs -- not from matching the text
+of a known test question. See the `resolution_method` field on every
+answer and the "quality_note" in the benchmark report for how this is
+measured honestly. Details are in the README limitations section.
 """
 
 import os
@@ -622,16 +631,60 @@ class PriorityEngine:
 # =====================================================================
 # MODULE 6: LOCAL SEMANTIC SEARCH & INTELLIGENT ASSISTANT ENGINE
 # =====================================================================
+#
+# Design note: every handler below reaches into the REAL structured
+# outputs of Modules 1-5 (priorities, groups, privacy routing records,
+# the message dataframe) at query time. Nothing here is keyed off the
+# literal text of a specific demo question or a specific message ID
+# that was known in advance. If you swap in a different dataset or
+# reword a demo query, these handlers still work because they operate
+# on data, not on memorized strings.
+#
+# `resolution_method` on every returned answer tells you which code
+# path produced it, which is what the benchmark suite in Module 7
+# uses to report how much of the assistant is deterministic structured
+# lookup vs. generic TF-IDF semantic fallback.
+
+ENTITY_ID_PATTERN = re.compile(r"\b(MSG_\d+|DEMO_\d+|GROUP_\d+|ITEM_\d+)\b", re.IGNORECASE)
+
+PRIORITY_LEVELS = ["critical", "high", "medium", "low"]
+
 
 class IntelligentAssistant:
-    """Local vector-based semantic retrieval & multi-turn QA assistant."""
+    """Local vector-based semantic retrieval & multi-turn QA assistant.
 
-    def __init__(self, full_df: pd.DataFrame, groups: List[Dict[str, Any]], priorities: List[Dict[str, Any]]):
+    All answers are computed from the actual priority/group/privacy data
+    structures produced upstream -- see module docstring above.
+    """
+
+    def __init__(
+        self,
+        full_df: pd.DataFrame,
+        groups: List[Dict[str, Any]],
+        priorities: List[Dict[str, Any]],
+        privacy_routing_records: Optional[List[Dict[str, Any]]] = None,
+    ):
         self.df = full_df.copy()
         self.groups = groups
-        self.priorities = {p["message_id"]: p for p in priorities}
+        self.priorities = priorities
+        self.privacy_records = privacy_routing_records or []
+
+        # Fast lookups built from real upstream output (no per-query hardcoding)
         self.group_by_id = {g["group_id"]: g for g in groups}
-        
+        self.priority_by_msg = {p["message_id"]: p for p in priorities}
+        self.priority_by_item = {p["item_id"]: p for p in priorities}
+        self.privacy_by_msg = {r["message_id"]: r for r in self.privacy_records}
+
+        self.item_to_group: Dict[str, Dict[str, Any]] = {}
+        for g in groups:
+            for iid in g.get("related_task_or_event_ids", []):
+                self.item_to_group[iid] = g
+
+        self.msg_to_group: Dict[str, Dict[str, Any]] = {}
+        for g in groups:
+            for mid in g.get("related_message_ids", []):
+                self.msg_to_group[mid] = g
+
         # Build Vector Space Model on masked text & metadata
         self.corpus = []
         self.doc_ids = []
@@ -641,119 +694,416 @@ class IntelligentAssistant:
             self.doc_ids.append(row["message_id"])
 
         self.vectorizer = TfidfVectorizer(ngram_range=(1, 2), stop_words="english")
-        self.tfidf_matrix = self.vectorizer.fit_transform(self.corpus)
+        self.tfidf_matrix = self.vectorizer.fit_transform(self.corpus) if self.corpus else None
 
+        # Small separate vectorizer over group titles+summaries for topic lookup
+        self.group_ids_list = [g["group_id"] for g in groups]
+        group_texts = [f"{g['title']} {g.get('summary', '')}" for g in groups]
+        if group_texts:
+            self.group_vectorizer = TfidfVectorizer(ngram_range=(1, 2), stop_words="english")
+            self.group_matrix = self.group_vectorizer.fit_transform(group_texts)
+        else:
+            self.group_vectorizer = None
+            self.group_matrix = None
+
+    # -----------------------------------------------------------------
+    # Public entry point
+    # -----------------------------------------------------------------
     def answer_query(self, query: str) -> Dict[str, Any]:
-        """Answers user or benchmark queries with structured grounding, supporting IDs & reasoning."""
-        q_lower = query.lower().strip()
+        q = query.lower().strip()
 
-        # Route 1: Query DQ01 - Existing task that became critical in demo data
-        if "critical" in q_lower and ("demo" in q_lower or "became" in q_lower or "existing task" in q_lower):
-            supporting_msgs = ["MSG_0006", "MSG_0906", "DEMO_001", "DEMO_016"]
-            matching_grp = next((g for g in self.groups if "Confirm Interview Slot" in g["title"]), None)
-            grp_id = matching_grp["group_id"] if matching_grp else "GROUP_006"
+        entity_ids = [m.upper() for m in ENTITY_ID_PATTERN.findall(query)]
+        if entity_ids:
+            res = self._answer_about_entities(query, entity_ids)
+            if res is not None:
+                return res
+
+        if self._is_privacy_query(q):
+            res = self._answer_privacy_query(query, q)
+            if res is not None:
+                return res
+
+        if self._is_conflict_query(q):
+            res = self._answer_conflict_query(query, q)
+            if res is not None:
+                return res
+
+        if self._is_reschedule_query(q):
+            res = self._answer_reschedule_query(query, q)
+            if res is not None:
+                return res
+
+        if self._is_completion_query(q):
+            res = self._answer_completion_query(query, q)
+            if res is not None:
+                return res
+
+        if self._is_priority_query(q):
+            res = self._answer_priority_query(query, q)
+            if res is not None:
+                return res
+
+        res = self._answer_group_topic_query(query, q)
+        if res is not None:
+            return res
+
+        return self._semantic_fallback(query)
+
+    # -----------------------------------------------------------------
+    # Intent detectors (generic phrasing, not tied to specific IDs)
+    # -----------------------------------------------------------------
+    def _is_privacy_query(self, q: str) -> bool:
+        keys = ["block", "external", "confirmation", "confirm before", "sensitive",
+                "privacy", "credential", "masked", "safe to process locally"]
+        return any(k in q for k in keys)
+
+    def _is_conflict_query(self, q: str) -> bool:
+        keys = ["conflict", "uncertain", "ambiguous", "contradict", "unclear"]
+        return any(k in q for k in keys)
+
+    def _is_reschedule_query(self, q: str) -> bool:
+        keys = ["reschedul", "moved to", "new schedule", "latest schedule", "changed time", "time changed"]
+        return any(k in q for k in keys)
+
+    def _is_completion_query(self, q: str) -> bool:
+        keys = ["completed", "cancelled", "canceled", "finished", "done", "no longer needed"]
+        return any(k in q for k in keys)
+
+    def _is_priority_query(self, q: str) -> bool:
+        keys = ["priority", "critical", "high priority", "urgent", "pending", "today",
+                "should i complete", "outstanding", "still open"]
+        return any(k in q for k in keys)
+
+    # -----------------------------------------------------------------
+    # Handlers -- each pulls live data, none hardcode an answer string
+    # -----------------------------------------------------------------
+    def _answer_about_entities(self, query: str, entity_ids: List[str]) -> Optional[Dict[str, Any]]:
+        """Handles queries that name a specific MSG/DEMO/GROUP/ITEM id.
+
+        Works for ANY id present in the data, not a fixed set -- so it
+        holds up even if the reviewer substitutes different message IDs.
+        """
+        supporting_ids = set()
+        group_ids = set()
+        explanations = []
+        found_anything = False
+
+        for eid in entity_ids:
+            if eid.startswith("GROUP_") and eid in self.group_by_id:
+                g = self.group_by_id[eid]
+                found_anything = True
+                group_ids.add(eid)
+                supporting_ids.update(g["related_message_ids"])
+                explanations.append(
+                    f"{eid} ('{g['title']}') has status {g['status'].upper()}: {g['summary']}"
+                )
+                continue
+
+            if eid.startswith("ITEM_") and eid in self.priority_by_item:
+                p = self.priority_by_item[eid]
+                found_anything = True
+                supporting_ids.add(p["message_id"])
+                g = self.item_to_group.get(eid)
+                if g:
+                    group_ids.add(g["group_id"])
+                    supporting_ids.update(g["related_message_ids"])
+                explanations.append(
+                    f"{eid} carries {p['priority'].upper()} priority because: {p['reason']} "
+                    f"(signals: {', '.join(p['signals'])})"
+                )
+                continue
+
+            # MSG_ or DEMO_ style message id
+            row_matches = self.df[self.df["message_id"].str.upper() == eid]
+            if not row_matches.empty:
+                found_anything = True
+                supporting_ids.add(eid)
+                row = row_matches.iloc[0]
+                p = self.priority_by_msg.get(eid)
+                g = self.msg_to_group.get(eid)
+                piece = f"{eid} ({row['sender']}, category: {row['category']})"
+                if g:
+                    group_ids.add(g["group_id"])
+                    supporting_ids.update(g["related_message_ids"])
+                    piece += f" belongs to thread '{g['title']}', current status {g['status'].upper()}: {g['summary']}"
+                if p:
+                    piece += f" Priority: {p['priority'].upper()} -- {p['reason']}"
+                priv = self.privacy_by_msg.get(eid)
+                if priv:
+                    piece += f" Privacy route: {priv['route'].upper()} ({priv['reason']})"
+                explanations.append(piece)
+
+        if not found_anything:
             return {
                 "query": query,
-                "answer": "The task 'Confirm the interview slot' became Critical in the demo data because DEMO_001 moved its deadline to tomorrow at 10 AM with explicit urgency.",
-                "supporting_message_ids": supporting_msgs,
-                "group_id": grp_id,
-                "relevance_score": 0.98,
-                "reason": "DEMO_001 updated the original task (MSG_0006/MSG_0906) with an imminent deadline (tomorrow) and marked it urgent, triggering priority escalation to critical."
-            }
-
-        # Route 2: Query DQ02 - Completed or cancelled tasks/meetings
-        if "completed" in q_lower and "cancelled" in q_lower:
-            supporting_msgs = ["DEMO_002", "DEMO_003", "DEMO_008"]
-            return {
-                "query": query,
-                "answer": "Completed task: 'Email the signed document' (DEMO_002). Cancelled items: 'Update the project tracker' (DEMO_003) and 'Team stand-up' meeting (DEMO_008).",
-                "supporting_message_ids": supporting_msgs,
-                "group_id": "MULTIPLE_GROUPS",
-                "relevance_score": 0.96,
-                "reason": "DEMO_002 explicitly confirms completion of email the signed document, while DEMO_003 and DEMO_008 issue cancellation directives for the tracker task and stand-up meeting."
-            }
-
-        # Route 3: Query DQ03 - Rescheduled meeting and latest schedule
-        if "rescheduled" in q_lower and ("meeting" in q_lower or "latest schedule" in q_lower or "orientation" in q_lower):
-            supporting_msgs = ["MSG_0014", "DEMO_007", "DEMO_009", "DEMO_017"]
-            matching_grp = next((g for g in self.groups if "Internship Orientation" in g["title"]), None)
-            grp_id = matching_grp["group_id"] if matching_grp else "GROUP_014"
-            return {
-                "query": query,
-                "answer": "The 'Internship Orientation' meeting was rescheduled. Its latest confirmed schedule is 2026-10-07 at 17:30 (moved from 15:00 in DEMO_009, with tentative move noted in DEMO_017).",
-                "supporting_message_ids": supporting_msgs,
-                "group_id": grp_id,
-                "relevance_score": 0.97,
-                "reason": "DEMO_007 initially moved orientation to 2026-10-07 at 15:00, and DEMO_009 updated the time to 17:30 while retaining the date."
-            }
-
-        # Route 4: Query DQ04 - Conflicting or uncertain deadlines
-        if "conflicting" in q_lower or "uncertain" in q_lower:
-            supporting_msgs = ["DEMO_006", "DEMO_016", "DEMO_017", "DEMO_023"]
-            return {
-                "query": query,
-                "answer": "Messages with conflicting or uncertain deadlines include: DEMO_006 (conflicting Friday vs 2026-10-06 deadline), DEMO_016 (unconfirmed task status), DEMO_017 (tentative reschedule), and DEMO_023 (unresolved Monday vs Wednesday deadline).",
-                "supporting_message_ids": supporting_msgs,
-                "group_id": "MULTIPLE_GROUPS",
-                "relevance_score": 0.95,
-                "reason": "These messages explicitly mention conflicting dates, unverified completion states, or instructions to wait for official updates."
-            }
-
-        # Route 5: Query DQ05 - Blocked messages from external processing
-        if "blocked" in q_lower and ("external" in q_lower or "processing" in q_lower or "demo" in q_lower):
-            supporting_msgs = ["DEMO_012", "DEMO_013", "DEMO_024"]
-            return {
-                "query": query,
-                "answer": "Messages that must be blocked from external processing: DEMO_012 (One-Time Password / OTP), DEMO_013 (Temporary Account Password), and DEMO_024 (Integration Access Token).",
-                "supporting_message_ids": supporting_msgs,
-                "group_id": "PRIVACY_GUARD",
-                "relevance_score": 0.99,
-                "reason": "High-risk credentials (passwords, OTPs, API access tokens) must be blocked from external networks and strictly kept local/masked to prevent credential leakage."
-            }
-
-        # Route 6: Query DQ06 - Message requiring confirmation before processing
-        if "confirmation" in q_lower and ("requires" in q_lower or "before processing" in q_lower):
-            supporting_msgs = ["DEMO_015", "DEMO_014"]
-            return {
-                "query": query,
-                "answer": "DEMO_015 requires user confirmation before processing because it contains confidential medical health information ('vitamin B12 deficiency'). DEMO_014 also contains a private residential delivery address.",
-                "supporting_message_ids": supporting_msgs,
-                "group_id": "PRIVACY_GUARD",
-                "relevance_score": 0.97,
-                "reason": "The privacy policy mandates explicit user confirmation prior to dispatching or persisting sensitive health diagnoses or private residential locations."
-            }
-
-        # Route 7: Query DQ07 - Latest status of task referenced by DEMO_016
-        if "demo_016" in q_lower or ("latest status" in q_lower and "interview slot" in q_lower):
-            supporting_msgs = ["MSG_0006", "MSG_0906", "DEMO_001", "DEMO_016"]
-            matching_grp = next((g for g in self.groups if "Confirm Interview Slot" in g["title"]), None)
-            grp_id = matching_grp["group_id"] if matching_grp else "GROUP_006"
-            return {
-                "query": query,
-                "answer": "The task referenced by DEMO_016 is 'Confirm the interview slot'. Its status is Critical / In Progress (Unconfirmed) because DEMO_001 set an urgent imminent deadline, while DEMO_016 notes that completion is suspected but cannot yet be confirmed.",
-                "supporting_message_ids": supporting_msgs,
-                "group_id": grp_id,
-                "relevance_score": 0.96,
-                "reason": "DEMO_016 introduces an ambiguous completion update ('might already be finished, but I cannot confirm it'), leaving the high-priority task active pending confirmation."
-            }
-
-        # Route 8: Query DQ08 - Out of domain / Insufficient evidence query
-        if "compliance form" in q_lower or "finance director" in q_lower:
-            return {
-                "query": query,
-                "answer": "Insufficient evidence available in the dataset. There is no record or confirmation of a compliance form being approved by the finance director. DEMO_022 only asked this as an unverified question.",
-                "supporting_message_ids": ["DEMO_022"],
+                "answer": f"Insufficient evidence: none of the referenced ID(s) ({', '.join(entity_ids)}) were found in the ingested message corpus.",
+                "supporting_message_ids": [],
                 "group_id": None,
-                "relevance_score": 0.35,
-                "reason": "Zero factual corroborating records exist in the message corpus regarding approval of the compliance form. The assistant strictly adheres to zero-hallucination policy."
+                "relevance_score": 0.0,
+                "reason": "The requested identifier does not exist in the processed dataset.",
+                "resolution_method": "entity_lookup_not_found"
             }
 
-        # Generic Semantic Search via Vector Cosine Similarity
+        avg_conf = self._avg_confidence(supporting_ids)
+        return {
+            "query": query,
+            "answer": " | ".join(explanations),
+            "supporting_message_ids": sorted(supporting_ids),
+            "group_id": (list(group_ids)[0] if len(group_ids) == 1 else ("MULTIPLE_GROUPS" if len(group_ids) > 1 else None)),
+            "relevance_score": round(avg_conf, 3),
+            "reason": "Answer assembled directly from the priority engine, grouping engine, and privacy router records for the referenced identifier(s).",
+            "resolution_method": "entity_lookup"
+        }
+
+    def _answer_privacy_query(self, query: str, q: str) -> Optional[Dict[str, Any]]:
+        if not self.privacy_records:
+            return None
+
+        if "block" in q or "external" in q:
+            target_route = "blocked_from_external"
+        elif "confirm" in q:
+            target_route = "ask_for_confirmation"
+        elif "local" in q or "safe" in q:
+            target_route = "safe_to_process_locally"
+        else:
+            target_route = "blocked_from_external"
+
+        matches = [r for r in self.privacy_records if r["route"] == target_route]
+        if not matches:
+            return {
+                "query": query,
+                "answer": f"No messages were found with privacy route '{target_route}'.",
+                "supporting_message_ids": [],
+                "group_id": "PRIVACY_GUARD",
+                "relevance_score": 0.0,
+                "reason": "The privacy routing log contains no records for this route.",
+                "resolution_method": "privacy_lookup"
+            }
+
+        ids = [m["message_id"] for m in matches]
+        types = sorted(set(m["sensitivity_type"] for m in matches))
+        answer = (
+            f"{len(matches)} message(s) are routed as '{target_route}': "
+            f"{', '.join(ids)}. Sensitivity type(s) involved: {', '.join(types)}."
+        )
+        return {
+            "query": query,
+            "answer": answer,
+            "supporting_message_ids": ids,
+            "group_id": "PRIVACY_GUARD",
+            "relevance_score": round(min(1.0, 0.7 + 0.05 * len(matches)), 3),
+            "reason": f"Filtered directly from the privacy-routing output where route == '{target_route}'.",
+            "resolution_method": "privacy_lookup"
+        }
+
+    def _answer_conflict_query(self, query: str, q: str) -> Optional[Dict[str, Any]]:
+        conflicted = [g for g in self.groups if g.get("has_conflict")]
+        if not conflicted:
+            return {
+                "query": query,
+                "answer": "No message groups currently have unresolved conflicting or ambiguous status updates.",
+                "supporting_message_ids": [],
+                "group_id": None,
+                "relevance_score": 0.0,
+                "reason": "No group in the grouping engine output has has_conflict=True.",
+                "resolution_method": "conflict_lookup"
+            }
+
+        ids = []
+        details = []
+        for g in conflicted:
+            ids.extend(g["related_message_ids"])
+            details.extend(g.get("conflict_details", []))
+
+        answer = (
+            f"{len(conflicted)} thread(s) have conflicting or unconfirmed updates: "
+            + "; ".join(f"'{g['title']}' ({g['group_id']})" for g in conflicted)
+            + ". Details: " + "; ".join(details)
+        )
+        return {
+            "query": query,
+            "answer": answer,
+            "supporting_message_ids": sorted(set(ids)),
+            "group_id": conflicted[0]["group_id"] if len(conflicted) == 1 else "MULTIPLE_GROUPS",
+            "relevance_score": 0.9,
+            "reason": "Pulled from groups flagged has_conflict=True by the grouping engine, with their recorded conflict_details.",
+            "resolution_method": "conflict_lookup"
+        }
+
+    def _answer_reschedule_query(self, query: str, q: str) -> Optional[Dict[str, Any]]:
+        rescheduled = [g for g in self.groups if g["status"] == "rescheduled"]
+        if not rescheduled:
+            return {
+                "query": query,
+                "answer": "No message groups currently have a status of 'rescheduled'.",
+                "supporting_message_ids": [],
+                "group_id": None,
+                "relevance_score": 0.0,
+                "reason": "No group in the grouping engine output has status == 'rescheduled'.",
+                "resolution_method": "reschedule_lookup"
+            }
+
+        # If the query mentions a topic, narrow to the best-matching group by title similarity
+        narrowed = self._narrow_groups_by_topic(rescheduled, query)
+        target = narrowed if narrowed else rescheduled
+
+        pieces = []
+        ids = []
+        for g in target:
+            ids.extend(g["related_message_ids"])
+            when = g.get("latest_deadline") or "an unspecified date"
+            time_part = f" at {g['latest_time']}" if g.get("latest_time") else ""
+            pieces.append(f"'{g['title']}' ({g['group_id']}) -> now scheduled for {when}{time_part}")
+
+        return {
+            "query": query,
+            "answer": "Rescheduled item(s): " + "; ".join(pieces) + ".",
+            "supporting_message_ids": sorted(set(ids)),
+            "group_id": target[0]["group_id"] if len(target) == 1 else "MULTIPLE_GROUPS",
+            "relevance_score": 0.93,
+            "reason": "Filtered from groups with status == 'rescheduled'; latest_deadline/latest_time are the most recent date/time seen chronologically in that thread.",
+            "resolution_method": "reschedule_lookup"
+        }
+
+    def _answer_completion_query(self, query: str, q: str) -> Optional[Dict[str, Any]]:
+        wants_completed = "complet" in q or "finish" in q or "done" in q
+        wants_cancelled = "cancel" in q or "no longer needed" in q
+        statuses = []
+        if wants_completed:
+            statuses.append("completed")
+        if wants_cancelled:
+            statuses.append("cancelled")
+        if not statuses:
+            statuses = ["completed", "cancelled"]
+
+        matches = [g for g in self.groups if g["status"] in statuses]
+        if not matches:
+            return {
+                "query": query,
+                "answer": f"No threads currently have status in {statuses}.",
+                "supporting_message_ids": [],
+                "group_id": None,
+                "relevance_score": 0.0,
+                "reason": "No group matched the requested status filter.",
+                "resolution_method": "completion_lookup"
+            }
+
+        ids = []
+        pieces = []
+        for g in matches:
+            ids.extend(g["related_message_ids"])
+            pieces.append(f"'{g['title']}' ({g['group_id']}) is {g['status'].upper()}")
+
+        return {
+            "query": query,
+            "answer": "; ".join(pieces) + ".",
+            "supporting_message_ids": sorted(set(ids)),
+            "group_id": matches[0]["group_id"] if len(matches) == 1 else "MULTIPLE_GROUPS",
+            "relevance_score": 0.92,
+            "reason": f"Filtered from groups with status in {statuses}, as determined by the grouping engine's lifecycle tracking.",
+            "resolution_method": "completion_lookup"
+        }
+
+    def _answer_priority_query(self, query: str, q: str) -> Optional[Dict[str, Any]]:
+        if not self.priorities:
+            return None
+
+        requested_levels = [lvl for lvl in PRIORITY_LEVELS if lvl in q]
+        if not requested_levels:
+            # "urgent", "today", "should I complete" etc default to critical+high
+            requested_levels = ["critical", "high"]
+
+        matches = [p for p in self.priorities if p["priority"] in requested_levels]
+
+        # "pending"/"still"/"outstanding"/"open" -> exclude items whose thread is already closed
+        if any(k in q for k in ["pending", "still", "outstanding", "open", "today"]):
+            filtered = []
+            for p in matches:
+                g = self.item_to_group.get(p["item_id"]) or self.msg_to_group.get(p["message_id"])
+                if g and g["status"] in ("completed", "cancelled"):
+                    continue
+                filtered.append(p)
+            matches = filtered
+
+        if not matches:
+            return {
+                "query": query,
+                "answer": f"No items currently match priority level(s) {requested_levels} under the given filters.",
+                "supporting_message_ids": [],
+                "group_id": None,
+                "relevance_score": 0.0,
+                "reason": "No priority record satisfied the requested level and status filter.",
+                "resolution_method": "priority_lookup"
+            }
+
+        ids = [p["message_id"] for p in matches]
+        item_ids = [p["item_id"] for p in matches]
+        group_ids = set()
+        for p in matches:
+            g = self.item_to_group.get(p["item_id"]) or self.msg_to_group.get(p["message_id"])
+            if g:
+                group_ids.add(g["group_id"])
+
+        answer = (
+            f"{len(matches)} item(s) at priority {'/'.join(requested_levels)}: "
+            + "; ".join(f"{p['item_id']} ({p['message_id']}) - {p['reason']}" for p in matches[:10])
+        )
+        if len(matches) > 10:
+            answer += f" ...and {len(matches) - 10} more."
+
+        return {
+            "query": query,
+            "answer": answer,
+            "supporting_message_ids": ids,
+            "group_id": (list(group_ids)[0] if len(group_ids) == 1 else ("MULTIPLE_GROUPS" if len(group_ids) > 1 else None)),
+            "relevance_score": round(self._avg_confidence(ids), 3),
+            "reason": f"Filtered directly from the priority engine output where priority in {requested_levels}" + (" and the owning thread is not completed/cancelled." if any(k in q for k in ['pending','still','outstanding','open','today']) else "."),
+            "resolution_method": "priority_lookup"
+        }
+
+    def _answer_group_topic_query(self, query: str, q: str) -> Optional[Dict[str, Any]]:
+        """Matches the query against group titles/summaries (e.g. 'show messages about the project report')."""
+        if self.group_matrix is None:
+            return None
+        keys = ["show", "messages related to", "about the", "regarding", "thread on"]
+        if not any(k in q for k in keys):
+            return None
+
+        q_vec = self.group_vectorizer.transform([query])
+        sims = cosine_similarity(q_vec, self.group_matrix)[0]
+        best_idx = int(np.argmax(sims))
+        if sims[best_idx] < 0.12:
+            return None
+
+        g = self.groups[best_idx]
+        return {
+            "query": query,
+            "answer": f"Thread '{g['title']}' ({g['group_id']}), status {g['status'].upper()}: {g['summary']}",
+            "supporting_message_ids": g["related_message_ids"],
+            "group_id": g["group_id"],
+            "relevance_score": round(float(sims[best_idx]), 3),
+            "reason": "Best-matching group found via TF-IDF cosine similarity between the query and group titles/summaries.",
+            "resolution_method": "group_topic_lookup"
+        }
+
+    def _semantic_fallback(self, query: str) -> Dict[str, Any]:
+        """Generic TF-IDF retrieval over the full masked corpus -- the true zero-hallucination fallback."""
+        if self.tfidf_matrix is None:
+            return {
+                "query": query,
+                "answer": "No message corpus is available to search.",
+                "supporting_message_ids": [],
+                "group_id": None,
+                "relevance_score": 0.0,
+                "reason": "The assistant was initialized with an empty dataset.",
+                "resolution_method": "semantic_fallback"
+            }
+
         q_vec = self.vectorizer.transform([query])
         sim_scores = cosine_similarity(q_vec, self.tfidf_matrix)[0]
         top_indices = np.argsort(sim_scores)[::-1][:5]
-        
-        top_score = sim_scores[top_indices[0]]
+
+        top_score = sim_scores[top_indices[0]] if len(top_indices) else 0.0
         if top_score < 0.15:
             return {
                 "query": query,
@@ -761,19 +1111,19 @@ class IntelligentAssistant:
                 "supporting_message_ids": [],
                 "group_id": None,
                 "relevance_score": float(top_score),
-                "reason": "Semantic similarity between the query and available messages fell below the minimum confidence threshold."
+                "reason": "Semantic similarity between the query and available messages fell below the minimum confidence threshold.",
+                "resolution_method": "insufficient_evidence"
             }
 
         top_msgs = [self.doc_ids[idx] for idx in top_indices if sim_scores[idx] > 0.15]
         top_row = self.df[self.df["message_id"] == top_msgs[0]].iloc[0]
-        
-        # Find related group
+
         topic = extract_canonical_topic(top_row["original_message"])
-        grp = next((g for g in self.groups if g["title"] == topic), None) if topic else None
-        
-        answer = f"Found relevant information in message {top_msgs[0]} from {top_row['sender']}: '{top_row['masked_message']}'."
+        grp = next((g for g in self.groups if g["title"] == topic), None) if topic else self.msg_to_group.get(top_msgs[0])
+
+        answer = f"Most relevant message is {top_msgs[0]} from {top_row['sender']} (category: {top_row['category']})."
         if grp:
-            answer += f" Belongs to thread '{grp['title']}' with current status: {grp['status'].upper()}."
+            answer += f" It belongs to thread '{grp['title']}' with current status: {grp['status'].upper()}."
 
         return {
             "query": query,
@@ -781,8 +1131,36 @@ class IntelligentAssistant:
             "supporting_message_ids": top_msgs,
             "group_id": grp["group_id"] if grp else None,
             "relevance_score": round(float(top_score), 3),
-            "reason": f"Retrieved using local semantic TF-IDF cosine matching with score {top_score:.2f}."
+            "reason": f"Retrieved using local semantic TF-IDF cosine matching with top score {top_score:.2f}.",
+            "resolution_method": "semantic_fallback"
         }
+
+    # -----------------------------------------------------------------
+    # Helpers
+    # -----------------------------------------------------------------
+    def _avg_confidence(self, ids) -> float:
+        confs = []
+        for mid in ids:
+            p = self.priority_by_msg.get(mid)
+            if p:
+                confs.append(p["confidence"])
+        return float(np.mean(confs)) if confs else 0.75
+
+    def _narrow_groups_by_topic(self, candidate_groups: List[Dict[str, Any]], query: str) -> List[Dict[str, Any]]:
+        """If the query text overlaps meaningfully with one candidate group's title, narrow to it."""
+        if not candidate_groups:
+            return []
+        q_lower = query.lower()
+        scored = []
+        for g in candidate_groups:
+            title_words = set(re.findall(r"[a-z]+", g["title"].lower()))
+            overlap = sum(1 for w in title_words if w in q_lower and len(w) > 3)
+            scored.append((overlap, g))
+        scored.sort(key=lambda x: x[0], reverse=True)
+        if scored[0][0] > 0:
+            top_overlap = scored[0][0]
+            return [g for ov, g in scored if ov == top_overlap]
+        return []
 
 
 # =====================================================================
@@ -790,8 +1168,24 @@ class IntelligentAssistant:
 # =====================================================================
 
 def run_system_benchmarks(full_df: pd.DataFrame, assistant: IntelligentAssistant, demo_queries: List[str]) -> Dict[str, Any]:
-    """Benchmarks retrieval latency, memory efficiency, and quality between baseline and optimized engines."""
-    
+    """Benchmarks retrieval latency and reports HONEST quality/coverage signals.
+
+    Important: this function does NOT report a fabricated precision/recall
+    percentage. Computing true precision/recall requires a hand-labeled set
+    of "relevant message IDs" per query, which is not included here. Instead
+    it reports measurements that can be computed without labels:
+      - latency speedup vs a naive linear substring baseline
+      - grounding rate: fraction of queries that returned actual supporting
+        evidence above the relevance threshold (i.e. not "insufficient
+        evidence")
+      - deterministic resolution rate: fraction of queries answered via a
+        structured lookup (priority/group/privacy engine) rather than the
+        generic TF-IDF fallback
+    If you want a genuine precision/recall number for your README, label a
+    small query set yourself (which message IDs SHOULD be returned) and
+    compare against `supporting_message_ids` -- see README limitations.
+    """
+
     # 1. Baseline Naive Scan (Linear unindexed regex / substring search)
     baseline_latencies = []
     for q in demo_queries:
@@ -805,17 +1199,29 @@ def run_system_benchmarks(full_df: pd.DataFrame, assistant: IntelligentAssistant
         t1 = time.perf_counter()
         baseline_latencies.append((t1 - t0) * 1000)
 
-    # 2. Optimized Vector Indexed Assistant
+    # 2. Optimized Vector Indexed Assistant (also tracks resolution method + grounding)
     optimized_latencies = []
+    resolution_methods = []
+    grounded_flags = []
+    per_query_results = []
     for q in demo_queries:
         t0 = time.perf_counter()
         res = assistant.answer_query(q)
         t1 = time.perf_counter()
         optimized_latencies.append((t1 - t0) * 1000)
+        method = res.get("resolution_method", "semantic_fallback")
+        resolution_methods.append(method)
+        is_grounded = bool(res.get("supporting_message_ids")) and method != "insufficient_evidence"
+        grounded_flags.append(is_grounded)
+        per_query_results.append(res)
 
-    avg_baseline = float(np.mean(baseline_latencies))
-    avg_optimized = float(np.mean(optimized_latencies))
+    avg_baseline = float(np.mean(baseline_latencies)) if baseline_latencies else 0.0
+    avg_optimized = float(np.mean(optimized_latencies)) if optimized_latencies else 0.0
     speedup = round(avg_baseline / max(avg_optimized, 0.001), 2)
+
+    n = len(demo_queries) if demo_queries else 1
+    grounding_rate = sum(grounded_flags) / n
+    deterministic_rate = sum(1 for m in resolution_methods if m != "semantic_fallback") / n
 
     report = {
         "benchmark_summary": {
@@ -824,22 +1230,34 @@ def run_system_benchmarks(full_df: pd.DataFrame, assistant: IntelligentAssistant
             "baseline_avg_latency_ms": round(avg_baseline, 3),
             "optimized_avg_latency_ms": round(avg_optimized, 3),
             "latency_reduction_factor": f"{speedup}x faster",
-            "index_memory_footprint_kb": round(float(assistant.tfidf_matrix.data.nbytes) / 1024.0, 2),
-            "privacy_compliance_rate": "100.0%",
-            "zero_external_api_calls": True
+            "index_memory_footprint_kb": round(float(assistant.tfidf_matrix.data.nbytes) / 1024.0, 2) if assistant.tfidf_matrix is not None else 0.0,
+            "privacy_compliance_rate": "measured separately from privacy_routing_output.json; not computed here",
+            "zero_external_api_calls": True,
+            "grounding_rate": round(grounding_rate, 3),
+            "deterministic_resolution_rate": round(deterministic_rate, 3)
         },
         "query_level_performance": [
             {
                 "query": q,
                 "baseline_latency_ms": round(baseline_latencies[i], 3),
-                "optimized_latency_ms": round(optimized_latencies[i], 3)
+                "optimized_latency_ms": round(optimized_latencies[i], 3),
+                "resolution_method": resolution_methods[i],
+                "grounded": grounded_flags[i]
             }
             for i, q in enumerate(demo_queries)
         ],
         "optimization_architecture": {
-            "component_optimized": "Hybrid TF-IDF Vector Index & Intent Routing Cache",
-            "technique": "Pre-computed sparse n-gram inverted index with deterministic state transition graph",
-            "quality_delta": "Precision improved from 62.5% (keyword overlap false positives) to 98.4% (semantic intent disambiguation)."
+            "component_optimized": "Hybrid TF-IDF vector index + deterministic structured-intent lookups (priority/group/privacy engines)",
+            "technique": "Pre-computed sparse n-gram inverted index for generic semantic fallback, combined with direct dictionary lookups over the priority, grouping, and privacy-routing outputs for recognized query intents (no per-question hardcoding).",
+            "quality_note": (
+                f"On {n} demo queries: {round(grounding_rate*100,1)}% returned grounded evidence "
+                f"(non-empty supporting_message_ids above the relevance threshold) and "
+                f"{round(deterministic_rate*100,1)}% were resolved via a deterministic structured "
+                f"lookup rather than the generic TF-IDF fallback. This is a coverage/grounding "
+                f"measurement, not a precision/recall score -- a true precision/recall figure "
+                f"requires a hand-labeled 'expected relevant message IDs' set per query, which is "
+                f"not included in this submission. See README limitations."
+            )
         }
     }
     return report
