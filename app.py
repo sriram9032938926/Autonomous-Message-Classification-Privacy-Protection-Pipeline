@@ -446,8 +446,9 @@ elif nav_choice == "🛡️ Privacy Guard & 3-Tier Routing":
 
     st.markdown("#### 🧪 Real-Time Privacy Tester")
     sample_text = st.text_input(
-        "Enter any raw message text with credentials or personal data:",
-        value="Please deliver the package to 42 Lake View Road, Chennai. Temporary password is SecretEdge#991 and OTP is 584920."
+        "Enter any message text to test live PII interception & privacy routing:",
+        value="Please deliver the package to 42 Lake View Road, Chennai. Temporary password is SecretEdge#991 and OTP is 584920.",
+        type="password"
     )
     if sample_text:
         detected = detect_sensitive_info("TEST_MSG", sample_text)
@@ -455,13 +456,14 @@ elif nav_choice == "🛡️ Privacy Guard & 3-Tier Routing":
         
         tc1, tc2 = st.columns(2)
         with tc1:
-            st.markdown(f"**Raw Text:** `{sample_text}`")
-            st.markdown(f"**Masked Output:** `{masked}`")
+            st.markdown(f"🔒 **Masked Protected View:** `{masked}`")
+            st.info("🛡️ *Sensitive credentials & PII are masked before entering storage or logs.*")
         with tc2:
             if detected:
-                st.error(f"🚨 **Sensitivity Type:** `{detected['sensitivity_type']}`\n- **Risk Level:** `{detected['risk'].upper()}`\n- **Route Action:** `{detected['recommended_action']}`\n- **Privacy Route:** `{detected['privacy_route'].upper()}`")
+                st.error(f"🚨 **Sensitivity Type:** `{detected['sensitivity_type']}`\n\n- **Risk Level:** `{detected['risk'].upper()}`\n- **Recommended Action:** `{detected['recommended_action']}`\n- **Privacy Route:** `{detected['privacy_route'].upper()}`")
             else:
-                st.success("✅ Clean: No sensitive credentials found. Safe to process locally.")
+                st.success("✅ **Clean:** No sensitive credentials detected. Safe to process locally.")
+
 
     st.markdown("---")
     st.markdown("#### 📑 Sensitive Detections Registry (All 103 Intercepts)")
