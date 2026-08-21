@@ -162,12 +162,29 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# Cache Full Pipeline Execution
 @st.cache_data
 def get_cached_pipeline_data():
     full_df = load_datasets()
-    c, e, s, g, p, b, processed_df, _, priv = run_full_l2_pipeline(full_df)
-    return c, e, s, g, p, b, processed_df, priv
+    if os.path.exists("priority_output.json") and os.path.exists("related_message_groups.json") and not os.path.exists("messages.csv"):
+        # Cloud deployment fallback: load committed JSON artifacts directly
+        with open("classification_results.json", "r", encoding="utf-8") as f:
+            c = json.load(f)
+        with open("extracted_tasks_events.json", "r", encoding="utf-8") as f:
+            e = json.load(f)
+        with open("sensitive_info_detections.json", "r", encoding="utf-8") as f:
+            s = json.load(f)
+        with open("related_message_groups.json", "r", encoding="utf-8") as f:
+            g = json.load(f)
+        with open("priority_output.json", "r", encoding="utf-8") as f:
+            p = json.load(f)
+        with open("benchmark_comparison_report.json", "r", encoding="utf-8") as f:
+            b = json.load(f)
+        with open("privacy_routing_output.json", "r", encoding="utf-8") as f:
+            priv = json.load(f)
+        return c, e, s, g, p, b, full_df, priv
+    else:
+        c, e, s, g, p, b, processed_df, _, priv = run_full_l2_pipeline(full_df)
+        return c, e, s, g, p, b, processed_df, priv
 
 classifications, extracted_items, sensitive_detections, groups, priorities, benchmark_report, df, privacy_records = get_cached_pipeline_data()
 

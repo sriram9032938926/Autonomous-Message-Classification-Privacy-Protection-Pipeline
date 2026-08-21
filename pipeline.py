@@ -20,7 +20,10 @@ from l2_engine import (
 
 
 def load_datasets() -> pd.DataFrame:
-    """Loads L1, L2, and Demo datasets in strict chronological sequence."""
+    """Loads L1, L2, and Demo datasets in strict chronological sequence.
+    If CSV files are missing (e.g. on Streamlit Cloud due to .gitignore privacy rules),
+    gracefully reconstructs the DataFrame from committed JSON output artifacts.
+    """
     dfs = []
 
     # 1. Base L1 Dataset
@@ -45,7 +48,36 @@ def load_datasets() -> pd.DataFrame:
         dfs.append(df_demo)
 
     if not dfs:
-        raise FileNotFoundError("No dataset files found in workspace!")
+        # Fallback for cloud deployment where CSVs are gitignored for privacy:
+        if os.path.exists("privacy_routing_output.json"):
+            with open("privacy_routing_output.json", "r", encoding="utf-8") as f:
+                priv_data = json.load(f)
+            class_map = {}
+            if os.path.exists("classification_results.json"):
+                with open("classification_results.json", "r", encoding="utf-8") as f:
+                    cls_data = json.load(f)
+                    class_map = {item["message_id"]: item.get("category", "general_information") for item in cls_data}
+
+            reconstructed = []
+            for item in priv_data:
+                mid = item["message_id"]
+                sender = "Demo Sender" if mid.startswith("DEMO_") else ("Dev Sender" if (mid.startswith("MSG_09") or mid.startswith("MSG_10")) else "Base Sender")
+                msg_text = item.get("masked_preview", "")
+                reconstructed.append({
+                    "message_id": mid,
+                    "sender": sender,
+                    "message": msg_text,
+                    "original_message": msg_text,
+                    "masked_message": msg_text,
+                    "timestamp": "2026-10-01 00:00:00",
+                    "category": class_map.get(mid, "general_information"),
+                    "dataset_source": "L2_Demo" if mid.startswith("DEMO_") else ("L2_Dev" if (mid.startswith("MSG_09") or mid.startswith("MSG_10")) else "L1_Base"),
+                    "reason": item.get("reason", "")
+                })
+            full_df = pd.DataFrame(reconstructed)
+            return full_df
+        else:
+            raise FileNotFoundError("No dataset CSV files or pre-computed JSON artifacts found in workspace!")
 
     full_df = pd.concat(dfs, ignore_index=True)
     
